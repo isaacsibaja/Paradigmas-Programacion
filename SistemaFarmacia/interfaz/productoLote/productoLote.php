@@ -26,7 +26,7 @@
                 <label>Seleccione Agente Venta</label> 
                 <select id=\"idAgenteVenta\" name=\"idAgenteVenta\">";
             foreach ($lista as $agenteVentas){ 
-                echo " <option value=\"".$agenteVentas->get_IdAgenteVenta()."\">".$agenteVentas->get_nombreAgente()."</option>";
+                echo " <option value=\"".$agenteVentas->getIdAgenteVenta()."\">".$agenteVentas->getNombreAgente()."</option>";
             }
             echo "<select/>"; 
         } 
@@ -50,5 +50,5 @@
 	<input type="submit" value="Registrar" class="submit"/>	
 </form>
 
-<script lang="JavaScript" src="../js/productoLote.js"></script>
+<script lang="JavaScript" src="../js/ProductoLote.js"></script>
 

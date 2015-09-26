@@ -19,10 +19,10 @@
 			<tbody>";		
 			foreach ($lista as $unidadMedida){
             	echo "<tr>";
-		            echo "<td>".$unidadMedida->get_idUnidadMedida()."</td>";
-			        echo "<td>".$unidadMedida->get_descripcionUnidad()."</td>";
-			        echo "<td><input type=\"button\" value=\"Eliminar\" onclick=\"eliminarUnidadMedida('".$unidadMedida->get_idUnidadMedida()."')\"/></td>";
-			        echo "<td><input type=\"button\" value=\"Modificar\" onclick=\"modificarUnidadMedidaConsulta('".$unidadMedida->get_idUnidadMedida()."')\"/></td>";     
+		            echo "<td>".$unidadMedida->getIdUnidadMedida()."</td>";
+			        echo "<td>".$unidadMedida->getDescripcionUnidad()."</td>";
+			        echo "<td><input type=\"button\" value=\"Eliminar\" onclick=\"eliminarUnidadMedida('".$unidadMedida->getIdUnidadMedida()."')\"/></td>";
+			        echo "<td><input type=\"button\" value=\"Modificar\" onclick=\"modificarUnidadMedidaConsulta('".$unidadMedida->getIdUnidadMedida()."')\"/></td>";     
 		  		echo "</tr>";
 			}
 		}					

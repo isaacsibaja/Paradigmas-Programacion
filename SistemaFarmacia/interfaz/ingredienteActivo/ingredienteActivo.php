@@ -1,5 +1,3 @@
-
-
 <h1>Registro de Ingredientes Activos</h1>
 <a href='#' onclick="cargarListaIngredienteActivo()">Lista de Ingredientes Activos</a>
 <form id="formularioIngredienteActivo" method="POST">
@@ -8,5 +6,5 @@
 	<br/>
 	<input type="submit" value="Registrar" class="submit"/>	
 </form>
-<script lang="JavaScript" src="../js/ingredienteActivo.js"></script>
+<script lang="JavaScript" src="../js/IngredienteActivo.js"></script>
 

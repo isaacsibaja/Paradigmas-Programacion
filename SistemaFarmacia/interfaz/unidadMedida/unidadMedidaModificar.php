@@ -14,11 +14,11 @@
 	<br/>
 	<?php									
 			echo "<label for=\"descripcionUnidad\">Descripcion: </label>
-			<input type=\"text\" id=\"descripcionUnidad\" name=\"descripcionUnidad\" value=\"".$unidadMedida->get_descripcionUnidad()."\" placeholder=\"\"/>
+			<input type=\"text\" id=\"descripcionUnidad\" name=\"descripcionUnidad\" value=\"".$unidadMedida->getDescripcionUnidad()."\" placeholder=\"\"/>
 			<br/>
-			<input type=\"hidden\" id=\"idUnidadMedida\" name=\"idUnidadMedida\" value=\"".$unidadMedida->get_idUnidadMedida()."\" />
+			<input type=\"hidden\" id=\"idUnidadMedida\" name=\"idUnidadMedida\" value=\"".$unidadMedida->getIdUnidadMedida()."\" />
 			";
 	?>				 
 	<input type="submit" value="Modificar" class="submit"/>				
 </form>
-<script lang="JavaScript" src="../js/unidadMedida.js"></script>
+<script lang="JavaScript" src="../js/UnidadMedida.js"></script>

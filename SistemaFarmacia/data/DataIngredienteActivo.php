@@ -1,19 +1,16 @@
 <?php
 header('Content-Type: text/html; charset=ISO-8859-1');
-// <!-- Norma iso para los caracteres latinos-->
 
 class DataIngredienteActivo{
 
 	function DataIngredienteActivo(){
 	}
 
-	function insertar($MiIngredienteActivo){
+	function insertar($ingredienteActivo){
 		$con = new DBConexion;
-		if($con->conectar()==true){
-			
+		if($con->conectar()==true){			
 			$query = "INSERT INTO tbIngredienteActivo(descripcionIngrediente) 
-					VALUES ('".$MiIngredienteActivo->getDescripcionIngrediente()."')";
-
+					VALUES ('".$ingredienteActivo->getDescripcionIngrediente()."')";
 			$result = @mysql_query($query);	
 			//echo "$query<br/>";
 			if (!$result){
@@ -24,21 +21,16 @@ class DataIngredienteActivo{
 		}	
 	}
 
-
 	function getIngredienteActivos(){
 		$con = new DBConexion;
-		$lista = array();
-		
-		if($con->conectar()==true){
-		
+		$lista = array();		
+		if($con->conectar()==true){		
 			$query = "SELECT * FROM tbIngredienteActivo";
 			$result = @mysql_query($query);
 			//echo "$query<br/>";
-			while($row = mysql_fetch_array($result)){
-				
-	 			$MiIngredienteActivo = new IngredienteActivo( $row[0], $row[1] );	
-				array_push($lista, $MiIngredienteActivo);
-				//echo "$row[0]<br/>$row[1]";
+			while($row = mysql_fetch_array($result)){				
+	 			$ingredienteActivo = new IngredienteActivo( $row[0], $row[1] );	
+				array_push($lista, $ingredienteActivo);				
 			}
 			if (!$lista){
 				return false;
@@ -48,11 +40,9 @@ class DataIngredienteActivo{
 		}
 	}
 
-
 	function eliminar($id){
 		$con = new DBConexion;
-		if($con->conectar()==true){
-			
+		if($con->conectar()==true){			
 			$query = "DELETE FROM tbIngredienteActivo WHERE idIngredienteActivo=".$id;		
 			$result = @mysql_query($query);	
 			if (!$result){
@@ -63,40 +53,29 @@ class DataIngredienteActivo{
 		}	
 	}
 
-
-
 	function getIngredienteActivo($id){
-
 		$con = new DBConexion;
-		// se declara una lista enlazada
-		$MiIngredienteActivo;
-		
-		if($con->conectar()==true){
-		
+		$ingredienteActivo;		
+		if($con->conectar()==true){		
 			$query = "SELECT * FROM tbIngredienteActivo WHERE idIngredienteActivo = ".$id;
-			//echo "$query<br/><br/>";
-			$result = @mysql_query($query);
-			
-			if($row = mysql_fetch_array($result)){
-				
-	 			$MiIngredienteActivo = new IngredienteActivo( $row[0], $row[1] );	
-				
+			$result = @mysql_query($query);			
+			if($row = mysql_fetch_array($result)){				
+	 			$ingredienteActivo = new IngredienteActivo( $row[0], $row[1] );					
 			}
-			if (!$MiIngredienteActivo){
+			if (!$ingredienteActivo){
 				return false;
 			}else{
-				return $MiIngredienteActivo;
+				return $ingredienteActivo;
 			}
 		}
 	}
 
-	function modificar($MiIngredienteActivo){
+	function modificar($ingredienteActivo){
 		$con = new DBConexion;
-		if($con->conectar()==true){
-			
+		if($con->conectar()==true){			
 			$query = "UPDATE tbIngredienteActivo SET 
-			descripcionIngrediente='".$MiIngredienteActivo->getDescripcionIngrediente()."' 
-			 WHERE idIngredienteActivo = ".$MiIngredienteActivo->getIdIngredienteActivo()."";		
+			descripcionIngrediente='".$ingredienteActivo->getDescripcionIngrediente()."' 
+			 WHERE idIngredienteActivo = ".$ingredienteActivo->getIdIngredienteActivo()."";		
 			$result = @mysql_query($query);	
 			if (!$result){
 				return false;
@@ -106,7 +85,4 @@ class DataIngredienteActivo{
 		}	
 	}
 }
-
-
-
 ?>

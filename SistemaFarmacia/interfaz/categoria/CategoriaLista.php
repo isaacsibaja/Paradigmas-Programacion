@@ -21,10 +21,10 @@ $lista =$control->obtenerCategorias();
 
 		foreach ($lista as $categoria){
             echo "<tr>					        
-	        		<td>".$categoria->get_idCategoria()."</td>
-		        	<td>".$categoria->get_descripcion()."</td>
-			        <td><input type=\"button\" value=\"Eliminar\" onclick=\"eliminarCategoria('".$categoria->get_idCategoria()."')\"/></td>
-			        <td><input type=\"button\" value=\"Modificar\" onclick=\"modificarCategoriaConsulta('".$categoria->get_idCategoria()."')\"/></td>
+	        		<td>".$categoria->getIdCategoria()."</td>
+		        	<td>".$categoria->getDescripcion()."</td>
+			        <td><input type=\"button\" value=\"Eliminar\" onclick=\"eliminarCategoria('".$categoria->getIdCategoria()."')\"/></td>
+			        <td><input type=\"button\" value=\"Modificar\" onclick=\"modificarCategoriaConsulta('".$categoria->getIdCategoria()."')\"/></td>
 			    </tr>";
 			$i++;
 		}						

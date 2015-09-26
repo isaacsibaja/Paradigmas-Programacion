@@ -1,9 +1,6 @@
 <?php
 header('Content-Type: text/html; charset=ISO-8859-1');
-// <!-- Norma iso para los caracteres latinos-->
-/*
-hola gente 
-*/
+
 class DataCasaComercial{
 
 	function DataCasaComercial(){
@@ -15,11 +12,11 @@ class DataCasaComercial{
 			
 			$query = "INSERT INTO tbcasacomercial(direccionCasaComercial, nombreCasaComercial, telefonoCasaComercial,
 			 correoCasaComercial, faxCasaComercial) VALUES (
-				'".$casaComercial->get_direccionCasaComercial()."',
-				'".$casaComercial->get_nombreCasaComercial()."',
-				'".$casaComercial->get_telefonoCasaComercial()."',
-				'".$casaComercial->get_correoCasaComercial()."',
-				'".$casaComercial->get_faxCasaComercial()."' )";
+				'".$casaComercial->getDireccionCasaComercial()."',
+				'".$casaComercial->getNombreCasaComercial()."',
+				'".$casaComercial->getTelefonoCasaComercial()."',
+				'".$casaComercial->getCorreoCasaComercial()."',
+				'".$casaComercial->getCorreoCasaComercial()."' )";
 		
 			$result = @mysql_query($query);	
 			echo "$query";
@@ -45,7 +42,6 @@ class DataCasaComercial{
 	 			$casaComercial = new CasaComercial($row[0],$row[1],$row[2],$row[3],$row[4],$row[5]);				
 				array_push($lista, $casaComercial);
 			}
-
 			if (!$lista){
 				return false;
 			}else{
@@ -57,8 +53,7 @@ class DataCasaComercial{
 
 	function eliminar($id){
 		$con = new DBConexion;
-		if($con->conectar()==true){
-			
+		if($con->conectar()==true){			
 			$query = "DELETE FROM tbcasacomercial WHERE idCasaComercial=".$id;		
 			$result = @mysql_query($query);	
 			if (!$result){
@@ -71,18 +66,15 @@ class DataCasaComercial{
 
 
 
-	function get_casaComercial($id){
+	function getCasaComercial($id){
 		$con = new DBConexion;
-		$casaComercial;
-		
+		$casaComercial;		
 		if($con->conectar()==true){		
 			$query = "SELECT idCasaComercial, direccionCasaComercial, nombreCasaComercial, telefonoCasaComercial, correoCasaComercial, faxCasaComercial FROM tbcasacomercial WHERE idCasaComercial = ".$id;
-			$result = @mysql_query($query);
-			
+			$result = @mysql_query($query);			
 			if($row = mysql_fetch_array($result)){				
 	 			$casaComercial = new CasaComercial($row[0],$row[1],$row[2],$row[3],$row[4],$row[5]);				
 			}
-
 			if (!$casaComercial){
 				return false;
 			}else{
@@ -93,15 +85,14 @@ class DataCasaComercial{
 
 	function modificar($casaComercial){
 		$con = new DBConexion;
-		if($con->conectar()==true){
-			
+		if($con->conectar()==true){			
 			$query = "UPDATE tbcasacomercial SET 
-					direccionCasaComercial='".$casaComercial->get_direccionCasaComercial()."',  
-					nombreCasaComercial='".$casaComercial->get_nombreCasaComercial()."',
-					telefonoCasaComercial='".$casaComercial->get_telefonoCasaComercial()."',
-					correoCasaComercial='".$casaComercial->get_correoCasaComercial()."',
-					faxCasaComercial='".$casaComercial->get_faxCasaComercial()."' 
-					WHERE idCasaComercial =".$casaComercial->get_idCasaComercial()."";
+					direccionCasaComercial='".$casaComercial->getDireccionCasaComercial()."',  
+					nombreCasaComercial='".$casaComercial->getNombreCasaComercial()."',
+					telefonoCasaComercial='".$casaComercial->getTelefonoCasaComercial()."',
+					correoCasaComercial='".$casaComercial->getCorreoCasaComercial()."',
+					faxCasaComercial='".$casaComercial->getCorreoCasaComercial()."' 
+					WHERE idCasaComercial =".$casaComercial->getIdCasaComercial()."";
 				$result = @mysql_query($query);	
 			//echo "$query <br/>";
 			if (!$result){

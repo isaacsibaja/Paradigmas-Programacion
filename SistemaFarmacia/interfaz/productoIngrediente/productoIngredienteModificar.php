@@ -1,4 +1,3 @@
-	<script lang="JavaScript" src="../js/productoIngrediente.js"></script>
 <h1>Seleccione ingrediente activo</h1>
 
 	<?php	
@@ -61,3 +60,5 @@
 ?>
 			</tbody>		      				
 		</table>
+
+	<script lang="JavaScript" src="../js/ProductoIngrediente.js"></script>

@@ -21,34 +21,34 @@
 		<script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
 
 		
-		<script src="../js/index.js"></script>
+		<script src="../js/Index.js"></script>
 		</head>
 
 		<body>
 		
-			<label><a href='#' onclick="cargarPagina('./casaComercial/f_casaComercial.php')">Casa Comercial (Pendiente)</a></label>
+			<label><a href='#' onclick="cargarPagina('./casaComercial/CasaComercial.php')">Casa Comercial (Pendiente)</a></label>
 			<br/>
 			|/\/\|\/\/|/\/\|\/\/|/\/\|\/\/|/\/\|\/\/|/\/\|\/\/|/\/\|\/\/|/\/\|\/\/|/\/\|\/\/|/\/\|\/\/|/\/\|\/\/|/\/\|\/\/|/\/\|\/\/|
 			<br/>
 			<label><a href='#' onclick="actualizar()">Actualizar</a></label>
 			<br/>
-			<label><a href='#' onclick="cargarPagina('./categoria/f_categoria.php')">Categoria</a></label>
+			<label><a href='#' onclick="cargarPagina('./categoria/Categoria.php')">Categoria</a></label>
 			<br/>
-			<label><a href='#' onclick="cargarPagina('./producto/producto.php')">Producto</a></label>
+			<label><a href='#' onclick="cargarPagina('./producto/Producto.php')">Producto</a></label>
 			<br/>
-			<label><a href='#' onclick="cargarLista('./productoIngrediente/productoLista.php')">Producto Ingrediente activo</a></label>
+			<label><a href='#' onclick="cargarLista('./productoIngrediente/ProductoLista.php')">Producto Ingrediente activo</a></label>
 			<br/>
-			<label><a href='#' onclick="cargarPagina('./ingredienteActivo/ingredienteActivo.php')">Ingretiente Activo</a></label>
+			<label><a href='#' onclick="cargarPagina('./ingredienteActivo/IngredienteActivo.php')">Ingretiente Activo</a></label>
 			<br/>
-			<label><a href='#' onclick="cargarPagina('./precentacionProducto/precentacionProducto.php')">Presentacion Producto</a></label>
+			<label><a href='#' onclick="cargarPagina('./precentacionProducto/PrecentacionProducto.php')">Presentacion Producto</a></label>
 			<br/>
-			<label><a href='#' onclick="cargarPagina('./unidadMedida/unidadMedida.php')">Unidad Medida</a></label>
+			<label><a href='#' onclick="cargarPagina('./unidadMedida/UnidadMedida.php')">Unidad Medida</a></label>
 			<br/>
-			<label><a href='#' onclick="cargarPagina('./agenteVentas/agenteVentas.php')">Agente Ventas</a></label>
+			<label><a href='#' onclick="cargarPagina('./agenteVentas/AgenteVentas.php')">Agente Ventas</a></label>
 			<br/>
-			<label><a href='#' onclick="cargarPagina('./tipoProducto/tipoProducto.php')">Tipo Producto</a></label>
+			<label><a href='#' onclick="cargarPagina('./tipoProducto/TipoProducto.php')">Tipo Producto</a></label>
 			<br/>
-			<label><a href='#' onclick="cargarPagina('./productoLote/productoLote.php')">Producto Lote</a></label>
+			<label><a href='#' onclick="cargarPagina('./productoLote/ProductoLote.php')">Producto Lote</a></label>
 			<br/>
 			<label><a href='#' onclick="cargarPagina('./importarExcel/importar.php')">Importar excel</a></label>
 			<br/>
@@ -56,12 +56,12 @@
 			<br/>
 			<br/>
 			<!--<h1>Formulario</h1>-->
-			<div id="contenedor"></div><!--Mi contenedor principal-->
+			<div id="contenedorFormulario"></div><!--Mi contenedor principal-->
 			<br/>
 			<!--<h1>Estado</h1>-->
-			<div id="contenedor2"></div><!--Msj de estado-->
+			<div id="contenedorMensaje"></div><!--Msj de estado-->
 			<br/>
 			<!--<h1>Lista</h1>-->
-			<div id="contenedor3"></div><!--Cargar Lista-->
+			<div id="contenedorLista"></div><!--Cargar Lista-->
 			<br/>
 </html>

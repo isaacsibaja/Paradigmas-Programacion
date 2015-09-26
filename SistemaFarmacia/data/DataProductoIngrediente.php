@@ -1,9 +1,6 @@
 <?php
 header('Content-Type: text/html; charset=ISO-8859-1');
-// <!-- Norma iso para los caracteres latinos-->
-/*
-hola gente 
-*/
+
 class DataproductoIngrediente{
 
 	function DataproductoIngrediente(){
@@ -13,7 +10,7 @@ class DataproductoIngrediente{
 		$con = new DBConexion;
 		if($con->conectar()==true){
 			$query = "INSERT INTO tbProductoIngrediente ( idProducto, idIngredienteActivo ) 
-			VALUES (".$productoIngrediente->getidProducto().", 
+			VALUES (".$productoIngrediente->getIdProducto().", 
 					".$productoIngrediente->getIdIngredienteActivo().")";
 			//echo "<br/>$query<br/>";
 			$result = @mysql_query($query);	
@@ -25,11 +22,9 @@ class DataproductoIngrediente{
 		}	
 	}
 
-
 	function getProductoIngredientes(){
 		$con = new DBConexion;
-		$lista = array();
-		
+		$lista = array();		
 		if($con->conectar()==true){		
 			$query = "SELECT * FROM tbProductoIngrediente";
 			$result = @mysql_query($query);
@@ -38,7 +33,6 @@ class DataproductoIngrediente{
 	 			$productoIngrediente = new ProductoIngrediente($row[0],$row[1]);				
 				array_push($lista, $productoIngrediente);
 			}
-
 			if (!$lista){
 				return false;
 			}else{
@@ -49,8 +43,7 @@ class DataproductoIngrediente{
 
 	function getProductoIngredienteSimple($id){
 		$con = new DBConexion;
-		$lista = array();
-		
+		$lista = array();		
 		if($con->conectar()==true){		
 			$query = "SELECT pi.idIngredienteActivo, i.descripcionIngrediente FROM tbProductoIngrediente pi 
 				INNER JOIN tbProducto p ON p.idProducto = pi.idProducto
@@ -62,7 +55,6 @@ class DataproductoIngrediente{
 	 			$productoIngrediente = new ProductoIngrediente($row[0],$row[1]);				
 				array_push($lista, $productoIngrediente);
 			}
-
 			if (!$lista){
 				return false;
 			}else{
@@ -71,17 +63,12 @@ class DataproductoIngrediente{
 		}
 	}
 
-	
-
-
-	function eliminar( $idP, $idI ){
+	function eliminar( $idProducto, $idIngredienteActivo ){
 		$con = new DBConexion;
-		if($con->conectar()==true){
-			
+		if($con->conectar()==true){			
 			$query = "DELETE FROM tbProductoIngrediente 
-				WHERE idProducto=".$idP." AND 
-				idIngredienteActivo=".$idI;
-
+				WHERE idProducto=".$idProducto." AND 
+				idIngredienteActivo=".$idIngredienteActivo;
 			$result = @mysql_query($query);	
 
 			echo "<br/>$query<br/>";
@@ -93,21 +80,17 @@ class DataproductoIngrediente{
 		}	
 	}
 
-
-
-	function getProductoIngrediente($idP, $idI){
+	function getProductoIngrediente($idProducto, $idIngredienteActivo){
 		$con = new DBConexion;
 		$productoIngrediente;
-		
 		if($con->conectar()==true){		
 			$query = "SELECT * FROM tbProductoIngrediente WHERE 
-			idProducto = ".$idP." AND idIngredienteActivo =".$idI."";
+			idProducto = ".$idProducto." AND idIngredienteActivo =".$idIngredienteActivo."";
 			$result = @mysql_query($query);
 			echo "<br/>$query<br/>";
 			if($row = mysql_fetch_array($result)){				
 	 			$productoIngrediente = new ProductoIngrediente($row[0],$row[1]);				
 			}
-
 			if (!$productoIngrediente){
 				return false;
 			}else{
@@ -118,14 +101,12 @@ class DataproductoIngrediente{
 
 	function modificar($productoIngrediente){
 		$con = new DBConexion;
-		if($con->conectar()==true){
-			
+		if($con->conectar()==true){			
 			$query = "UPDATE tbProductoIngrediente SET 					
 					idProducto=".$productoIngrediente->getIdProducto().",
 					idIngredienteActivo=".$productoIngrediente->getIdIngredienteActivo()."
 					WHERE idProducto=".$productoIngrediente->getIdProducto()." AND 
 					idIngredienteActivo='".$productoIngrediente->getIdIngredienteActivo()."";
-
 			$result = @mysql_query($query);	
 			//echo "<br/>$query<br/>";
 			if (!$result){

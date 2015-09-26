@@ -36,10 +36,10 @@
                 <label>Seleccione Agente Venta</label> 
                 <select id=\"idAgenteVenta\" name=\"idAgenteVenta\">";
             foreach ($lista as $agenteVentas){ 
-                 if($agenteVentas->get_IdAgenteVenta() == $productoLote->getIdAgenteVenta()){
-                    echo " <option selected value=\"".$agenteVentas->get_IdAgenteVenta()."\">".$agenteVentas->get_nombreAgente()."</option>";
+                 if($agenteVentas->getIdAgenteVenta() == $productoLote->getIdAgenteVenta()){
+                    echo " <option selected value=\"".$agenteVentas->getIdAgenteVenta()."\">".$agenteVentas->getNombreAgente()."</option>";
                 }else{
-                    echo " <option value=\"".$agenteVentas->get_IdAgenteVenta()."\">".$agenteVentas->get_nombreAgente()."</option>";
+                    echo " <option value=\"".$agenteVentas->getIdAgenteVenta()."\">".$agenteVentas->getNombreAgente()."</option>";
                 }
                 
             }
@@ -65,4 +65,4 @@
     <br/>			 
 	<input type="submit" value="Modificar" class="submit"/>				
 </form>
-<script lang="JavaScript" src="../js/productoLote.js"></script>
+<script lang="JavaScript" src="../js/ProductoLote.js"></script>

@@ -1,7 +1,8 @@
-<a href='#' onclick="cargarListaCasaComercial()">Lista Casas Comerciales</a>
-
 <form id="formularioCasaComercial" method="POST">
 	<h1>Registro de Casa Comercial</h1>
+	<br/>
+	<a href='#' onclick="cargarListaCasaComercial()">Lista Casas Comerciales</a>
+	<br/>
 	<label for="nombreCasaComercial">Nombre:  </label>
 	<input type="text" id="nombreCasaComercial" name="nombreCasaComercial" placeholder=""/>
 	<br/>
@@ -23,4 +24,4 @@
 	<input type="submit" value="Registrar" class="submit"/>	
 </form>
 
-<script lang="JavaScript" src="../js/casaComercial.js"></script>
+<script lang="JavaScript" src="../js/CasaComercial.js"></script>

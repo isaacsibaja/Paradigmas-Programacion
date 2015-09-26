@@ -19,10 +19,10 @@
             echo "<label>Seleccione Categoria</label> 
                 <select id=\"idCategoria\" name=\"idCategoria\">";
             foreach ($lista as $categoria){ 
-                if($categoria->get_idCategoria() == $producto->getIdCategoria()){
-                    echo " <option selected value=\"".$categoria->get_idCategoria()."\">".$categoria->get_descripcion()."</option>";
+                if($categoria->getIdCategoria() == $producto->getIdCategoria()){
+                    echo " <option selected value=\"".$categoria->getIdCategoria()."\">".$categoria->getDescripcion()."</option>";
                 }else{
-                    echo " <option value=\"".$categoria->get_idCategoria()."\">".$categoria->get_descripcion()."</option>";
+                    echo " <option value=\"".$categoria->getIdCategoria()."\">".$categoria->getDescripcion()."</option>";
                 }
             }
             echo "<select/>"; 
@@ -34,16 +34,14 @@
                 <label>No hay registro</label>";
         }else{
             echo "<br>
-                <label>Seleccione Precentacion Producto</label> 
-                <select id=\"idPrecentacionProducto\" name=\"idPrecentacionProducto\">";
+                <label>Seleccione Presentacion Producto</label> 
+                <select id=\"idPresentacionProducto\" name=\"idPresentacionProducto\">";
             foreach ($lista as $presentacion){ 
-                if ($presentacion->get_idPrecentacionProducto() == $producto->getIdPrecentacionProducto()) {
-                    echo " <option selected value=\"".$presentacion->get_idPrecentacionProducto()."\">".$presentacion->get_descripcionPrecentacion()."</option>";
+                if ($presentacion->getIdPresentacionProducto() == $producto->getIdPresentacionProducto()) {
+                    echo " <option selected value=\"".$presentacion->getIdPresentacionProducto()."\">".$presentacion->getDescripcionPresentacion()."</option>";
                 } else {
-                    echo " <option value=\"".$presentacion->get_idPrecentacionProducto()."\">".$presentacion->get_descripcionPrecentacion()."</option>";
-                }
-                
-                
+                    echo " <option value=\"".$presentacion->getIdPresentacionProducto()."\">".$presentacion->getDescripcionPresentacion()."</option>";
+                } 
             }
             echo "<select/>"; 
         } 
@@ -58,10 +56,10 @@
                 <label>Seleccione Unidad Medidad</label> 
                 <select id=\"idUnidadMedida\" name=\"idUnidadMedida\">";
             foreach ($lista as $unidadMedida){ 
-                if ($unidadMedida->get_idUnidadMedida() == $producto->getIdUnidadMedida()) {
-                    echo " <option selected value=\"".$unidadMedida->get_idUnidadMedida()."\">".$unidadMedida->get_descripcionUnidad()."</option>";
+                if ($unidadMedida->getIdUnidadMedida() == $producto->getIdUnidadMedida()) {
+                    echo " <option selected value=\"".$unidadMedida->getIdUnidadMedida()."\">".$unidadMedida->getDescripcionUnidad()."</option>";
                 } else {
-                    echo " <option value=\"".$unidadMedida->get_idUnidadMedida()."\">".$unidadMedida->get_descripcionUnidad()."</option>";
+                    echo " <option value=\"".$unidadMedida->getIdUnidadMedida()."\">".$unidadMedida->getDescripcionUnidad()."</option>";
                 }
             }
             echo "<select/>"; 
@@ -76,10 +74,10 @@
                     <label>Seleccione Tipo Producto</label> 
                     <select id=\"idTipoProducto\" name=\"idTipoProducto\">";
                 foreach ($lista as $tipoProducto){ 
-                    if ($tipoProducto->get_idTipoProducto() == $producto->getIdTipoProducto()) {
-                    echo " <option selected value=\"".$tipoProducto->get_idTipoProducto()."\">".$tipoProducto->get_descripcionTipo()."</option>";
+                    if ($tipoProducto->getIdTipoProducto() == $producto->getIdTipoProducto()) {
+                    echo " <option selected value=\"".$tipoProducto->getIdTipoProducto()."\">".$tipoProducto->getDescripcionTipo()."</option>";
                 } else {
-                    echo " <option value=\"".$tipoProducto->get_idTipoProducto()."\">".$tipoProducto->get_descripcionTipo()."</option>";
+                    echo " <option value=\"".$tipoProducto->getIdTipoProducto()."\">".$tipoProducto->getDescripcionTipo()."</option>";
                 }
                     
                 }
@@ -96,4 +94,4 @@
 ?>				 
 	<input type="submit" value="Modificar" class="submit"/>				
 </form>
-<script lang="JavaScript" src="../js/producto.js"></script>
+<script lang="JavaScript" src="../js/Producto.js"></script>

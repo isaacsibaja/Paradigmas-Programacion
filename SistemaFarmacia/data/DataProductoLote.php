@@ -8,8 +8,7 @@ class DataProductoLote{
 	
 	function insertar($productoLote){
 		$con = new DBConexion;
-		if($con->conectar()==true){
-			
+		if($con->conectar()==true){			
 			$query = "INSERT INTO tbProductoLote( idProducto, idAgenteVenta, concentracion,
 			 fechaIngreso, fechaVencimiento, cantidad, precioCompra, precioVenta) VALUES (
 				".$productoLote->getIdProducto().", 
@@ -19,8 +18,7 @@ class DataProductoLote{
 				'".$productoLote->getFechaVencimiento()."', 
 				".$productoLote->getCantidad().", 
 				".$productoLote->getPrecioCompra().", 
-				".$productoLote->getPrecioVenta().")";
-		
+				".$productoLote->getPrecioVenta().")";		
 			$result = @mysql_query($query);	
 			//echo "$query<br/>";
 			if (!$result){
@@ -30,7 +28,6 @@ class DataProductoLote{
 			}
 		}	
 	}
-
 
 	function getProductoLotes(){
 		$con = new DBConexion;
@@ -48,7 +45,6 @@ class DataProductoLote{
 	 			$productoLote = new ProductoLote($row[0],$row[1],$row[2],$row[3],$row[4], $row[5], $row[6], $row[7], $row[8] );				
 				array_push($lista, $productoLote);
 			}
-
 			if (!$lista){
 				return false;
 			}else{
@@ -57,11 +53,9 @@ class DataProductoLote{
 		}
 	}
 
-
 	function eliminar($id){
 		$con = new DBConexion;
-		if($con->conectar()==true){
-			
+		if($con->conectar()==true){			
 			$query = "DELETE FROM tbProductoLote WHERE idLote = ".$id;
 			//echo "$query<br/>";	
 			$result = @mysql_query($query);	
@@ -73,22 +67,16 @@ class DataProductoLote{
 		}	
 	}
 
-
-
 	function getProductoLote($id){
 		$con = new DBConexion;
-		$productoLote;
-		
-		if($con->conectar()==true){		
-			
+		$productoLote;		
+		if($con->conectar()==true){				
 			$query = "SELECT * FROM tbProductoLote WHERE idLote = ".$id;		 
 			$result = @mysql_query($query);
 			//echo "$query<br/>";
-			
 			if($row = mysql_fetch_array($result)){				
 	 			$productoLote = new ProductoLote($row[0],$row[1],$row[2],$row[3],$row[4], $row[5], $row[6], $row[7], $row[8] );				
 			}
-
 			if (!$productoLote){
 				return false;
 			}else{
@@ -100,7 +88,6 @@ class DataProductoLote{
 	function modificar($productoLote){
 		$con = new DBConexion;
 		if($con->conectar()==true){
-
 			$query = "UPDATE tbProductoLote SET 
 			idProducto=".$productoLote->getIdProducto().",
 			idAgenteVenta=".$productoLote->getIdAgenteVenta().",
@@ -110,9 +97,6 @@ class DataProductoLote{
 			precioCompra=".$productoLote->getPrecioCompra().",
 			precioVenta=".$productoLote->getPrecioVenta()."
 			WHERE idLote =  ".$productoLote->getIdLote()."";
-
-			
-
 			$result = @mysql_query($query);	
 			//echo "$query <br/>";
 			if (!$result){

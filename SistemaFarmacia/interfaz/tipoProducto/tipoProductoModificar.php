@@ -14,11 +14,11 @@
 	<br/>
 	<?php									
 			echo "<label for=\"descripcionTipo\">Descripcion: </label>
-			<input type=\"text\" id=\"descripcionTipo\" name=\"descripcionTipo\" value=\"".$tipoProducto->get_descripcionTipo()."\" placeholder=\"\"/>
+			<input type=\"text\" id=\"descripcionTipo\" name=\"descripcionTipo\" value=\"".$tipoProducto->getDescripcionTipo()."\" placeholder=\"\"/>
 			<br/>
-			<input type=\"hidden\" id=\"idTipoProducto\" name=\"idTipoProducto\" value=\"".$tipoProducto->get_idTipoProducto()."\" />
+			<input type=\"hidden\" id=\"idTipoProducto\" name=\"idTipoProducto\" value=\"".$tipoProducto->getIdTipoProducto()."\" />
 			";
 	?>				 
 	<input type="submit" value="Modificar" class="submit"/>				
 </form>
-<script lang="JavaScript" src="../js/tipoProducto.js"></script>
+<script lang="JavaScript" src="../js/TipoProducto.js"></script>

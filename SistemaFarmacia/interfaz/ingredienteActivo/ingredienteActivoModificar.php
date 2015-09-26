@@ -4,9 +4,12 @@
 	$idIngredienteActivo = $_POST['idIngredienteActivo'];
 	$ingredienteActivo =$control->obtenerIngredienteActivo($idIngredienteActivo);	
 ?> 
-<h1>Modificar Ingrediente Activo</h1>
-<a href='#' onclick="registrarIngredienteActivo()">Registrar Ingredientes Activos</a>
+
 <form id="formularioModificarIngredienteActivo" method="POST">
+	<h1>Modificar Ingrediente Activo</h1>
+	<br/>
+	<a href='#' onclick="registrarIngredienteActivo()">Registrar Ingredientes Activos</a>
+	<br/>
 	<?php									
 			echo "
 			<input type=\"hidden\" id=\"idIngredienteActivo\" name=\"idIngredienteActivo\" value=\"".$ingredienteActivo->getIdIngredienteActivo()."\" />
@@ -17,4 +20,4 @@
 	?>				 
 	<input type="submit" value="Modificar" class="submit"/>				
 </form>
-<script lang="JavaScript" src="../js/ingredienteActivo.js"></script>
+<script lang="JavaScript" src="../js/IngredienteActivo.js"></script>

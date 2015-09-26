@@ -1,7 +1,8 @@
-<a href='#' onclick="cargarListaAgenteVentas()">Lista Agente Ventas</a>
-
 <form id="formularioAgenteVentas" method="POST">
 	<h1>Registro Agente Ventas</h1>
+	<br/>
+	<a href='#' onclick="cargarListaAgenteVentas()">Lista Agente Ventas</a>
+	<br/>
 	<label for="nombreAgente">Nombre:  </label>
 	<input type="text" id="nombreAgente" name="nombreAgente" placeholder=""/>
 	<br/>
@@ -17,4 +18,4 @@
 	<input type="submit" value="Registrar" class="submit"/>	
 </form>
 
-<script lang="JavaScript" src="../js/agenteVentas.js"></script>
+<script lang="JavaScript" src="../js/AgenteVentas.js"></script>

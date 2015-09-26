@@ -1,9 +1,6 @@
 <?php
 header('Content-Type: text/html; charset=ISO-8859-1');
-// <!-- Norma iso para los caracteres latinos-->
-/*
-hola gente 
-*/
+
 class DataCategoria{
 
 	function DataCategoria(){
@@ -11,12 +8,9 @@ class DataCategoria{
 
 	function insertar($categoria){
 		$con = new DBConexion;
-		if($con->conectar()==true){
-			
+		if($con->conectar()==true){			
 			$query = "INSERT INTO tbCategoria(descripcion) 
-					VALUES ('".$categoria->get_descripcion()."')";
-
-		
+					VALUES ('".$categoria->getDescripcion()."')";		
 			$result = @mysql_query($query);	
 			if (!$result){
 				return false;
@@ -26,20 +20,13 @@ class DataCategoria{
 		}	
 	}
 
-
 	function getcategorias(){
-
 		$con = new DBConexion;
-		// se declara una lista enlazada
 		$lista = array();
-		
-		if($con->conectar()==true){
-		
+		if($con->conectar()==true){		
 			$query = "SELECT * FROM tbCategoria";
-			$result = @mysql_query($query);
-			
-			while($row = mysql_fetch_array($result)){
-				
+			$result = @mysql_query($query);			
+			while($row = mysql_fetch_array($result)){				
 	 			$categoria = new Categoria( $row[0], $row[1] );	
 				array_push($lista, $categoria);
 			}
@@ -51,11 +38,9 @@ class DataCategoria{
 		}
 	}
 
-
 	function eliminar($id){
 		$con = new DBConexion;
-		if($con->conectar()==true){
-			
+		if($con->conectar()==true){			
 			$query = "DELETE FROM tbCategoria WHERE idCategoria=".$id;		
 			$result = @mysql_query($query);	
 			if (!$result){
@@ -66,39 +51,30 @@ class DataCategoria{
 		}	
 	}
 
-
-
 	function getcategoria($id){
-
 		$con = new DBConexion;
-		// se declara una lista enlazada
-		$miCategoria;
-		
-		if($con->conectar()==true){
-		
+		$categoria;		
+		if($con->conectar()==true){		
 			$query = "SELECT * FROM tbCategoria WHERE idCategoria = ".$id;
-			$result = @mysql_query($query);
-			
-			if($row = mysql_fetch_array($result)){
-				
-	 			$miCategoria = new Categoria( $row[0], $row[1] );	
-				
+			$result = @mysql_query($query);			
+			if($row = mysql_fetch_array($result)){				
+	 			$categoria = new Categoria( $row[0], $row[1] );					
 			}
-			if (!$miCategoria){
+			if (!$categoria){
 				return false;
 			}else{
-				return $miCategoria;
+				return $categoria;
 			}
 		}
 	}
 
-	function modificar($miCategoria){
+	function modificar($categoria){
 		$con = new DBConexion;
-		if($con->conectar()==true){
-			
-			$query = "UPDATE tbCategoria SET descripcion='".$miCategoria->get_descripcion()."'  WHERE idCategoria = ".$miCategoria->get_idCategoria()."";		
+		if($con->conectar()==true){			
+			$query = "UPDATE tbCategoria SET 
+			descripcion='".$categoria->getDescripcion()."' 
+			 WHERE idCategoria = ".$categoria->getIdCategoria()."";		
 			$result = @mysql_query($query);	
-			//echo "$query";
 			if (!$result){
 				return false;
 			}else{
@@ -107,7 +83,4 @@ class DataCategoria{
 		}	
 	}
 }
-
-
-
 ?>

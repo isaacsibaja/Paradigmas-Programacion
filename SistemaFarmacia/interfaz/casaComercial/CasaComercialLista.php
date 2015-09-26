@@ -20,20 +20,18 @@
                 <th><p>Modificar</p></th>	                   
        		</tr>
     		</thead>
-			<tbody>";
-			$i=0;				
+			<tbody>";				
 			foreach ($lista as $casaComercial){
             	echo "<tr>";
-		            echo "<td>".$casaComercial->get_idCasaComercial()."</td>";
-			        echo "<td>".$casaComercial->get_nombreCasaComercial()."</td>";
-			        echo "<td>".$casaComercial->get_direccionCasaComercial()."</td>";
-			        echo "<td>".$casaComercial->get_telefonoCasaComercial()."</td>";
-			        echo "<td>".$casaComercial->get_correoCasaComercial()."</td>";
-			        echo "<td>".$casaComercial->get_faxCasaComercial()."</td>";
-			        echo "<td><input type=\"button\" value=\"Eliminar\" onclick=\"eliminarCasaComercial('".$casaComercial->get_idCasaComercial()."')\"/></td>";
-			        echo "<td><input type=\"button\" value=\"Modificar\" onclick=\"modificarCasaComercialConsulta('".$casaComercial->get_idCasaComercial()."')\"/></td>";     
+		            echo "<td>".$casaComercial->getIdCasaComercial()."</td>";
+			        echo "<td>".$casaComercial->getNombreCasaComercial()."</td>";
+			        echo "<td>".$casaComercial->getDireccionCasaComercial()."</td>";
+			        echo "<td>".$casaComercial->getTelefonoCasaComercial()."</td>";
+			        echo "<td>".$casaComercial->getCorreoCasaComercial()."</td>";
+			        echo "<td>".$casaComercial->getFaxCasaComercial()."</td>";
+			        echo "<td><input type=\"button\" value=\"Eliminar\" onclick=\"eliminarCasaComercial('".$casaComercial->getIdCasaComercial()."')\"/></td>";
+			        echo "<td><input type=\"button\" value=\"Modificar\" onclick=\"modificarCasaComercialConsulta('".$casaComercial->getIdCasaComercial()."')\"/></td>";     
 		  		echo "</tr>";
-			$i++;
 			}
 		}					
 	?>

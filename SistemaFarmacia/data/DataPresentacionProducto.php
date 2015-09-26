@@ -1,20 +1,16 @@
 <?php
 header('Content-Type: text/html; charset=ISO-8859-1');
-// <!-- Norma iso para los caracteres latinos-->
-/*
-hola gente 
-*/
-class DataPrecentacionProducto{
 
-	function DataPrecentacionProducto(){
+class DataPresentacionProducto{
+
+	function DataPresentacionProducto(){
 	}
 
-	function insertar($precentacionProducto){
+	function insertar($presentacionProducto){
 		$con = new DBConexion;
-		if($con->conectar()==true){
-			
+		if($con->conectar()==true){			
 			$query = "INSERT INTO tbPresentacionProducto(descripcionPresentacion) VALUES (
-				'".$precentacionProducto->get_descripcionPrecentacion()."')";
+				'".$presentacionProducto->getDescripcionPresentacion()."')";
 			//echo "<br/>$query<br/>";
 			$result = @mysql_query($query);	
 			if (!$result){
@@ -26,19 +22,17 @@ class DataPrecentacionProducto{
 	}
 
 
-	function get_precentacionesProductos(){
+	function getPrecentacionesProductos(){
 		$con = new DBConexion;
-		$lista = array();
-		
+		$lista = array();		
 		if($con->conectar()==true){		
 			$query = "SELECT idPresentacionProducto, descripcionPresentacion FROM tbPresentacionProducto";
 			$result = @mysql_query($query);
 			//echo "<br/>$query<br/>";
 			while($row = mysql_fetch_array($result)){				
-	 			$precentacionProducto = new precentacionProducto($row[0],$row[1]);				
-				array_push($lista, $precentacionProducto);
+	 			$presentacionProducto = new PresentacionProducto($row[0],$row[1]);				
+				array_push($lista, $presentacionProducto);
 			}
-
 			if (!$lista){
 				return false;
 			}else{
@@ -47,11 +41,9 @@ class DataPrecentacionProducto{
 		}
 	}
 
-
 	function eliminar($id){
 		$con = new DBConexion;
-		if($con->conectar()==true){
-			
+		if($con->conectar()==true){			
 			$query = "DELETE FROM tbPresentacionProducto WHERE idPresentacionProducto=".$id;		
 			$result = @mysql_query($query);	
 			//echo "<br/>$query<br/>";
@@ -63,36 +55,31 @@ class DataPrecentacionProducto{
 		}	
 	}
 
-
-
-	function get_precentacionProducto($id){
+	function get_PresentacionProducto($id){
 		$con = new DBConexion;
-		$precentacionProducto;
-		
+		$presentacionProducto;		
 		if($con->conectar()==true){		
 			$query = "SELECT idPresentacionProducto, descripcionPresentacion FROM tbPresentacionProducto 
 			WHERE idPresentacionProducto = ".$id;
 			$result = @mysql_query($query);
 			//echo "<br/>$query<br/>";
 			if($row = mysql_fetch_array($result)){				
-	 			$precentacionProducto = new precentacionProducto($row[0],$row[1]);				
+	 			$presentacionProducto = new PresentacionProducto($row[0],$row[1]);				
 			}
-
-			if (!$precentacionProducto){
+			if (!$presentacionProducto){
 				return false;
 			}else{
-				return $precentacionProducto;
+				return $presentacionProducto;
 			}
 		}
 	}
 
-	function modificar($precentacionProducto){
+	function modificar($presentacionProducto){
 		$con = new DBConexion;
-		if($con->conectar()==true){
-			
+		if($con->conectar()==true){			
 			$query = "UPDATE tbPresentacionProducto SET
-					descripcionPresentacion='".$precentacionProducto->get_descripcionPrecentacion()."' 
-					WHERE idPresentacionProducto =".$precentacionProducto->get_idPrecentacionProducto()."";
+					descripcionPresentacion='".$presentacionProducto->getDescripcionPresentacion()."' 
+					WHERE idPresentacionProducto =".$presentacionProducto->getIdPresentacionProducto()."";
 				$result = @mysql_query($query);	
 			//echo "<br/>$query<br/>";
 			if (!$result){

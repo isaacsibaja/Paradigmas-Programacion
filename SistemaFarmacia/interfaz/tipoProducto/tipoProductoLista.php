@@ -19,10 +19,10 @@
 			<tbody>";		
 			foreach ($lista as $tipoProducto){
             	echo "<tr>";
-		            echo "<td>".$tipoProducto->get_idTipoProducto()."</td>";
-			        echo "<td>".$tipoProducto->get_descripcionTipo()."</td>";
-			        echo "<td><input type=\"button\" value=\"Eliminar\" onclick=\"eliminarTipoProducto('".$tipoProducto->get_idTipoProducto()."')\"/></td>";
-			        echo "<td><input type=\"button\" value=\"Modificar\" onclick=\"modificarTipoProductoConsulta('".$tipoProducto->get_idTipoProducto()."')\"/></td>";     
+		            echo "<td>".$tipoProducto->getIdTipoProducto()."</td>";
+			        echo "<td>".$tipoProducto->getDescripcionTipo()."</td>";
+			        echo "<td><input type=\"button\" value=\"Eliminar\" onclick=\"eliminarTipoProducto('".$tipoProducto->getIdTipoProducto()."')\"/></td>";
+			        echo "<td><input type=\"button\" value=\"Modificar\" onclick=\"modificarTipoProductoConsulta('".$tipoProducto->getIdTipoProducto()."')\"/></td>";     
 		  		echo "</tr>";
 			}
 		}					

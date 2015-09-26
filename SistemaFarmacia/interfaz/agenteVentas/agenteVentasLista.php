@@ -21,12 +21,12 @@
 			<tbody>";		
 			foreach ($lista as $agenteVentas){
             	echo "<tr>";
-		            echo "<td>".$agenteVentas->get_idAgenteVenta()."</td>";
-			        echo "<td>".$agenteVentas->get_nombreAgente()."</td>";
-			        echo "<td>".$agenteVentas->get_telefonoAgente()."</td>";
-			        echo "<td>".$agenteVentas->get_correoAgente()."</td>";
-			        echo "<td><input type=\"button\" value=\"Eliminar\" onclick=\"eliminarAgenteVentas('".$agenteVentas->get_idAgenteVenta()."')\"/></td>";
-			        echo "<td><input type=\"button\" value=\"Modificar\" onclick=\"modificarAgenteVentasConsulta('".$agenteVentas->get_idAgenteVenta()."')\"/></td>";     
+		            echo "<td>".$agenteVentas->getIdAgenteVenta()."</td>";
+			        echo "<td>".$agenteVentas->getNombreAgente()."</td>";
+			        echo "<td>".$agenteVentas->getTelefonoAgente()."</td>";
+			        echo "<td>".$agenteVentas->getCorreoAgente()."</td>";
+			        echo "<td><input type=\"button\" value=\"Eliminar\" onclick=\"eliminarAgenteVentas('".$agenteVentas->getIdAgenteVenta()."')\"/></td>";
+			        echo "<td><input type=\"button\" value=\"Modificar\" onclick=\"modificarAgenteVentasConsulta('".$agenteVentas->getIdAgenteVenta()."')\"/></td>";     
 		  		echo "</tr>";
 			}
 		}					

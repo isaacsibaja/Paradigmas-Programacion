@@ -13,12 +13,12 @@
                 <th><p>ID</p></th>	                    
                 <th><p>idProducto</p></th>
                 <th><p>idAgenteVenta</p></th>
-                <th><p>concentracion</p></th>
-                <th><p>fechaIngreso</p></th>
-                <th><p>fechaVencimiento</p></th>
-                <th><p>cantidad</p></th>
-                <th><p>precioCompra</p></th>
-                <th><p>precioVenta</p></th>
+                <th><p>Concentracion</p></th>
+                <th><p>Fecha Ingreso</p></th>
+                <th><p>Fecha Vencimiento</p></th>
+                <th><p>Cantidad</p></th>
+                <th><p>Precio Compra</p></th>
+                <th><p>Precio Venta</p></th>
                 <th><p>Eliminar</p></th>
                 <th><p>Modificar</p></th>		                   
        		</tr>
