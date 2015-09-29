@@ -44,12 +44,12 @@
 
     function registrarIngredienteActivo(){        
    
-        $('#contenedor').load("../interfaz/ingredienteActivo/ingredienteActivo.php");
+        $('#contenedor').load("../interfaz/ingredienteActivo/IngredienteActivo.php");
   
 }
 
 function cargarListaIngredienteActivo() {
-    $.post("../interfaz/ingredienteActivo/ingredienteActivoLista.php",
+    $.post("../interfaz/ingredienteActivo/IngredienteActivoLista.php",
         {},
         function (data)
         {
@@ -121,7 +121,7 @@ function modificarIngredienteActivo(){
 
 function modificarIngredienteActivoConsulta(id){    
 
-	$.post("./ingredienteActivo/ingredienteActivoModificar.php", 
+	$.post("./ingredienteActivo/IngredienteActivoModificar.php", 
 	    {
 		    idIngredienteActivo : id
 	    },
@@ -133,7 +133,7 @@ function modificarIngredienteActivoConsulta(id){
 }
 
 $(function(){
-    $.post("../interfaz/ingredienteActivo/ingredienteActivoLista.php",
+    $.post("../interfaz/ingredienteActivo/IngredienteActivoLista.php",
     {},
     function (data)
     {

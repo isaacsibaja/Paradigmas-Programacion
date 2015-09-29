@@ -10,7 +10,7 @@ class ControladoraGetProveedor {
 
 	function obtenerProveedores(){		
 		$data = new DataProveedor;
-		$lista =$data->get_proveedores();
+		$lista =$data->getProveedores();
 		if(!$lista){
 			return false;
 		}else{
@@ -21,7 +21,7 @@ class ControladoraGetProveedor {
 	function obtenerProveedor($id){
 	
 		$data = new DataProveedor;
-		$proveedor =$data->get_proveedor($id);
+		$proveedor =$data->getProveedor($id);
 		if(!$proveedor){
 			return false;
 		}else{

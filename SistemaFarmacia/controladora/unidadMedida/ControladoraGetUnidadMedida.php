@@ -1,7 +1,7 @@
 <?php
 	include ("../../data/DataUnidadMedida.php");
 	include ("../../data/BDConexion.php");
-	include ("../../dominio/unidadMedida.php");
+	include ("../../dominio/UnidadMedida.php");
 class ControladoraGetunidadMedida {
 
 		
@@ -10,7 +10,7 @@ class ControladoraGetunidadMedida {
 
 	function obtenerUnidadesMedidas(){		
 		$data = new DataUnidadMedida;
-		$lista =$data->get_unidadesMedidas();
+		$lista =$data->getUnidadesMedidas();
 		if(!$lista){
 			return false;
 		}else{
@@ -21,7 +21,7 @@ class ControladoraGetunidadMedida {
 	function obtenerUnidadMedida($id){
 	
 		$data = new DataUnidadMedida;
-		$unidadMedida =$data->get_unidadMedida($id);
+		$unidadMedida =$data->getUnidadMedida($id);
 		if(!$unidadMedida){
 			return false;
 		}else{

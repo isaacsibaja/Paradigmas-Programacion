@@ -11,7 +11,7 @@
                     moneda: "required",
                     correo: {
                         required: true,
-                        email: true //OJO que el ultimo dato del arreglo no lleva coma 
+                        email: true//OJO que el ultimo dato del arreglo no lleva coma 
                     },
                     correo2: {
                         // esta es la validación oficial para comparar los dos campos de correo, eventualmente lo pueden usar para contraseña

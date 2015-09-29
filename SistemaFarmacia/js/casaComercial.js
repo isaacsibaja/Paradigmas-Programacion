@@ -78,7 +78,7 @@ $("#faxCasaComercial").mask('9999 9999');
     registrarCasaComercial
 
     function registrarCasaComercial(){        
-     $.post("../interfaz/casaComercial/f_casaComercial.php",
+     $.post("../interfaz/casaComercial/CasaComercial.php",
     {},
     function (data)
     {
@@ -87,7 +87,7 @@ $("#faxCasaComercial").mask('9999 9999');
 }
 
 function cargarListaCasaComercial() {
-    $.post("../interfaz/casaComercial/f_casaComercialLista.php",
+    $.post("../interfaz/casaComercial/CasaComercialLista.php",
         {},
         function (data)
         {
@@ -189,7 +189,7 @@ function modificarCasaComercial(){
 
 function modificarCasaComercialConsulta(id){    
 
-	$.post("./casaComercial/f_casaComercialModificar.php", 
+	$.post("./casaComercial/CasaComercialModificar.php", 
 	    {
 		    idCasaComercial : id
 	    },
@@ -202,7 +202,7 @@ function modificarCasaComercialConsulta(id){
 }
 
 $(function(){
-    $.post("./casaComercial/f_casaComercialLista.php",
+    $.post("./casaComercial/CasaComercialLista.php",
     {},
     function (data)
     {

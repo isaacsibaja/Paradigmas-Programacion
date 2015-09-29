@@ -17,28 +17,28 @@
 		});     	
 	}	
 
-   /* function registrarproductoIngrediente(){        
+    function registrarproductoIngrediente(){        
    
-        $('#contenedor').load("../interfaz/productoIngrediente/productoIngrediente.php");
+        $('#contenedor').load("../interfaz/productoIngrediente/ProductoIngrediente.php");
   
-	}*/
+}
 
-/*
 function cargarListaproductoIngrediente() {
-    $.post("../interfaz/productoIngrediente/productoLista.php",
+    $.post("../interfaz/productoIngrediente/ProductoLista.php",
         {},
         function (data)
         {
             $('#contenedor3').html(data);
         });
-}*/
+}
 
-function eliminarProductoIngrediente(idP, idI){
-    if (confirm("¿Esta apunto de quitar este ingrediente activo?")) {
-		$.post("../controladora/productoIngrediente/ControladoraProductoIngrediente.php", 
+function eliminarproductoIngrediente(idP, idI){
+      alert(idP + "  -  " + idI);
+    if (confirm("¿Esta apunto de eliminar este ingrediente Activo = " + idP + " ?")) {
+		$.post("../controladora/productoIngrediente/ControladoraproductoIngrediente.php", 
 	    {
 		    accion: "eliminar", 
-		    idProducto : idP,
+		    idproductoIngrediente : idP,
 		    idIngredienteActivo : idI
 	    },
 	    function(data)
@@ -48,7 +48,8 @@ function eliminarProductoIngrediente(idP, idI){
     	});
     }
  }
-/*
+
+
 
 (function($,W,D){
     var JQUERY4U = {};
@@ -72,8 +73,8 @@ function eliminarProductoIngrediente(idP, idI){
     $(D).ready(function($) {
         JQUERY4U.UTIL.setupFormValidation();
     });
-} ) (jQuery, window, document);*/
-/*
+} ) (jQuery, window, document);
+
 function modificarproductoIngrediente(){
 	var formData = new FormData(document.getElementById("formularioModificarproductoIngrediente"));
     
@@ -91,12 +92,12 @@ function modificarproductoIngrediente(){
 		cargarListaproductoIngrediente();
 	});
  	
-}	*/
+}	
 
 
 function seleccionarProductoIngrediente(idP){    
 
-	$.post("./productoIngrediente/productoIngredienteModificar.php", 
+	$.post("./productoIngrediente/ProductoIngredienteModificar.php", 
 	    {
 		    idProducto : idP,
 	    },
@@ -106,13 +107,12 @@ function seleccionarProductoIngrediente(idP){
     	});
     
 }
-/*
+
 $(function(){
-    $.post("../interfaz/productoIngrediente/productoLista.php",
+    $.post("../interfaz/productoIngrediente/ProductoLista.php",
     {},
     function (data)
     {
         $('#contenedor3').html(data);
     });    
 });
-*/

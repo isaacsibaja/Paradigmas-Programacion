@@ -1,7 +1,7 @@
 <?php
 	include ("../../data/DataTipoProducto.php");
 	include ("../../data/BDConexion.php");
-	include ("../../dominio/tipoProducto.php");
+	include ("../../dominio/TipoProducto.php");
 class ControladoraGetTipoProducto {
 
 		
@@ -10,7 +10,7 @@ class ControladoraGetTipoProducto {
 
 	function obtenerTiposProductos(){		
 		$data = new DataTipoProducto;
-		$lista =$data->get_tiposProductos();
+		$lista =$data->getTiposProductos();
 		if(!$lista){
 			return false;
 		}else{
@@ -21,7 +21,7 @@ class ControladoraGetTipoProducto {
 	function obtenerTipoProducto($id){
 	
 		$data = new DataTipoProducto;
-		$tipoProducto =$data->get_tipoProducto($id);
+		$tipoProducto =$data->getTipoProducto($id);
 		if(!$tipoProducto){
 			return false;
 		}else{

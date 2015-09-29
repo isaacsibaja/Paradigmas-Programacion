@@ -70,7 +70,7 @@
     registrarAgenteVentas
 
     function registrarAgenteVentas(){        
-     $.post("../interfaz/agenteVentas/agenteVentas.php",
+     $.post("../interfaz/agenteVentas/AgenteVentas.php",
     {},
     function (data)
     {
@@ -79,7 +79,7 @@
 }
 
 function cargarListaAgenteVentas() {
-    $.post("../interfaz/agenteVentas/agenteVentasLista.php",
+    $.post("../interfaz/agenteVentas/AgenteVentasLista.php",
         {},
         function (data)
         {
@@ -177,7 +177,7 @@ function modificarAgenteVentas(){
 
 function modificarAgenteVentasConsulta(id){    
 
-	$.post("./agenteVentas/agenteVentasModificar.php", 
+	$.post("./agenteVentas/AgenteVentasModificar.php", 
 	    {
 		    idAgenteVenta : id
 	    },
@@ -190,7 +190,7 @@ function modificarAgenteVentasConsulta(id){
 }
 
 $(function(){
-    $.post("./agenteVentas/agenteVentasLista.php",
+    $.post("./agenteVentas/AgenteVentasLista.php",
     {},
     function (data)
     {

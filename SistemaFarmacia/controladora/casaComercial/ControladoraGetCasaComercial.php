@@ -10,7 +10,7 @@ class ControladoraGetCasaComercial {
 
 	function obtenerCasasComerciales(){		
 		$data = new DataCasaComercial;
-		$lista =$data->get_casasComerciales();
+		$lista =$data->getCasasComerciales();
 		if(!$lista){
 			return false;
 		}else{
@@ -21,7 +21,7 @@ class ControladoraGetCasaComercial {
 	function obtenerCasaComercial($id){
 	
 		$data = new DataCasaComercial;
-		$casaComercial =$data->get_casaComercial($id);
+		$casaComercial =$data->getCasaComercial($id);
 		if(!$casaComercial){
 			return false;
 		}else{

@@ -49,7 +49,7 @@
     registrarTipoProducto
 
     function registrarTipoProducto(){        
-     $.post("../interfaz/tipoProducto/tipoProducto.php",
+     $.post("../interfaz/tipoProducto/TipoProducto.php",
     {},
     function (data)
     {
@@ -58,7 +58,7 @@
 }
 
 function cargarListaTipoProducto() {
-    $.post("../interfaz/tipoProducto/tipoProductoLista.php",
+    $.post("../interfaz/tipoProducto/TipoProductoLista.php",
         {},
         function (data)
         {
@@ -135,7 +135,7 @@ function modificarTipoProducto(){
 
 function modificarTipoProductoConsulta(id){    
 
-    $.post("./tipoProducto/tipoProductoModificar.php", 
+    $.post("./tipoProducto/TipoProductoModificar.php", 
         {
             idTipoProducto : id
         },
@@ -147,7 +147,7 @@ function modificarTipoProductoConsulta(id){
 }
 
 $(function(){
-    $.post("./tipoProducto/tipoProductoLista.php",
+    $.post("./tipoProducto/TipoProductoLista.php",
     {},
     function (data)
     {

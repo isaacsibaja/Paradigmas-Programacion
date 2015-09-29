@@ -43,7 +43,7 @@
 	}	
 
 function registrarCategoria(){        
-     $.post("../interfaz/categoria/f_categoria.php",
+     $.post("../interfaz/categoria/Categoria.php",
     {},
     function (data)
     {
@@ -52,7 +52,7 @@ function registrarCategoria(){
 }
 
 function cargarLista() {
-    $.post("../interfaz/categoria/f_categoriaLista.php",
+    $.post("../interfaz/categoria/CategoriaLista.php",
         {},
         function (data)
         {
@@ -123,7 +123,7 @@ function modificarCategoria(){
 
 
 function modificarCategoriaConsulta(id){   
-	$.post("./categoria/f_categoriaModificar.php", 
+	$.post("./categoria/CategoriaModificar.php", 
     {
 	    idCategoria : id
     },
@@ -136,7 +136,7 @@ function modificarCategoriaConsulta(id){
 }//Mostra el formulario para modificar
 
 $(function(){
-    $.post("../interfaz/categoria/f_categoriaLista.php",
+    $.post("../interfaz/categoria/CategoriaLista.php",
     {},
     function (data)
     {

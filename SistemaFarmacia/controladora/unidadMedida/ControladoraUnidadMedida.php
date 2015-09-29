@@ -3,7 +3,7 @@
 
 	include ("../../data/DataUnidadMedida.php");
 	include ("../../data/BDConexion.php");
-	include ("../../dominio/unidadMedida.php");
+	include ("../../dominio/UnidadMedida.php");
 
 	class ControladoraUnidadMedida {
 		

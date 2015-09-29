@@ -10,7 +10,7 @@ class ControladoraCategoriaLista {
 
 	function obtenerCategorias(){		
 		$data = new DataCategoria;
-		$lista =$data->getcategorias();
+		$lista =$data->getCategorias();
 		if(!$lista){
 			return false;
 		}else{
@@ -21,7 +21,7 @@ class ControladoraCategoriaLista {
 	function obtenerCategoria($idCategoria){
 	
 		$data = new DataCategoria;
-		$miCategoria =$data->getcategoria($idCategoria);
+		$miCategoria =$data->getCategoria($idCategoria);
 		if(!$miCategoria){
 			return false;
 		}else{

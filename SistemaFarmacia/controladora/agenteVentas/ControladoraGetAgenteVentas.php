@@ -10,7 +10,7 @@ class ControladoraGetAgenteVentas {
 
 	function obtenerAgentesVentas(){		
 		$data = new DataAgenteVentas;
-		$lista =$data->get_agentesVentas();
+		$lista =$data->getAgentesVentas();
 		if(!$lista){
 			return false;
 		}else{
@@ -21,7 +21,7 @@ class ControladoraGetAgenteVentas {
 	function obtenerAgenteVentas($id){
 	
 		$data = new DataAgenteVentas;
-		$agenteVentas =$data->get_agenteVentas($id);
+		$agenteVentas =$data->getAgenteVentas($id);
 		if(!$agenteVentas){
 			return false;
 		}else{

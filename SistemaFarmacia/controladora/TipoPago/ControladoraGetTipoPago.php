@@ -11,7 +11,7 @@ class ControladoraGetTipoPago {
 	function obtenerTipoPagos(){
 	
 		$data = new DataTipoPago;
-		$TipoPago =$data->get_tipoPagos();
+		$TipoPago =$data->getTipoPagos();
 		if(!$TipoPago){
 			return false;
 		}else{

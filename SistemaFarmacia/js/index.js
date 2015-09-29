@@ -1,28 +1,16 @@
 
 function cargarPagina(direccion){        
-	 /*$.post(direccion,
+/*	 $.post(direccion,
     {},
     function (data)
     {
         $('#contenedor').html(data);
     });*/
-    $('#contenedor').load(direccion);
-
-}
-
-function cargarLista(direccion){        
-       $('#contenedor3').load(direccion);
-      
+    	 $('#contenedor').load(direccion);
 }
 function actualizar(){
 	 location.reload(true);
 }
-
-$(function(){ 
-    $('#contenedor2').html("");    
-});
-
-
 /*
 function selectOn(trObject)
 	{

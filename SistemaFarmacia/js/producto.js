@@ -44,7 +44,7 @@
 
 
 function registrarProducto(){        
-     $.post("../interfaz/producto/producto.php",
+     $.post("../interfaz/producto/Producto.php",
     {},
     function (data)
     {
@@ -53,7 +53,7 @@ function registrarProducto(){
 }
 
 function cargarListaProducto() {
-    $.post("../interfaz/producto/productoLista.php",
+    $.post("../interfaz/producto/ProductoLista.php",
         {},
         function (data)
         {
@@ -128,7 +128,7 @@ function modificarProducto(){
 
 function modificarProductoConsulta(id){    
 
-	$.post("./producto/productoModificar.php", 
+	$.post("./producto/ProductoModificar.php", 
 	    {
 		    idProducto : id
 	    },
@@ -141,7 +141,7 @@ function modificarProductoConsulta(id){
 }
 
 $(function(){
-    $.post("../interfaz/producto/productoLista.php",
+    $.post("../interfaz/producto/ProductoLista.php",
     {},
     function (data)
     {

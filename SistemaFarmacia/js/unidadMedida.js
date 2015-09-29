@@ -49,7 +49,7 @@
     registrarUnidadMedida
 
     function registrarUnidadMedida(){        
-     $.post("../interfaz/unidadMedida/unidadMedida.php",
+     $.post("../interfaz/unidadMedida/UnidadMedida.php",
     {},
     function (data)
     {
@@ -58,7 +58,7 @@
 }
 
 function cargarListaUnidadMedida() {
-    $.post("../interfaz/unidadMedida/unidadMedidaLista.php",
+    $.post("../interfaz/unidadMedida/UnidadMedidaLista.php",
         {},
         function (data)
         {
@@ -135,7 +135,7 @@ function modificarUnidadMedida(){
 
 function modificarUnidadMedidaConsulta(id){    
 
-    $.post("./unidadMedida/unidadMedidaModificar.php", 
+    $.post("./unidadMedida/UnidadMedidaModificar.php", 
         {
             idUnidadMedida : id
         },
@@ -147,7 +147,7 @@ function modificarUnidadMedidaConsulta(id){
 }
 
 $(function(){
-    $.post("./unidadMedida/unidadMedidaLista.php",
+    $.post("./unidadMedida/UnidadMedidaLista.php",
     {},
     function (data)
     {
