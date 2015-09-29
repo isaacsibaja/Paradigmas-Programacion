@@ -9,7 +9,7 @@ class DataTipoProducto{
 	function insertar($tipoProducto){
 		$con = new DBConexion;
 		if($con->conectar()==true){			
-			$query = "INSERT INTO tbTipoProducto (descripcionTipo) VALUES (
+			$query = "INSERT INTO tbtipoproducto (descripcionTipo) VALUES (
 				'".$tipoProducto->getDescripcionTipo()."')";		
 			$result = @mysql_query($query);	
 			if (!$result){
@@ -24,7 +24,7 @@ class DataTipoProducto{
 		$con = new DBConexion;
 		$lista = array();		
 		if($con->conectar()==true){		
-			$query = "SELECT idTipoProducto, descripcionTipo FROM tbTipoProducto";
+			$query = "SELECT idTipoProducto, descripcionTipo FROM tbtipoproducto";
 			$result = @mysql_query($query);
 			while($row = mysql_fetch_array($result)){				
 	 			$tipoProducto = new tipoProducto($row[0],$row[1]);				
@@ -41,7 +41,7 @@ class DataTipoProducto{
 	function eliminar($id){
 		$con = new DBConexion;
 		if($con->conectar()==true){
-			$query = "DELETE FROM tbTipoProducto WHERE idTipoProducto=".$id;		
+			$query = "DELETE FROM tbtipoproducto WHERE idTipoProducto=".$id;		
 			$result = @mysql_query($query);	
 			echo "$query";
 			if (!$result){
@@ -56,7 +56,7 @@ class DataTipoProducto{
 		$con = new DBConexion;
 		$tipoProducto;	
 		if($con->conectar()==true){		
-			$query = "SELECT idTipoProducto, descripcionTipo FROM tbTipoProducto 
+			$query = "SELECT idTipoProducto, descripcionTipo FROM tbtipoproducto 
 			WHERE idTipoProducto = ".$id;
 			$result = @mysql_query($query);
 			if($row = mysql_fetch_array($result)){				
@@ -73,7 +73,7 @@ class DataTipoProducto{
 	function modificar($tipoProducto){
 		$con = new DBConexion;
 		if($con->conectar()==true){
-			$query = "UPDATE tbTipoProducto SET
+			$query = "UPDATE tbtipoproducto SET
 					descripcionTipo='".$tipoProducto->getDescripcionTipo()."' 
 					WHERE idTipoProducto =".$tipoProducto->getIdTipoProducto()."";
 				$result = @mysql_query($query);	

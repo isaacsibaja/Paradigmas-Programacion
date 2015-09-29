@@ -9,7 +9,7 @@ class DataproductoIngrediente{
 	function insertar($productoIngrediente){
 		$con = new DBConexion;
 		if($con->conectar()==true){
-			$query = "INSERT INTO tbProductoIngrediente ( idProducto, idIngredienteActivo ) 
+			$query = "INSERT INTO tbproductoingrediente ( idProducto, idIngredienteActivo ) 
 			VALUES (".$productoIngrediente->getIdProducto().", 
 					".$productoIngrediente->getIdIngredienteActivo().")";
 			//echo "<br/>$query<br/>";
@@ -26,7 +26,7 @@ class DataproductoIngrediente{
 		$con = new DBConexion;
 		$lista = array();		
 		if($con->conectar()==true){		
-			$query = "SELECT * FROM tbProductoIngrediente";
+			$query = "SELECT * FROM tbproductoingrediente";
 			$result = @mysql_query($query);
 			//echo "<br/>$query<br/>";
 			while($row = mysql_fetch_array($result)){				
@@ -45,7 +45,7 @@ class DataproductoIngrediente{
 		$con = new DBConexion;
 		$lista = array();		
 		if($con->conectar()==true){		
-			$query = "SELECT pi.idIngredienteActivo, i.descripcionIngrediente FROM tbProductoIngrediente pi 
+			$query = "SELECT pi.idIngredienteActivo, i.descripcionIngrediente FROM tbproductoingrediente pi 
 				INNER JOIN tbProducto p ON p.idProducto = pi.idProducto
 				INNER JOIN tbIngredienteActivo i ON i.idIngredienteActivo= pi.idIngredienteActivo 
 				WHERE pi.idProducto = ".$id;
@@ -66,7 +66,7 @@ class DataproductoIngrediente{
 	function eliminar( $idProducto, $idIngredienteActivo ){
 		$con = new DBConexion;
 		if($con->conectar()==true){			
-			$query = "DELETE FROM tbProductoIngrediente 
+			$query = "DELETE FROM tbproductoingrediente 
 				WHERE idProducto=".$idProducto." AND 
 				idIngredienteActivo=".$idIngredienteActivo;
 			$result = @mysql_query($query);	
@@ -84,7 +84,7 @@ class DataproductoIngrediente{
 		$con = new DBConexion;
 		$productoIngrediente;
 		if($con->conectar()==true){		
-			$query = "SELECT * FROM tbProductoIngrediente WHERE 
+			$query = "SELECT * FROM tbproductoingrediente WHERE 
 			idProducto = ".$idProducto." AND idIngredienteActivo =".$idIngredienteActivo."";
 			$result = @mysql_query($query);
 			echo "<br/>$query<br/>";
@@ -102,7 +102,7 @@ class DataproductoIngrediente{
 	function modificar($productoIngrediente){
 		$con = new DBConexion;
 		if($con->conectar()==true){			
-			$query = "UPDATE tbProductoIngrediente SET 					
+			$query = "UPDATE tbproductoingrediente SET 					
 					idProducto=".$productoIngrediente->getIdProducto().",
 					idIngredienteActivo=".$productoIngrediente->getIdIngredienteActivo()."
 					WHERE idProducto=".$productoIngrediente->getIdProducto()." AND 

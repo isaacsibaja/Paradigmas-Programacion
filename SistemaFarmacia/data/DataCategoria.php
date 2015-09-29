@@ -9,7 +9,7 @@ class DataCategoria{
 	function insertar($categoria){
 		$con = new DBConexion;
 		if($con->conectar()==true){			
-			$query = "INSERT INTO tbCategoria(descripcion) 
+			$query = "INSERT INTO tbcategoria(descripcion) 
 					VALUES ('".$categoria->getDescripcion()."')";		
 			$result = @mysql_query($query);	
 			if (!$result){
@@ -20,11 +20,11 @@ class DataCategoria{
 		}	
 	}
 
-	function getcategorias(){
+	function getCategorias(){
 		$con = new DBConexion;
 		$lista = array();
 		if($con->conectar()==true){		
-			$query = "SELECT * FROM tbCategoria";
+			$query = "SELECT * FROM tbcategoria";
 			$result = @mysql_query($query);			
 			while($row = mysql_fetch_array($result)){				
 	 			$categoria = new Categoria( $row[0], $row[1] );	
@@ -38,10 +38,10 @@ class DataCategoria{
 		}
 	}
 
-	function eliminar($id){
+	function eliminar($idCategoria){
 		$con = new DBConexion;
 		if($con->conectar()==true){			
-			$query = "DELETE FROM tbCategoria WHERE idCategoria=".$id;		
+			$query = "DELETE FROM tbcategoria WHERE idCategoria=".$idCategoria;		
 			$result = @mysql_query($query);	
 			if (!$result){
 				return false;
@@ -51,11 +51,11 @@ class DataCategoria{
 		}	
 	}
 
-	function getcategoria($id){
+	function getCategoria($idCategoria){
 		$con = new DBConexion;
 		$categoria;		
 		if($con->conectar()==true){		
-			$query = "SELECT * FROM tbCategoria WHERE idCategoria = ".$id;
+			$query = "SELECT * FROM tbcategoria WHERE idCategoria = ".$idCategoria;
 			$result = @mysql_query($query);			
 			if($row = mysql_fetch_array($result)){				
 	 			$categoria = new Categoria( $row[0], $row[1] );					
@@ -71,7 +71,7 @@ class DataCategoria{
 	function modificar($categoria){
 		$con = new DBConexion;
 		if($con->conectar()==true){			
-			$query = "UPDATE tbCategoria SET 
+			$query = "UPDATE tbcategoria SET 
 			descripcion='".$categoria->getDescripcion()."' 
 			 WHERE idCategoria = ".$categoria->getIdCategoria()."";		
 			$result = @mysql_query($query);	

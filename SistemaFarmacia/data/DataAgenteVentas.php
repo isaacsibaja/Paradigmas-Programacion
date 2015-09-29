@@ -9,7 +9,7 @@ class DataAgenteVentas{
 	function insertar($agenteVentas){
 		$con = new DBConexion;
 		if($con->conectar()==true){			
-			$query = "INSERT INTO tbAgenteVentas(nombreAgente, telefonoAgente,
+			$query = "INSERT INTO tbagenteventas(nombreAgente, telefonoAgente,
 			 correoAgente) VALUES (
 				'".$agenteVentas->getNombreAgente()."',
 				'".$agenteVentas->getTelefonoAgente()."',
@@ -28,7 +28,7 @@ class DataAgenteVentas{
 		$con = new DBConexion;
 		$lista = array();		
 		if($con->conectar()==true){		
-			$query = "SELECT idAgenteVenta, nombreAgente, telefonoAgente, correoAgente FROM tbAgenteVentas";
+			$query = "SELECT idAgenteVenta, nombreAgente, telefonoAgente, correoAgente FROM tbagenteventas";
 			$result = @mysql_query($query);			
 			while($row = mysql_fetch_array($result)){				
 	 			$agenteVentas = new agenteVentas($row[0],$row[1],$row[2],$row[3]);				
@@ -45,7 +45,7 @@ class DataAgenteVentas{
 	function eliminar($id){
 		$con = new DBConexion;
 		if($con->conectar()==true){			
-			$query = "DELETE FROM tbAgenteVentas WHERE idAgenteVenta=".$id;		
+			$query = "DELETE FROM tbagenteventas WHERE idAgenteVenta=".$id;		
 			$result = @mysql_query($query);	
 			if (!$result){
 				return false;
@@ -60,7 +60,7 @@ class DataAgenteVentas{
 		$agenteVentas;
 		
 		if($con->conectar()==true){		
-			$query = "SELECT idAgenteVenta, nombreAgente, telefonoAgente, correoAgente FROM tbAgenteVentas 
+			$query = "SELECT idAgenteVenta, nombreAgente, telefonoAgente, correoAgente FROM tbagenteventas 
 			WHERE idAgenteVenta = ".$id;
 			$result = @mysql_query($query);			
 			if($row = mysql_fetch_array($result)){				
@@ -77,7 +77,7 @@ class DataAgenteVentas{
 	function modificar($agenteVentas){
 		$con = new DBConexion;
 		if($con->conectar()==true){			
-			$query = "UPDATE tbAgenteVentas SET
+			$query = "UPDATE tbagenteventas SET
 					nombreAgente='".$agenteVentas->getNombreAgente()."',  
 					telefonoAgente='".$agenteVentas->getTelefonoAgente()."',
 					correoAgente='".$agenteVentas->getCorreoAgente()."'

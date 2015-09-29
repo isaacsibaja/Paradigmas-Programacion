@@ -9,7 +9,7 @@ class DataProductoLote{
 	function insertar($productoLote){
 		$con = new DBConexion;
 		if($con->conectar()==true){			
-			$query = "INSERT INTO tbProductoLote( idProducto, idAgenteVenta, concentracion,
+			$query = "INSERT INTO tbproductolote( idProducto, idAgenteVenta, concentracion,
 			 fechaIngreso, fechaVencimiento, cantidad, precioCompra, precioVenta) VALUES (
 				".$productoLote->getIdProducto().", 
 				".$productoLote->getIdAgenteVenta().", 
@@ -36,7 +36,7 @@ class DataProductoLote{
 		if($con->conectar()==true){		
 			$query = "SELECT idLote, descripcion, nombreAgente, concentracion, 
 			DATE_FORMAT(fechaIngreso,'%d-%m-%Y'), DATE_FORMAT(fechaVencimiento,'%d-%m-%Y'), cantidad, 
-			precioCompra, precioVenta FROM tbProductoLote pl 
+			precioCompra, precioVenta FROM tbproductolote pl 
 			INNER JOIN tbProducto p ON p.idProducto = pl.idProducto 
 			INNER JOIN tbAgenteVentas av ON pl.idAgenteVenta = av.idAgenteVenta";
 			$result = @mysql_query($query);
@@ -56,7 +56,7 @@ class DataProductoLote{
 	function eliminar($id){
 		$con = new DBConexion;
 		if($con->conectar()==true){			
-			$query = "DELETE FROM tbProductoLote WHERE idLote = ".$id;
+			$query = "DELETE FROM tbproductolote WHERE idLote = ".$id;
 			//echo "$query<br/>";	
 			$result = @mysql_query($query);	
 			if (!$result){
@@ -71,7 +71,7 @@ class DataProductoLote{
 		$con = new DBConexion;
 		$productoLote;		
 		if($con->conectar()==true){				
-			$query = "SELECT * FROM tbProductoLote WHERE idLote = ".$id;		 
+			$query = "SELECT * FROM tbproductolote WHERE idLote = ".$id;		 
 			$result = @mysql_query($query);
 			//echo "$query<br/>";
 			if($row = mysql_fetch_array($result)){				
@@ -88,7 +88,7 @@ class DataProductoLote{
 	function modificar($productoLote){
 		$con = new DBConexion;
 		if($con->conectar()==true){
-			$query = "UPDATE tbProductoLote SET 
+			$query = "UPDATE tbproductolote SET 
 			idProducto=".$productoLote->getIdProducto().",
 			idAgenteVenta=".$productoLote->getIdAgenteVenta().",
 			concentracion=".$productoLote->getConcentracion().",

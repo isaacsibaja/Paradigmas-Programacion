@@ -13,7 +13,7 @@ class DataTipoPago{
 			$query = "SELECT * FROM tbtipopago";
 			$result = @mysql_query($query);
 			while($row = mysql_fetch_array($result)){				
-	 			$tipoPago = new tipoPago($row[0],$row[1]);				
+	 			$tipoPago = new TipoPago($row[0],$row[1]);				
 				array_push($lista, $tipoPago);	
 			}
 			if (!$lista){

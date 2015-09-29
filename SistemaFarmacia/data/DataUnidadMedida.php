@@ -9,7 +9,7 @@ class DataUnidadMedida{
 	function insertar($unidadMedida){
 		$con = new DBConexion;
 		if($con->conectar()==true){			
-			$query = "INSERT INTO tbUnidadMedida(descripcionUnidad) VALUES (
+			$query = "INSERT INTO tbunidadmedida(descripcionUnidad) VALUES (
 				'".$unidadMedida->getDescripcionUnidad()."')";		
 			$result = @mysql_query($query);	
 			if (!$result){
@@ -25,7 +25,7 @@ class DataUnidadMedida{
 		$lista = array();
 		
 		if($con->conectar()==true){		
-			$query = "SELECT idUnidadMedida, descripcionUnidad FROM tbUnidadMedida";
+			$query = "SELECT idUnidadMedida, descripcionUnidad FROM tbunidadmedida";
 			$result = @mysql_query($query);			
 			while($row = mysql_fetch_array($result)){				
 	 			$unidadMedida = new unidadMedida($row[0],$row[1]);				
@@ -43,7 +43,7 @@ class DataUnidadMedida{
 		$con = new DBConexion;
 		if($con->conectar()==true){
 			
-			$query = "DELETE FROM `tbUnidadMedida` WHERE idUnidadMedida=".$idUnidadMedida;		
+			$query = "DELETE FROM `tbunidadmedida` WHERE idUnidadMedida=".$idUnidadMedida;		
 			$result = @mysql_query($query);	
 			echo "$query";
 			if (!$result){
@@ -58,7 +58,7 @@ class DataUnidadMedida{
 		$con = new DBConexion;
 		$unidadMedida;		
 		if($con->conectar()==true){		
-			$query = "SELECT idUnidadMedida, descripcionUnidad FROM tbUnidadMedida 
+			$query = "SELECT idUnidadMedida, descripcionUnidad FROM tbunidadmedida 
 			WHERE idUnidadMedida = ".$idUnidadMedida;
 			$result = @mysql_query($query);			
 			if($row = mysql_fetch_array($result)){				
@@ -75,7 +75,7 @@ class DataUnidadMedida{
 	function modificar($unidadMedida){
 		$con = new DBConexion;
 		if($con->conectar()==true){			
-			$query = "UPDATE tbUnidadMedida SET
+			$query = "UPDATE tbunidadmedida SET
 					descripcionUnidad='".$unidadMedida->getDescripcionUnidad()."' 
 					WHERE idUnidadMedida =".$unidadMedida->getIdUnidadMedida()."";
 				$result = @mysql_query($query);	

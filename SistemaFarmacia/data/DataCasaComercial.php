@@ -29,7 +29,7 @@ class DataCasaComercial{
 	}
 
 
-	function get_casasComerciales(){
+	function getCasasComerciales(){
 		$con = new DBConexion;
 		$lista = array();
 		

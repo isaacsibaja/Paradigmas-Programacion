@@ -9,7 +9,7 @@ class DataProducto{
 	function insertar($producto){
 		$con = new DBConexion;
 		if($con->conectar()==true){			
-			$query = "INSERT INTO tbProducto( idCategoria, idTipoProducto,
+			$query = "INSERT INTO tbproducto( idCategoria, idTipoProducto,
 			 idPresentacionProducto, idUnidadMedida, descripcion) VALUES (
 				".$producto->getIdCategoria().",
 				".$producto->getIdTipoProducto().",
@@ -32,7 +32,7 @@ class DataProducto{
 			$query = "SELECT idProducto, c.descripcion, 
 					descripcionTipo, descripcionPresentacion,
 			 		descripcionUnidad, p.descripcion 
-					FROM tbProducto p INNER JOIN tbCategoria c ON p.idCategoria=c.idCategoria 
+					FROM tbproducto p INNER JOIN tbCategoria c ON p.idCategoria=c.idCategoria 
 					INNER JOIN tbTipoProducto t ON p.idTipoProducto = t.idTipoProducto 
 					INNER JOIN tbPresentacionProducto pp ON p.idPresentacionProducto = pp.idPresentacionProducto 
 					INNER JOIN tbUnidadMedida u ON u.idUnidadMedida = p.idUnidadMedida";
@@ -52,7 +52,7 @@ class DataProducto{
 	function eliminar($id){
 		$con = new DBConexion;
 		if($con->conectar()==true){			
-			$query = "DELETE FROM tbProducto WHERE idProducto = ".$id;
+			$query = "DELETE FROM tbproducto WHERE idProducto = ".$id;
 			//echo "$query<br/>";	
 			$result = @mysql_query($query);	
 			if (!$result){
@@ -71,12 +71,12 @@ class DataProducto{
 		if($con->conectar()==true){		
 			/*$query = "SELECT idProducto, c.descripcion, descripcionTipo, descripcionPrecentacion,
 			 		descripcionUnidad, p.descripcion 
-					FROM tbProducto p INNER JOIN tbCategoria c ON p.idCategoria=c.idCategoria 
+					FROM tbproducto p INNER JOIN tbCategoria c ON p.idCategoria=c.idCategoria 
 					INNER JOIN tbTipoProducto t ON p.idTipoProducto = t.idTipoProducto 
 					INNER JOIN tbPrecentacionProducto pp ON p.idPrecentacionProducto = pp.idPrecentacionProducto 
 					INNER JOIN tbUnidadMedida u ON u.idUnidadMedida = p.idUnidadMedida
 					 WHERE idProducto = ".$id;*/
-			$query = "SELECT * FROM tbProducto WHERE idProducto = ".$id;		 
+			$query = "SELECT * FROM tbproducto WHERE idProducto = ".$id;		 
 			$result = @mysql_query($query);
 			//echo "$query<br/>";
 			if($row = mysql_fetch_array($result)){				
@@ -94,7 +94,7 @@ class DataProducto{
 		$con = new DBConexion;
 		if($con->conectar()==true){
 
-			$query = "UPDATE tbProducto SET 					
+			$query = "UPDATE tbproducto SET 					
 					idCategoria=".$producto->getIdCategoria().",
 					idTipoProducto=".$producto->getIdTipoProducto().",
 					idPresentacionProducto=".$producto->getIdPresentacionProducto().",

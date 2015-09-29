@@ -9,7 +9,7 @@ class DataPresentacionProducto{
 	function insertar($presentacionProducto){
 		$con = new DBConexion;
 		if($con->conectar()==true){			
-			$query = "INSERT INTO tbPresentacionProducto(descripcionPresentacion) VALUES (
+			$query = "INSERT INTO tbpresentacionproducto(descripcionPresentacion) VALUES (
 				'".$presentacionProducto->getDescripcionPresentacion()."')";
 			//echo "<br/>$query<br/>";
 			$result = @mysql_query($query);	
@@ -26,7 +26,7 @@ class DataPresentacionProducto{
 		$con = new DBConexion;
 		$lista = array();		
 		if($con->conectar()==true){		
-			$query = "SELECT idPresentacionProducto, descripcionPresentacion FROM tbPresentacionProducto";
+			$query = "SELECT idPresentacionProducto, descripcionPresentacion FROM tbpresentacionproducto";
 			$result = @mysql_query($query);
 			//echo "<br/>$query<br/>";
 			while($row = mysql_fetch_array($result)){				
@@ -44,7 +44,7 @@ class DataPresentacionProducto{
 	function eliminar($id){
 		$con = new DBConexion;
 		if($con->conectar()==true){			
-			$query = "DELETE FROM tbPresentacionProducto WHERE idPresentacionProducto=".$id;		
+			$query = "DELETE FROM tbpresentacionproducto WHERE idPresentacionProducto=".$id;		
 			$result = @mysql_query($query);	
 			//echo "<br/>$query<br/>";
 			if (!$result){
@@ -55,11 +55,11 @@ class DataPresentacionProducto{
 		}	
 	}
 
-	function get_PresentacionProducto($id){
+	function getPresentacionProducto($id){
 		$con = new DBConexion;
 		$presentacionProducto;		
 		if($con->conectar()==true){		
-			$query = "SELECT idPresentacionProducto, descripcionPresentacion FROM tbPresentacionProducto 
+			$query = "SELECT idPresentacionProducto, descripcionPresentacion FROM tbpresentacionproducto 
 			WHERE idPresentacionProducto = ".$id;
 			$result = @mysql_query($query);
 			//echo "<br/>$query<br/>";
@@ -77,7 +77,7 @@ class DataPresentacionProducto{
 	function modificar($presentacionProducto){
 		$con = new DBConexion;
 		if($con->conectar()==true){			
-			$query = "UPDATE tbPresentacionProducto SET
+			$query = "UPDATE tbpresentacionproducto SET
 					descripcionPresentacion='".$presentacionProducto->getDescripcionPresentacion()."' 
 					WHERE idPresentacionProducto =".$presentacionProducto->getIdPresentacionProducto()."";
 				$result = @mysql_query($query);	

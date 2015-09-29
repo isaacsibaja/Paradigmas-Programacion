@@ -9,7 +9,7 @@ class DataIngredienteActivo{
 	function insertar($ingredienteActivo){
 		$con = new DBConexion;
 		if($con->conectar()==true){			
-			$query = "INSERT INTO tbIngredienteActivo(descripcionIngrediente) 
+			$query = "INSERT INTO tbingredienteactivo(descripcionIngrediente) 
 					VALUES ('".$ingredienteActivo->getDescripcionIngrediente()."')";
 			$result = @mysql_query($query);	
 			//echo "$query<br/>";
@@ -25,7 +25,7 @@ class DataIngredienteActivo{
 		$con = new DBConexion;
 		$lista = array();		
 		if($con->conectar()==true){		
-			$query = "SELECT * FROM tbIngredienteActivo";
+			$query = "SELECT * FROM tbingredienteactivo";
 			$result = @mysql_query($query);
 			//echo "$query<br/>";
 			while($row = mysql_fetch_array($result)){				
@@ -43,7 +43,7 @@ class DataIngredienteActivo{
 	function eliminar($id){
 		$con = new DBConexion;
 		if($con->conectar()==true){			
-			$query = "DELETE FROM tbIngredienteActivo WHERE idIngredienteActivo=".$id;		
+			$query = "DELETE FROM tbingredienteactivo WHERE idIngredienteActivo=".$id;		
 			$result = @mysql_query($query);	
 			if (!$result){
 				return false;
@@ -57,7 +57,7 @@ class DataIngredienteActivo{
 		$con = new DBConexion;
 		$ingredienteActivo;		
 		if($con->conectar()==true){		
-			$query = "SELECT * FROM tbIngredienteActivo WHERE idIngredienteActivo = ".$id;
+			$query = "SELECT * FROM tbingredienteactivo WHERE idIngredienteActivo = ".$id;
 			$result = @mysql_query($query);			
 			if($row = mysql_fetch_array($result)){				
 	 			$ingredienteActivo = new IngredienteActivo( $row[0], $row[1] );					
@@ -73,7 +73,7 @@ class DataIngredienteActivo{
 	function modificar($ingredienteActivo){
 		$con = new DBConexion;
 		if($con->conectar()==true){			
-			$query = "UPDATE tbIngredienteActivo SET 
+			$query = "UPDATE tbingredienteactivo SET 
 			descripcionIngrediente='".$ingredienteActivo->getDescripcionIngrediente()."' 
 			 WHERE idIngredienteActivo = ".$ingredienteActivo->getIdIngredienteActivo()."";		
 			$result = @mysql_query($query);	
