@@ -66,7 +66,7 @@
 								$descripcion=$objCelda['E'];      
 											
 								if($_POST['radio']=='s'){ // si el radio button seleccionado es el de actualizar base de datos
-									$sql="INSERT INTO tbProducto ( idCategoria, idTipoProducto,
+									$sql="INSERT INTO tbproducto ( idCategoria, idTipoProducto,
 									 	idPrecentacionProducto, idUnidadMedida, descripcion) VALUES (
 										".$idCategoria.",
 										".$idTipoProducto.",

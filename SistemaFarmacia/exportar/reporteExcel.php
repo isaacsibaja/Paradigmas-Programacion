@@ -31,7 +31,7 @@
 
 
 						
-					$query = "SELECT idProducto, idCategoria, idTipoProducto, idPrecentacionProducto, idUnidadMedida, descripcion FROM tbProducto";
+					$query = "SELECT idProducto, idCategoria, idTipoProducto, idPrecentacionProducto, idUnidadMedida, descripcion FROM tbproducto";
 					$result = @mysql_query($query);
 					while($res = mysql_fetch_array($result))
 					{	
