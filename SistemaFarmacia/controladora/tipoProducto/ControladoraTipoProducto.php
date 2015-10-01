@@ -3,7 +3,7 @@
 
 	include ("../../data/DataTipoProducto.php");
 	include ("../../data/BDConexion.php");
-	include ("../../dominio/tipoProducto.php");
+	include ("../../dominio/TipoProducto.php");
 
 	class ControladoraTipoProducto {
 		

@@ -36,11 +36,11 @@
 			<br/>
 			<label><a href='#' onclick="cargarPagina('./producto/Producto.php')">Producto</a></label>
 			<br/>
-			<label><a href='#' onclick="cargarLista('./productoIngrediente/ProductoLista.php')">Producto Ingrediente activo</a></label>
+			<label><a href='#' onclick="cargarLista('./productoIngrediente/ProductoLista.php')">Producto Ingrediente</a></label>
 			<br/>
-			<label><a href='#' onclick="cargarPagina('./ingredienteActivo/IngredienteActivo.php')">Ingretiente Activo</a></label>
+			<label><a href='#' onclick="cargarPagina('./ingredienteActivo/IngredienteActivo.php')">Ingrediente Activo</a></label>
 			<br/>
-			<label><a href='#' onclick="cargarPagina('./precentacionProducto/PrecentacionProducto.php')">Presentacion Producto</a></label>
+			<label><a href='#' onclick="cargarPagina('./presentacionProducto/PresentacionProducto.php')">Presentacion Producto</a></label>
 			<br/>
 			<label><a href='#' onclick="cargarPagina('./unidadMedida/UnidadMedida.php')">Unidad Medida</a></label>
 			<br/>
@@ -56,12 +56,12 @@
 			<br/>
 			<br/>
 			<!--<h1>Formulario</h1>-->
-			<div id="contenedorFormulario"></div><!--Mi contenedor principal-->
+			<div id="contenedor"></div><!--Mi contenedor principal-->
 			<br/>
 			<!--<h1>Estado</h1>-->
-			<div id="contenedorMensaje"></div><!--Msj de estado-->
+			<div id="contenedor2"></div><!--Msj de estado-->
 			<br/>
 			<!--<h1>Lista</h1>-->
-			<div id="contenedorLista"></div><!--Cargar Lista-->
+			<div id="contenedor3"></div><!--Cargar Lista-->
 			<br/>
 </html>

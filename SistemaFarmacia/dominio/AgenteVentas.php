@@ -9,38 +9,38 @@ class AgenteVentas{
 
 	function AgenteVentas( $idAgenteVenta, $nombreAgente, $telefonoAgente,
 	 $correoAgente){
-		$this->set_idAgenteVenta($idAgenteVenta);
-		$this->set_nombreAgente($nombreAgente);
-		$this->set_telefonoAgente($telefonoAgente);
-		$this->set_correoAgente($correoAgente);		
+		$this->setIdAgenteVenta($idAgenteVenta);
+		$this->setNombreAgente($nombreAgente);
+		$this->setTelefonoAgente($telefonoAgente);
+		$this->setCorreoAgente($correoAgente);		
 	}
 
 
-	public function set_idAgenteVenta($idAgenteVenta) {
+	public function setIdAgenteVenta($idAgenteVenta) {
 		$this->idAgenteVenta = $idAgenteVenta;
 	}
-	public function get_idAgenteVenta() {
+	public function getIdAgenteVenta() {
 		return $this->idAgenteVenta;
 	}
 
-	public function set_nombreAgente($nombreAgente) {
+	public function setNombreAgente($nombreAgente) {
 		$this->nombreAgente = $nombreAgente;
 	}
-	public function get_nombreAgente() {
+	public function getNombreAgente() {
 		return $this->nombreAgente;
 	}
 
-	public function set_telefonoAgente($telefonoAgente) {
+	public function setTelefonoAgente($telefonoAgente) {
 		$this->telefonoAgente = $telefonoAgente;
 	}
-	public function get_telefonoAgente() {
+	public function getTelefonoAgente() {
 		return $this->telefonoAgente;
 	}
 
-	public function set_correoAgente($correoAgente) {
+	public function setCorreoAgente($correoAgente) {
 		$this->correoAgente = $correoAgente;
 	}
-	public function get_correoAgente() {
+	public function getCorreoAgente() {
 		return $this->correoAgente;
 	}
 }

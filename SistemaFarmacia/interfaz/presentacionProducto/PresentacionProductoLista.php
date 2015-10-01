@@ -21,8 +21,8 @@
             	echo "<tr>";
 		            echo "<td>".$presentacionProducto->getIdPresentacionProducto()."</td>";
 			        echo "<td>".$presentacionProducto->getDescripcionPresentacion()."</td>";
-			        echo "<td><input type=\"button\" value=\"Eliminar\" onclick=\"eliminarpresentacionProducto('".$presentacionProducto->getIdPresentacionProducto()."')\"/></td>";
-			        echo "<td><input type=\"button\" value=\"Modificar\" onclick=\"modificarpresentacionProductoConsulta('".$presentacionProducto->getIdPresentacionProducto()."')\"/></td>";     
+			        echo "<td><input type=\"button\" value=\"Eliminar\" onclick=\"eliminarPresentacionProducto('".$presentacionProducto->getIdPresentacionProducto()."')\"/></td>";
+			        echo "<td><input type=\"button\" value=\"Modificar\" onclick=\"modificarPresentacionProductoConsulta('".$presentacionProducto->getIdPresentacionProducto()."')\"/></td>";     
 		  		echo "</tr>";
 			}
 		}					

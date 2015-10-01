@@ -32,10 +32,10 @@ class DataProducto{
 			$query = "SELECT idProducto, c.descripcion, 
 					descripcionTipo, descripcionPresentacion,
 			 		descripcionUnidad, p.descripcion 
-					FROM tbproducto p INNER JOIN tbCategoria c ON p.idCategoria=c.idCategoria 
-					INNER JOIN tbTipoProducto t ON p.idTipoProducto = t.idTipoProducto 
-					INNER JOIN tbPresentacionProducto pp ON p.idPresentacionProducto = pp.idPresentacionProducto 
-					INNER JOIN tbUnidadMedida u ON u.idUnidadMedida = p.idUnidadMedida";
+					FROM tbproducto p INNER JOIN tbcategoria c ON p.idCategoria=c.idCategoria 
+					INNER JOIN tbtipoproducto t ON p.idTipoProducto = t.idTipoProducto 
+					INNER JOIN tbpresentacionproducto pp ON p.idPresentacionProducto = pp.idPresentacionProducto 
+					INNER JOIN tbunidadmedida u ON u.idUnidadMedida = p.idUnidadMedida";
 			$result = @mysql_query($query);
 			while($row = mysql_fetch_array($result)){				
 	 			$producto = new Producto($row[0],$row[1],$row[2],$row[3],$row[4], $row[5]);				

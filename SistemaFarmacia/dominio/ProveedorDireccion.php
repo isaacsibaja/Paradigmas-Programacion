@@ -10,45 +10,45 @@ class ProveedorDireccion{
 
 
 	function ProveedorDireccion( $idProveedorDireccion, $provincia, $canton, $distrito, $otraSenias){
-		$this->set_idProveedorDireccion($idProveedorDireccion);
-		$this->set_provincia($provincia);
-		$this->set_canton($canton);
-		$this->set_distrito($distrito);
-		$this->set_otraSenias($otraSenias);
+		$this->setIdProveedorDireccion($idProveedorDireccion);
+		$this->setProvincia($provincia);
+		$this->setCanton($canton);
+		$this->setDistrito($distrito);
+		$this->setOtraSenias($otraSenias);
 		
 	}
-	public function set_idProveedorDireccion($idProveedorDireccion) {
+	public function setIdProveedorDireccion($idProveedorDireccion) {
 		$this->idProveedorDireccion = $idProveedorDireccion;
 	}
-	public function get_idProveedorDireccion() {
+	public function getIdProveedorDireccion() {
 		return $this->idProveedorDireccion;
 	}
 
-	public function set_provincia($provincia) {
+	public function setProvincia($provincia) {
 		$this->provincia = $provincia;
 	}
-	public function get_provincia() {
+	public function getProvincia() {
 		return $this->provincia;
 	}
 
-	public function set_canton($canton) {
+	public function setCanton($canton) {
 		$this->canton = $canton;
 	}
-	public function get_canton() {
+	public function getCanton() {
 		return $this->canton;
 	}
 
-	public function set_distrito($distrito) {
+	public function setDistrito($distrito) {
 		$this->distrito = $distrito;
 	}
-	public function get_distrito() {
+	public function getDistrito() {
 		return $this->distrito;
 	}
 
-	public function set_otraSenias($otraSenias) {
+	public function setOtraSenias($otraSenias) {
 		$this->otraSenias = $otraSenias;
 	}
-	public function get_otraSenias() {
+	public function getOtraSenias() {
 		return $this->otraSenias;
 	}
 

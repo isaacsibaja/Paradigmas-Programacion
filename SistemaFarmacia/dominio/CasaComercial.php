@@ -12,54 +12,54 @@ class CasaComercial{
 
 	function CasaComercial( $idCasaComercial, $direccionCasaComercial, $nombreCasaComercial, 
 		$telefonoCasaComercial, $correoCasaComercial, $faxCasaComercial ){
-		$this->set_idCasaComercial($idCasaComercial);
-		$this->set_direccionCasaComercial($direccionCasaComercial);
-		$this->set_nombreCasaComercial($nombreCasaComercial);
-		$this->set_telefonoCasaComercial($telefonoCasaComercial);
-		$this->set_correoCasaComercial($correoCasaComercial);
-		$this->set_faxCasaComercial($faxCasaComercial);
+		$this->setIdCasaComercial($idCasaComercial);
+		$this->setDireccionCasaComercial($direccionCasaComercial);
+		$this->setNombreCasaComercial($nombreCasaComercial);
+		$this->setTelefonoCasaComercial($telefonoCasaComercial);
+		$this->setCorreoCasaComercial($correoCasaComercial);
+		$this->setFaxCasaComercial($faxCasaComercial);
 	}
 
 
-	public function set_idCasaComercial($idCasaComercial) {
+	public function setIdCasaComercial($idCasaComercial) {
 		$this->idCasaComercial = $idCasaComercial;
 	}
-	public function get_idCasaComercial() {
+	public function getIdCasaComercial() {
 		return $this->idCasaComercial;
 	}
 
-	public function set_direccionCasaComercial($direccionCasaComercial) {
+	public function setDireccionCasaComercial($direccionCasaComercial) {
 		$this->direccionCasaComercial = $direccionCasaComercial;
 	}
-	public function get_direccionCasaComercial() {
+	public function getDireccionCasaComercial() {
 		return $this->direccionCasaComercial;
 	}
 
-	public function set_nombreCasaComercial($nombreCasaComercial) {
+	public function setNombreCasaComercial($nombreCasaComercial) {
 		$this->nombreCasaComercial = $nombreCasaComercial;
 	}
-	public function get_nombreCasaComercial() {
+	public function getNombreCasaComercial() {
 		return $this->nombreCasaComercial;
 	}
 
-	public function set_telefonoCasaComercial($telefonoCasaComercial) {
+	public function setTelefonoCasaComercial($telefonoCasaComercial) {
 		$this->telefonoCasaComercial = $telefonoCasaComercial;
 	}
-	public function get_telefonoCasaComercial() {
+	public function getTelefonoCasaComercial() {
 		return $this->telefonoCasaComercial;
 	}
 
-	public function set_correoCasaComercial($correoCasaComercial) {
+	public function setCorreoCasaComercial($correoCasaComercial) {
 		$this->correoCasaComercial = $correoCasaComercial;
 	}
-	public function get_correoCasaComercial() {
+	public function getCorreoCasaComercial() {
 		return $this->correoCasaComercial;
 	}
 
-	public function set_faxCasaComercial($faxCasaComercial) {
+	public function setFaxCasaComercial($faxCasaComercial) {
 		$this->faxCasaComercial = $faxCasaComercial;
 	}
-	public function get_faxCasaComercial() {
+	public function getFaxCasaComercial() {
 		return $this->faxCasaComercial;
 	}
 }

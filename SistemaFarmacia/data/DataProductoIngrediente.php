@@ -46,8 +46,8 @@ class DataproductoIngrediente{
 		$lista = array();		
 		if($con->conectar()==true){		
 			$query = "SELECT pi.idIngredienteActivo, i.descripcionIngrediente FROM tbproductoingrediente pi 
-				INNER JOIN tbProducto p ON p.idProducto = pi.idProducto
-				INNER JOIN tbIngredienteActivo i ON i.idIngredienteActivo= pi.idIngredienteActivo 
+				INNER JOIN tbproducto p ON p.idProducto = pi.idProducto
+				INNER JOIN tbingredienteactivo i ON i.idIngredienteActivo= pi.idIngredienteActivo 
 				WHERE pi.idProducto = ".$id;
 			$result = @mysql_query($query);
 			//echo "<br/>$query<br/>";

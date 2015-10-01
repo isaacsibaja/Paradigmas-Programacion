@@ -5,6 +5,9 @@
 
 	include ("../../data/DataIngredienteActivo.php");
 	include ("../../dominio/IngredienteActivo.php");
+
+	include ("../../data/DataProducto.php");
+	include ("../../dominio/Producto.php");
 class ControladoraGetProductoIngrediente {
 		
 	function ControladoraGetProductoIngrediente(){
@@ -50,11 +53,16 @@ class ControladoraGetProductoIngrediente {
 			return $lista;
 		}
 	}
+
+	function obtenerProducto($id){
+	
+		$data = new DataProducto;
+		$producto =$data->getProducto($id);
+		if(!$producto){
+			return false;
+		}else{
+			return $producto;
+		}
+	}
 }
 ?>
-
-
-<?php
-	
-
-

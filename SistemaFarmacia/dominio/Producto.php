@@ -5,16 +5,16 @@ class Producto{
 	private	$idProducto;
 	private	$idCategoria;
 	private	$idTipoProducto;
-	private	$idPrecentacionProducto;
+	private	$idPresentacionProducto;
 	private	$idUnidadMedida;
 	private	$descripcion;
 
 	function Producto( $idProducto, $idCategoria, $idTipoProducto,
-	 $idPrecentacionProducto, $idUnidadMedida, $descripcion ){
+	 $idPresentacionProducto, $idUnidadMedida, $descripcion ){
 		$this->setIdProducto($idProducto);
 		$this->setIdCategoria($idCategoria);
 		$this->setIdTipoProducto($idTipoProducto);
-		$this->setIdPrecentacionProducto($idPrecentacionProducto);
+		$this->setIdPresentacionProducto($idPresentacionProducto);
 		$this->setIdUnidadMedida($idUnidadMedida);
 		$this->setDescripcion($descripcion);		
 	}
@@ -41,11 +41,11 @@ class Producto{
 		return $this->idTipoProducto;
 	}
 
-	public function setIdPrecentacionProducto($idPrecentacionProducto) {
-		$this->idPrecentacionProducto = $idPrecentacionProducto;
+	public function setIdPresentacionProducto($idPresentacionProducto) {
+		$this->idPresentacionProducto = $idPresentacionProducto;
 	}
-	public function getIdPrecentacionProducto() {
-		return $this->idPrecentacionProducto;
+	public function getIdPresentacionProducto() {
+		return $this->idPresentacionProducto;
 	}
 
 	public function setIdUnidadMedida($idUnidadMedida) {

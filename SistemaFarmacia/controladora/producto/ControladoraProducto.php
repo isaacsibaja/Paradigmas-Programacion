@@ -14,12 +14,12 @@
 
 			$idCategoria = $_POST['idCategoria'];
 			$idTipoProducto = $_POST['idTipoProducto'];
-			$idPrecentacionProducto = $_POST['idPrecentacionProducto'];
+			$idPresentacionProducto = $_POST['idPresentacionProducto'];
 			$idUnidadMedida = $_POST['idUnidadMedida'];
 			$descripcion = $_POST['descripcion'];
 
 			$producto = new Producto( 0, $idCategoria, $idTipoProducto,
-	 					$idPrecentacionProducto, $idUnidadMedida, $descripcion );				
+	 					$idPresentacionProducto, $idUnidadMedida, $descripcion );				
 						
 			$data = new DataProducto();
 
@@ -48,14 +48,14 @@
 			$idProducto = $_POST['idProducto'];
 			$idCategoria = $_POST['idCategoria'];
 			$idTipoProducto = $_POST['idTipoProducto'];
-			$idPrecentacionProducto = $_POST['idPrecentacionProducto'];
+			$idPresentacionProducto = $_POST['idPresentacionProducto'];
 			$idUnidadMedida = $_POST['idUnidadMedida'];
 			$descripcion = $_POST['descripcion'];
 
 
 			$data = new DataProducto();
 			$producto = new Producto($idProducto, $idCategoria, $idTipoProducto,
-	 					$idPrecentacionProducto, $idUnidadMedida, $descripcion );					
+	 					$idPresentacionProducto, $idUnidadMedida, $descripcion );					
 			
 			if($data->modificar($producto)==true){
 				echo "Datos modicados correctamente";

@@ -7,9 +7,17 @@ function cargarPagina(direccion){
         $('#contenedor').html(data);
     });*/
     	 $('#contenedor').load(direccion);
+       $('#contenedor2').html("");
+
 }
 function actualizar(){
 	 location.reload(true);
+}
+
+function cargarLista(direccion){        
+       $('#contenedor3').load(direccion);
+      //  $('#contenedor').html("");
+      
 }
 /*
 function selectOn(trObject)

@@ -22,7 +22,7 @@ class DataPresentacionProducto{
 	}
 
 
-	function getPrecentacionesProductos(){
+	function getPresentacionesProductos(){
 		$con = new DBConexion;
 		$lista = array();		
 		if($con->conectar()==true){		

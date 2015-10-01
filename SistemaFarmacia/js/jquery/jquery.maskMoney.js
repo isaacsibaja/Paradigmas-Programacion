@@ -83,7 +83,17 @@ input.val(setSymbol(input.val()));
                 }
 }
 
+function blurEvent(e) {
+                if ($.browser.msie) {
+                    keypressEvent(e);
+                }
 
+if (input.val()==setSymbol(getDefaultMask())) {
+if(!settings.allowZero) input.val('');
+} else {
+input.val(input.val().replace(settings.symbol,''));
+}
+}
 
 function preventDefault(e) {
 if (e.preventDefault) { //standart browsers

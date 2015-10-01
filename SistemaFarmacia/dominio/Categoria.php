@@ -7,23 +7,23 @@ class Categoria{
 	
 
 	function Categoria( $idCategoria, $descripcion ){
-		$this->set_idCategoria($idCategoria);
-		$this->set_descripcion($descripcion);
+		$this->setIdCategoria($idCategoria);
+		$this->setDescripcion($descripcion);
 		
 	}
 
 
-	public function set_idCategoria($idCategoria) {
+	public function setIdCategoria($idCategoria) {
 		$this->idCategoria = $idCategoria;
 	}
-	public function get_idCategoria() {
+	public function getIdCategoria() {
 		return $this->idCategoria;
 	}
 
-	public function set_descripcion($descripcion) {
+	public function setDescripcion($descripcion) {
 		$this->descripcion = $descripcion;
 	}
-	public function get_descripcion() {
+	public function getDescripcion() {
 		return $this->descripcion;
 	}
 

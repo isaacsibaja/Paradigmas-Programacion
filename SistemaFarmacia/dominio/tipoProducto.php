@@ -7,22 +7,22 @@ class tipoProducto{
 	
 
 	function tipoProducto( $idTipoProducto, $descripcionTipo){
-		$this->set_idTipoProducto($idTipoProducto);
-		$this->set_descripcionTipo($descripcionTipo);
+		$this->setIdTipoProducto($idTipoProducto);
+		$this->setDescripcionTipo($descripcionTipo);
 	}
 
 
-	public function set_idTipoProducto($idTipoProducto) {
+	public function setIdTipoProducto($idTipoProducto) {
 		$this->idTipoProducto = $idTipoProducto;
 	}
-	public function get_idTipoProducto() {
+	public function getIdTipoProducto() {
 		return $this->idTipoProducto;
 	}
 
-	public function set_descripcionTipo($descripcionTipo) {
+	public function setDescripcionTipo($descripcionTipo) {
 		$this->descripcionTipo = $descripcionTipo;
 	}
-	public function get_descripcionTipo() {
+	public function getDescripcionTipo() {
 		return $this->descripcionTipo;
 	}
 }

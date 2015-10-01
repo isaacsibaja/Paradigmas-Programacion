@@ -1,4 +1,5 @@
 <h1>Registro de Productos Lote</h1>
+<script lang="JavaScript" src="../js/ProductoLote.js"></script>
 <form id="formularioProductoLote" method="POST">	
 	<?php
         include ("../../controladora/productoLote/ControladoraGetProductoLote.php");
@@ -50,5 +51,5 @@
 	<input type="submit" value="Registrar" class="submit"/>	
 </form>
 
-<script lang="JavaScript" src="../js/ProductoLote.js"></script>
+
 

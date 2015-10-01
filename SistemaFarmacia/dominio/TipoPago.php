@@ -7,22 +7,22 @@ class TipoPago{
 	
 
 	function TipoPago( $idTipoPago, $descripcion){
-		$this->set_idTipoPago($idTipoPago);
-		$this->set_descripcion($descripcion);
+		$this->setIdTipoPago($idTipoPago);
+		$this->setDescripcion($descripcion);
 				
 	}
 
-	public function set_idTipoPago($idTipoPago) {
+	public function setIdTipoPago($idTipoPago) {
 		$this->idTipoPago = $idTipoPago;
 	}
-	public function get_idTipoPago() {
+	public function getIdTipoPago() {
 		return $this->idTipoPago;
 	}
 
-	public function set_descripcion($descripcion) {
+	public function setDescripcion($descripcion) {
 		$this->descripcion = $descripcion;
 	}
-	public function get_descripcion() {
+	public function getDescripcion() {
 		return $this->descripcion;
 	}
 

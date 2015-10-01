@@ -20,7 +20,7 @@ class DataProductoLote{
 				".$productoLote->getPrecioCompra().", 
 				".$productoLote->getPrecioVenta().")";		
 			$result = @mysql_query($query);	
-			//echo "$query<br/>";
+			echo "<br/>$query<br/>";
 			if (!$result){
 				return false;
 			}else{
@@ -37,8 +37,8 @@ class DataProductoLote{
 			$query = "SELECT idLote, descripcion, nombreAgente, concentracion, 
 			DATE_FORMAT(fechaIngreso,'%d-%m-%Y'), DATE_FORMAT(fechaVencimiento,'%d-%m-%Y'), cantidad, 
 			precioCompra, precioVenta FROM tbproductolote pl 
-			INNER JOIN tbProducto p ON p.idProducto = pl.idProducto 
-			INNER JOIN tbAgenteVentas av ON pl.idAgenteVenta = av.idAgenteVenta";
+			INNER JOIN tbproducto p ON p.idProducto = pl.idProducto 
+			INNER JOIN tbagenteventas av ON pl.idAgenteVenta = av.idAgenteVenta";
 			$result = @mysql_query($query);
 			//echo "$query<br/>";
 			while($row = mysql_fetch_array($result)){				
@@ -53,10 +53,10 @@ class DataProductoLote{
 		}
 	}
 
-	function eliminar($id){
+	function eliminar($idLote){
 		$con = new DBConexion;
 		if($con->conectar()==true){			
-			$query = "DELETE FROM tbproductolote WHERE idLote = ".$id;
+			$query = "DELETE FROM tbproductolote WHERE idLote = ".$idLote;
 			//echo "$query<br/>";	
 			$result = @mysql_query($query);	
 			if (!$result){
@@ -67,11 +67,11 @@ class DataProductoLote{
 		}	
 	}
 
-	function getProductoLote($id){
+	function getProductoLote($idLote){
 		$con = new DBConexion;
 		$productoLote;		
 		if($con->conectar()==true){				
-			$query = "SELECT * FROM tbproductolote WHERE idLote = ".$id;		 
+			$query = "SELECT * FROM tbproductolote WHERE idLote = ".$idLote;		 
 			$result = @mysql_query($query);
 			//echo "$query<br/>";
 			if($row = mysql_fetch_array($result)){				

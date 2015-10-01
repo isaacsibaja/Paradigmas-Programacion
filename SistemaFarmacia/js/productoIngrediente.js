@@ -17,13 +17,13 @@
 		});     	
 	}	
 
-    function registrarproductoIngrediente(){        
+    function registrarProductoIngrediente(){        
    
         $('#contenedor').load("../interfaz/productoIngrediente/ProductoIngrediente.php");
   
 }
 
-function cargarListaproductoIngrediente() {
+function cargarListaProductoIngrediente() {
     $.post("../interfaz/productoIngrediente/ProductoLista.php",
         {},
         function (data)
@@ -32,13 +32,13 @@ function cargarListaproductoIngrediente() {
         });
 }
 
-function eliminarproductoIngrediente(idP, idI){
+function eliminarProductoIngrediente(idP, idI){
       alert(idP + "  -  " + idI);
     if (confirm("¿Esta apunto de eliminar este ingrediente Activo = " + idP + " ?")) {
-		$.post("../controladora/productoIngrediente/ControladoraproductoIngrediente.php", 
+		$.post("../controladora/productoIngrediente/ControladoraProductoIngrediente.php", 
 	    {
 		    accion: "eliminar", 
-		    idproductoIngrediente : idP,
+		    idProducto : idP,
 		    idIngredienteActivo : idI
 	    },
 	    function(data)
@@ -75,12 +75,12 @@ function eliminarproductoIngrediente(idP, idI){
     });
 } ) (jQuery, window, document);
 
-function modificarproductoIngrediente(){
+function modificarProductoIngrediente(){
 	var formData = new FormData(document.getElementById("formularioModificarproductoIngrediente"));
     
 	formData.append("accion", "modificar");//Indica el metodo o funcion
 	$.ajax({
-	url : "../controladora/productoIngrediente/ControladoraproductoIngrediente.php",
+	url : "../controladora/productoIngrediente/ControladoraProductoIngrediente.php",
 	type : "post",
 	dataType : "html",
 	data : formData,
@@ -107,12 +107,3 @@ function seleccionarProductoIngrediente(idP){
     	});
     
 }
-
-$(function(){
-    $.post("../interfaz/productoIngrediente/ProductoLista.php",
-    {},
-    function (data)
-    {
-        $('#contenedor3').html(data);
-    });    
-});
