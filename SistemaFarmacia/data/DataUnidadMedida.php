@@ -6,10 +6,50 @@ class DataUnidadMedida{
 	function DataUnidadMedida(){
 	}
 
+
+	function getId(){
+		$con = new DBConexion;
+		if($con->conectar()==true){		
+
+			$query = mysql_query("SELECT count(*) from tbunidadmedida");
+			if ($row = mysql_fetch_row($query)) {
+				$cantidadRegistro = trim($row[0]);
+			}
+						
+			$query = mysql_query("SELECT MAX(idUnidadMedida) AS idUnidadMedida FROM tbunidadmedida");
+			if ($row = mysql_fetch_row($query)) {
+				$UltimoId = trim($row[0]);				
+			}
+			$UltimoId+=1;
+		}
+		if($cantidadRegistro == $UltimoId){
+			return $UltimoId;
+		}else{
+			$lista = array();
+			$contador = 1;
+			$query = "SELECT idUnidadMedida FROM tbunidadmedida";
+			$result = @mysql_query($query);			
+			while($row = mysql_fetch_array($result)){	 		
+				array_push($lista, $row[0]);
+			}
+			foreach ($lista as $dato) {
+
+				if($contador != $dato){
+					break;
+				}
+				$contador++;
+			}
+			return $contador;
+		}			
+	}
+	
+	
 	function insertar($unidadMedida){
 		$con = new DBConexion;
-		if($con->conectar()==true){			
-			$query = "INSERT INTO tbunidadmedida(descripcionUnidad) VALUES (
+		if($con->conectar()==true){	
+		$id = $this->getId();		
+			$query = "INSERT INTO tbunidadmedida(idUnidadMedida,descripcionUnidad) VALUES (
+				".$id.",
 				'".$unidadMedida->getDescripcionUnidad()."')";		
 			$result = @mysql_query($query);	
 			if (!$result){

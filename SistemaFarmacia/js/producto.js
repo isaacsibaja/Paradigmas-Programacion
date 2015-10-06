@@ -37,7 +37,7 @@
 		contentType : false,
 		processData : false
 		}).done(function(data) {
-			$("#contenedor2").html(data);
+			$("#contenedoMensaje").html(data);
 			cargarListaProducto();
 		});     	
 	}	
@@ -48,7 +48,7 @@ function registrarProducto(){
     {},
     function (data)
     {
-        $('#contenedor').html(data);
+        $('#contenedorFormulario').html(data);
     }); 
 }
 
@@ -57,7 +57,7 @@ function cargarListaProducto() {
         {},
         function (data)
         {
-            $('#contenedor3').html(data);
+            $('#contenedorLista').html(data);
         });
 }
 
@@ -71,7 +71,7 @@ function eliminarProducto(id){
 	    },
 	    function(data)
 	    {               
-	    	$('#contenedor2').html(data);
+	    	$('#contenedoMensaje').html(data);
 	    	cargarListaProducto();
     	});
     }
@@ -119,7 +119,7 @@ function modificarProducto(){
 	contentType : false,
 	processData : false
 	}).done(function(data) {
-		$("#contenedor2").html(data);
+		$("#contenedoMensaje").html(data);
 		cargarListaProducto();
 	});
  	
@@ -135,7 +135,7 @@ function modificarProductoConsulta(id){
 
 	    function(data)
 	    {               
-	    	$('#contenedor').html(data);
+	    	$('#contenedorFormulario').html(data);
     	});
     
 }
@@ -145,11 +145,11 @@ $(function(){
     {},
     function (data)
     {
-        $('#contenedor3').html(data);
+        $('#contenedorLista').html(data);
     });    
 });
 
 
 $(function(){ 
-    $('#contenedor2').html("");    
+    $('#contenedoMensaje').html("");    
 });

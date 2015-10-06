@@ -6,11 +6,50 @@ class DataProducto{
 	function DataProducto(){
 	}
 	
+	function getId(){
+		$con = new DBConexion;
+		if($con->conectar()==true){		
+
+			$query = mysql_query("SELECT count(*) from tbproducto");
+			if ($row = mysql_fetch_row($query)) {
+				$cantidadRegistro = trim($row[0]);
+			}
+						
+			$query = mysql_query("SELECT MAX(idProducto) AS idProducto FROM tbproducto");
+			if ($row = mysql_fetch_row($query)) {
+				$UltimoId = trim($row[0]);				
+			}
+			$UltimoId+=1;
+		}
+		if($cantidadRegistro == $UltimoId){
+			return $UltimoId;
+		}else{
+			$lista = array();
+			$contador = 1;
+			$query = "SELECT idProducto FROM tbproducto";
+			$result = @mysql_query($query);			
+			while($row = mysql_fetch_array($result)){	 		
+				array_push($lista, $row[0]);
+			}
+			foreach ($lista as $dato) {
+
+				if($contador != $dato){
+					break;
+				}
+				$contador++;
+			}
+			return $contador;
+		}			
+	}
+	
+	
 	function insertar($producto){
 		$con = new DBConexion;
-		if($con->conectar()==true){			
-			$query = "INSERT INTO tbproducto( idCategoria, idTipoProducto,
+		if($con->conectar()==true){	
+		$id = $this->getId();		
+			$query = "INSERT INTO tbproducto(idProducto, idCategoria, idTipoProducto,
 			 idPresentacionProducto, idUnidadMedida, descripcion) VALUES (
+			 	".$id.",
 				".$producto->getIdCategoria().",
 				".$producto->getIdTipoProducto().",
 				".$producto->getIdPresentacionProducto().",

@@ -37,7 +37,7 @@
 		contentType : false,
 		processData : false
 		}).done(function(data) {
-			$("#contenedor2").html(data);
+			$("#contenedoMensaje").html(data);
 			cargarLista();
 		});     	
 	}	
@@ -47,7 +47,7 @@ function registrarCategoria(){
     {},
     function (data)
     {
-        $('#contenedor').html(data);
+        $('#contenedorFormulario').html(data);
     }); 
 }
 
@@ -56,7 +56,7 @@ function cargarLista() {
         {},
         function (data)
         {
-            $('#contenedor3').html(data);
+            $('#contenedorLista').html(data);
         });
 }
 
@@ -69,7 +69,7 @@ function eliminarCategoria(id){
 	    },
 	    function(data)
 	    {               
-	    	$('#contenedor2').html(data);
+	    	$('#contenedoMensaje').html(data);
 	    	cargarLista();
     	});
     }
@@ -116,7 +116,7 @@ function modificarCategoria(){
 	contentType : false,
 	processData : false
 	}).done(function(data) {
-		$("#contenedor2").html(data);
+		$("#contenedoMensaje").html(data);
 		cargarLista();
 	}); 	
 }	
@@ -130,7 +130,7 @@ function modificarCategoriaConsulta(id){
 
     function(data)
     {               
-    	$('#contenedor').html(data);
+    	$('#contenedorFormulario').html(data);
 	});
     
 }//Mostra el formulario para modificar
@@ -140,10 +140,10 @@ $(function(){
     {},
     function (data)
     {
-        $('#contenedor3').html(data);
+        $('#contenedorLista').html(data);
     });    
 });
 
 $(function(){ 
-    $('#contenedor2').html("");    
+    $('#contenedoMensaje').html("");    
 });

@@ -6,19 +6,27 @@ function cargarPagina(direccion){
     {
         $('#contenedor').html(data);
     });*/
-    	 $('#contenedor').load(direccion);
-       $('#contenedor2').html("");
+	$('#contenedorFormulario').load(direccion);
+  $('#contenedoMensaje').html("");
+  $('#contenedorLista').html("");
 
 }
+
 function actualizar(){
 	 location.reload(true);
 }
 
 function cargarLista(direccion){        
-       $('#contenedor3').load(direccion);
-      //  $('#contenedor').html("");
+  $('#contenedorLista').load(direccion);
+
+  $('#contenedorFormulario').html("");
       
 }
+
+$(function(){   
+  $('#contenedorIndicadorBCCR').load("../herramientas/Obtener_Indicadores_BCCR/ejemplo.php");        
+});
+
 /*
 function selectOn(trObject)
 	{

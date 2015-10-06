@@ -6,10 +6,49 @@ class DataEntrega{
 	function DataEntrega(){
 	}
 
+	function getId(){
+		$con = new DBConexion;
+		if($con->conectar()==true){		
+
+			$query = mysql_query("SELECT count(*) from tbentrega");
+			if ($row = mysql_fetch_row($query)) {
+				$cantidadRegistro = trim($row[0]);
+			}
+						
+			$query = mysql_query("SELECT MAX(idEntrega) AS idEntrega FROM tbentrega");
+			if ($row = mysql_fetch_row($query)) {
+				$UltimoId = trim($row[0]);				
+			}
+			$UltimoId+=1;
+		}
+		if($cantidadRegistro == $UltimoId){
+			return $UltimoId;
+		}else{
+			$lista = array();
+			$contador = 1;
+			$query = "SELECT idEntrega FROM tbentrega";
+			$result = @mysql_query($query);			
+			while($row = mysql_fetch_array($result)){	 		
+				array_push($lista, $row[0]);
+			}
+			foreach ($lista as $dato) {
+
+				if($contador != $dato){
+					break;
+				}
+				$contador++;
+			}
+			return $contador;
+		}			
+	}
+	
+
 	function insertar($entrega){
 		$con = new DBConexion;
-		if($con->conectar()==true){			
-			$query = "INSERT INTO tbentrega(idFactura, estadoEntrega)  VALUES (
+		if($con->conectar()==true){
+		$id = $this->getId();			
+			$query = "INSERT INTO tbentrega(idEntrega, idFactura, estadoEntrega)  VALUES (
+				".$id.",
 				".$entrega->getIdFactura().", 
 				'".$entrega->getEstadoEntrega()."')";		
 			$result = @mysql_query($query);	

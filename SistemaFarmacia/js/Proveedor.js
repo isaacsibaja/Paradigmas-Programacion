@@ -64,19 +64,19 @@ $("#telefonoProveedor").mask('9999 9999');
 		contentType : false,
 		processData : false
 		}).done(function(data) {
-			$("#contenedor2").html(data);
+			$("#contenedoMensaje").html(data);
 			cargarListaProveedor();
 		});     	
 	}	
 
-    registrarProveedor
+
 
     function registrarProveedor(){        
      $.post("../interfaz/proveedor/Proveedor.php",
     {},
     function (data)
     {
-        $('#contenedor').html(data);
+        $('#contenedorFormulario').html(data);
     }); 
 }
 
@@ -85,7 +85,7 @@ function cargarListaProveedor() {
         {},
         function (data)
         {
-            $('#contenedor3').html(data);
+            $('#contenedorLista').html(data);
         });
 }
 
@@ -99,7 +99,7 @@ function eliminarProveedor(id){
 	    },
 	    function(data)
 	    {               
-	    	$('#contenedor2').html(data);
+	    	$('#contenedoMensaje').html(data);
 	    	cargarListaProveedor();
     	});
     }
@@ -170,7 +170,7 @@ function modificarProveedor(){
 	contentType : false,
 	processData : false
 	}).done(function(data) {
-		$("#contenedor2").html(data);
+		$("#contenedoMensaje").html(data);
 		cargarListaProveedor();
 	});
  	
@@ -186,7 +186,7 @@ function modificarProveedorConsulta(id){
 
 	    function(data)
 	    {               
-	    	$('#contenedor').html(data);
+	    	$('#contenedorFormulario').html(data);
     	});
     
 }
@@ -196,11 +196,11 @@ $(function(){
     {},
     function (data)
     {
-        $('#contenedor3').html(data);
+        $('#contenedorLista').html(data);
     });    
 });
 
 
 $(function(){ 
-    $('#contenedor2').html("");    
+    $('#contenedoMensaje').html("");    
 });

@@ -12,7 +12,7 @@
 		contentType : false,
 		processData : false
 		}).done(function(data) {
-			$("#contenedor2").html(data);
+			$("#contenedoMensaje").html(data);
 			seleccionarProductoIngrediente($('#idProducto').val());
 		});     	
 	}	
@@ -28,7 +28,7 @@ function cargarListaProductoIngrediente() {
         {},
         function (data)
         {
-            $('#contenedor3').html(data);
+            $('#contenedorLista').html(data);
         });
 }
 
@@ -43,7 +43,7 @@ function eliminarProductoIngrediente(idP, idI){
 	    },
 	    function(data)
 	    {               
-	    	$('#contenedor2').html(data);
+	    	$('#contenedoMensaje').html(data);
 	    	seleccionarProductoIngrediente(idP);
     	});
     }
@@ -88,7 +88,7 @@ function modificarProductoIngrediente(){
 	contentType : false,
 	processData : false
 	}).done(function(data) {
-		$("#contenedor2").html(data);
+		$("#contenedoMensaje").html(data);
 		cargarListaproductoIngrediente();
 	});
  	
@@ -103,7 +103,8 @@ function seleccionarProductoIngrediente(idP){
 	    },
 	    function(data)
 	    {               
-	    	$('#contenedor').html(data);
+	    	$('#contenedorFormulario').html(data);
     	});
     
 }
+

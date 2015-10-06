@@ -62,7 +62,7 @@
 		contentType : false,
 		processData : false
 		}).done(function(data) {
-			$("#contenedor2").html(data);
+			$("#contenedoMensaje").html(data);
 			cargarListaAgenteVentas();
 		});     	
 	}	
@@ -74,7 +74,7 @@
     {},
     function (data)
     {
-        $('#contenedor').html(data);
+        $('#contenedorFormulario').html(data);
     }); 
 }
 
@@ -83,7 +83,7 @@ function cargarListaAgenteVentas() {
         {},
         function (data)
         {
-            $('#contenedor3').html(data);
+            $('#contenedorLista').html(data);
         });
 }
 
@@ -97,7 +97,7 @@ function eliminarAgenteVentas(id){
 	    },
 	    function(data)
 	    {               
-	    	$('#contenedor2').html(data);
+	    	$('#contenedoMensaje').html(data);
 	    	cargarListaAgenteVentas();
     	});
     }
@@ -168,7 +168,7 @@ function modificarAgenteVentas(){
 	contentType : false,
 	processData : false
 	}).done(function(data) {
-		$("#contenedor2").html(data);
+		$("#contenedoMensaje").html(data);
 		cargarListaAgenteVentas();
 	});
  	
@@ -184,7 +184,7 @@ function modificarAgenteVentasConsulta(id){
 
 	    function(data)
 	    {               
-	    	$('#contenedor').html(data);
+	    	$('#contenedorFormulario').html(data);
     	});
     
 }
@@ -194,11 +194,11 @@ $(function(){
     {},
     function (data)
     {
-        $('#contenedor3').html(data);
+        $('#contenedorLista').html(data);
     });    
 });
 
 
 $(function(){ 
-    $('#contenedor2').html("");    
+    $('#contenedoMensaje').html("");    
 });

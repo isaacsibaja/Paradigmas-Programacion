@@ -1,6 +1,6 @@
 (function($,W,D){
     var JQUERY4U = {};
- 
+    
     JQUERY4U.UTIL ={
         setupFormValidation: function()
         {
@@ -41,19 +41,21 @@
         contentType : false,
         processData : false
         }).done(function(data) {
-            $("#contenedor2").html(data);
+            $("#contenedoMensaje").html(data);
             cargarListaUnidadMedida();
         });         
     }   
 
-    registrarUnidadMedida
+    contenedorFormulario
+contenedoMensaje
+contenedorLista
 
     function registrarUnidadMedida(){        
      $.post("../interfaz/unidadMedida/UnidadMedida.php",
     {},
     function (data)
     {
-        $('#contenedor').html(data);
+        $('#contenedorFormulario').html(data);
     }); 
 }
 
@@ -62,7 +64,7 @@ function cargarListaUnidadMedida() {
         {},
         function (data)
         {
-            $('#contenedor3').html(data);
+            $('#contenedorLista').html(data);
         });
 }
 
@@ -76,7 +78,7 @@ function eliminarUnidadMedida(id){
         },
         function(data)
         {               
-            $('#contenedor2').html(data);
+            $('#contenedoMensaje').html(data);
             cargarListaUnidadMedida();
         });
     }
@@ -126,7 +128,7 @@ function modificarUnidadMedida(){
     contentType : false,
     processData : false
     }).done(function(data) {
-        $("#contenedor2").html(data);
+        $("#contenedoMensaje").html(data);
         cargarListaUnidadMedida();
     });
     
@@ -142,7 +144,7 @@ function modificarUnidadMedidaConsulta(id){
 
         function(data)
         {               
-            $('#contenedor').html(data);
+            $('#contenedorFormulario').html(data);
         });
 }
 
@@ -151,11 +153,11 @@ $(function(){
     {},
     function (data)
     {
-        $('#contenedor3').html(data);
+        $('#contenedorLista').html(data);
     });    
 });
 
 
 $(function(){ 
-    $('#contenedor2').html("");    
+    $('#contenedoMensaje').html("");    
 });

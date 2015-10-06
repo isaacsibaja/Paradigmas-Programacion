@@ -10,6 +10,7 @@
 	<a href='#' onclick="cargarLista()">Lista Categorias</a>
 	<br/>
 	<a href='#' onclick="registrarCategoria()">Registrar Categoria</a>
+	<br/>
 	<label for="descripcion">Descripcion: </label><!-- for descripcion es donde se muestra el msj-->					
 	<?php
 		echo "<input type=\"hidden\" id=\"idCategoria\" name=\"idCategoria\" value=\"".$categoria->getIdCategoria()."\" />";

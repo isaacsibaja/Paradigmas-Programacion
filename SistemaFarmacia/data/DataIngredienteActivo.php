@@ -6,11 +6,51 @@ class DataIngredienteActivo{
 	function DataIngredienteActivo(){
 	}
 
+	function getId(){
+		$con = new DBConexion;
+		if($con->conectar()==true){		
+
+			$query = mysql_query("SELECT count(*) from tbingredienteactivo");
+			if ($row = mysql_fetch_row($query)) {
+				$cantidadRegistro = trim($row[0]);
+			}
+						
+			$query = mysql_query("SELECT MAX(idIngredienteActivo) AS idIngredienteActivo FROM tbingredienteactivo");
+			if ($row = mysql_fetch_row($query)) {
+				$UltimoId = trim($row[0]);				
+			}
+			$UltimoId+=1;
+		}
+		if($cantidadRegistro == $UltimoId){
+			return $UltimoId;
+		}else{
+			$lista = array();
+			$contador = 1;
+			$query = "SELECT idIngredienteActivo FROM tbingredienteactivo";
+			$result = @mysql_query($query);			
+			while($row = mysql_fetch_array($result)){	 		
+				array_push($lista, $row[0]);
+			}
+			foreach ($lista as $dato) {
+
+				if($contador != $dato){
+					break;
+				}
+				$contador++;
+			}
+			return $contador;
+		}			
+	}
+	
+	
 	function insertar($ingredienteActivo){
 		$con = new DBConexion;
-		if($con->conectar()==true){			
-			$query = "INSERT INTO tbingredienteactivo(descripcionIngrediente) 
-					VALUES ('".$ingredienteActivo->getDescripcionIngrediente()."')";
+		if($con->conectar()==true){	
+		$id = $this->getId();		
+			$query = "INSERT INTO tbingredienteactivo(idIngredienteActivo, descripcionIngrediente) 
+					VALUES (
+						".$id.",	
+						'".$ingredienteActivo->getDescripcionIngrediente()."')";
 			$result = @mysql_query($query);	
 			//echo "$query<br/>";
 			if (!$result){

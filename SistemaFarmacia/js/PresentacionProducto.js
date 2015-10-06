@@ -28,7 +28,6 @@
  
 } ) (jQuery, window, document);
 
-
 	function guardarPresentacionProducto(){
 		var formData = new FormData(document.getElementById("formularioPresentacionProducto"));        
 		formData.append("accion", "insertar");
@@ -41,7 +40,7 @@
 		contentType : false,
 		processData : false
 		}).done(function(data) {
-			$("#contenedor2").html(data);
+			$("#contenedoMensaje").html(data);
 			cargarListaPresentacionProducto();
 		});     	
 	}	
@@ -53,7 +52,7 @@
     {},
     function (data)
     {
-        $('#contenedor').html(data);
+        $('#contenedorFormulario').html(data);
     }); 
 }
 
@@ -62,7 +61,7 @@ function cargarListaPresentacionProducto() {
         {},
         function (data)
         {
-            $('#contenedor3').html(data);
+            $('#contenedorLista').html(data);
         });
 }
 
@@ -76,7 +75,7 @@ function eliminarPresentacionProducto(id){
 	    },
 	    function(data)
 	    {               
-	    	$('#contenedor2').html(data);
+	    	$('#contenedoMensaje').html(data);
 	    	cargarListaPresentacionProducto();
     	});
     }
@@ -126,7 +125,7 @@ function modificarPresentacionProducto(){
 	contentType : false,
 	processData : false
 	}).done(function(data) {
-		$("#contenedor2").html(data);
+		$("#contenedoMensaje").html(data);
 		cargarListaPresentacionProducto();
 	});
  	
@@ -142,7 +141,7 @@ function modificarPresentacionProductoConsulta(id){
 
 	    function(data)
 	    {               
-	    	$('#contenedor').html(data);
+	    	$('#contenedorFormulario').html(data);
     	});
 }
 
@@ -151,11 +150,11 @@ $(function(){
     {},
     function (data)
     {
-        $('#contenedor3').html(data);
+        $('#contenedorLista').html(data);
     });    
 });
 
 
 $(function(){ 
-    $('#contenedor2').html("");    
+    $('#contenedoMensaje').html("");    
 });

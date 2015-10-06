@@ -6,12 +6,49 @@ class DataCasaComercial{
 	function DataCasaComercial(){
 	}
 
+	function getId(){
+		$con = new DBConexion;
+		if($con->conectar()==true){		
+
+			$query = mysql_query("SELECT count(*) from tbcasacomercial");
+			if ($row = mysql_fetch_row($query)) {
+				$cantidadRegistro = trim($row[0]);
+			}
+						
+			$query = mysql_query("SELECT MAX(idCasaComercial) AS idCasaComercial FROM tbcasacomercial");
+			if ($row = mysql_fetch_row($query)) {
+				$UltimoId = trim($row[0]);				
+			}
+			$UltimoId+=1;
+		}
+		if($cantidadRegistro == $UltimoId){
+			return $UltimoId;
+		}else{
+			$lista = array();
+			$contador = 1;
+			$query = "SELECT idCasaComercial FROM tbcasacomercial";
+			$result = @mysql_query($query);			
+			while($row = mysql_fetch_array($result)){	 		
+				array_push($lista, $row[0]);
+			}
+			foreach ($lista as $dato) {
+
+				if($contador != $dato){
+					break;
+				}
+				$contador++;
+			}
+			return $contador;
+		}			
+	}
+
 	function insertar($casaComercial){
 		$con = new DBConexion;
 		if($con->conectar()==true){
-			
-			$query = "INSERT INTO tbcasacomercial(direccionCasaComercial, nombreCasaComercial, telefonoCasaComercial,
+			$id = $this->getId();
+			$query = "INSERT INTO tbcasacomercial(idCasaComercial, direccionCasaComercial, nombreCasaComercial, telefonoCasaComercial,
 			 correoCasaComercial, faxCasaComercial) VALUES (
+			 	".$id.",
 				'".$casaComercial->getDireccionCasaComercial()."',
 				'".$casaComercial->getNombreCasaComercial()."',
 				'".$casaComercial->getTelefonoCasaComercial()."',

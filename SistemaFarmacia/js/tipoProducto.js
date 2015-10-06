@@ -41,19 +41,17 @@
         contentType : false,
         processData : false
         }).done(function(data) {
-            $("#contenedor2").html(data);
+            $("#contenedoMensaje").html(data);
             cargarListaTipoProducto();
         });         
     }   
-
-    registrarTipoProducto
 
     function registrarTipoProducto(){        
      $.post("../interfaz/tipoProducto/TipoProducto.php",
     {},
     function (data)
     {
-        $('#contenedor').html(data);
+        $('#contenedorFormulario').html(data);
     }); 
 }
 
@@ -62,7 +60,7 @@ function cargarListaTipoProducto() {
         {},
         function (data)
         {
-            $('#contenedor3').html(data);
+            $('#contenedorLista').html(data);
         });
 }
 
@@ -76,7 +74,7 @@ function eliminarTipoProducto(id){
         },
         function(data)
         {               
-            $('#contenedor2').html(data);
+            $('#contenedoMensaje').html(data);
             cargarListaTipoProducto();
         });
     }
@@ -126,7 +124,7 @@ function modificarTipoProducto(){
     contentType : false,
     processData : false
     }).done(function(data) {
-        $("#contenedor2").html(data);
+        $("#contenedoMensaje").html(data);
         cargarListaTipoProducto();
     });
     
@@ -142,7 +140,7 @@ function modificarTipoProductoConsulta(id){
 
         function(data)
         {               
-            $('#contenedor').html(data);
+            $('#contenedorFormulario').html(data);
         });
 }
 
@@ -151,11 +149,11 @@ $(function(){
     {},
     function (data)
     {
-        $('#contenedor3').html(data);
+        $('#contenedorLista').html(data);
     });    
 });
 
 
 $(function(){ 
-    $('#contenedor2').html("");    
+    $('#contenedoMensaje').html("");    
 });

@@ -6,6 +6,8 @@ class DataProveedorDireccion{
 	function DataProveedorDireccion(){
 	}
 
+	
+
 	function insertar($proveedorDireccion){
 		$con = new DBConexion;
 		if($con->conectar()==true){			

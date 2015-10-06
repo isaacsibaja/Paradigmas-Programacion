@@ -78,7 +78,7 @@ $("#fechaVencimiento").mask('99-99-9999');
 		contentType : false,
 		processData : false
 		}).done(function(data) {
-			$("#contenedor2").html(data);
+			$("#contenedoMensaje").html(data);
 			cargarListaProductoLote();
 		});     	
 	}	
@@ -89,7 +89,7 @@ function registrarProductoLote(){
     {},
     function (data)
     {
-        $('#contenedor').html(data);
+        $('#contenedorFormulario').html(data);
     }); 
 }
 
@@ -98,7 +98,7 @@ function cargarListaProductoLote() {
         {},
         function (data)
         {
-            $('#contenedor3').html(data);
+            $('#contenedorLista').html(data);
         });
 }
 
@@ -112,7 +112,7 @@ function eliminarProductoLote(id){
 	    },
 	    function(data)
 	    {               
-	    	$('#contenedor2').html(data);
+	    	$('#contenedoMensaje').html(data);
 	    	cargarListaProductoLote();
     	});
     }
@@ -170,7 +170,7 @@ function modificarProductoLote(){
 	contentType : false,
 	processData : false
 	}).done(function(data) {
-		$("#contenedor2").html(data);
+		$("#contenedoMensaje").html(data);
 		cargarListaProductoLote();
 	});
  	
@@ -186,7 +186,7 @@ function modificarProductoLoteConsulta(id){
 
 	    function(data)
 	    {               
-	    	$('#contenedor').html(data);
+	    	$('#contenedorFormulario').html(data);
     	});
     
 }
@@ -196,11 +196,11 @@ $(function(){
     {},
     function (data)
     {
-        $('#contenedor3').html(data);
+        $('#contenedorLista').html(data);
     });    
 });
 
 
 $(function(){ 
-    $('#contenedor2').html("");    
+    $('#contenedoMensaje').html("");    
 });

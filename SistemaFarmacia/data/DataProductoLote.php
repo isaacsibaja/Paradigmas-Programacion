@@ -5,12 +5,50 @@ class DataProductoLote{
 
 	function DataProductoLote(){
 	}
+
+	function getId(){
+		$con = new DBConexion;
+		if($con->conectar()==true){		
+
+			$query = mysql_query("SELECT count(*) from tbproductolote");
+			if ($row = mysql_fetch_row($query)) {
+				$cantidadRegistro = trim($row[0]);
+			}
+						
+			$query = mysql_query("SELECT MAX(idLote) AS idLote FROM tbproductolote");
+			if ($row = mysql_fetch_row($query)) {
+				$UltimoId = trim($row[0]);				
+			}
+			$UltimoId+=1;
+		}
+		if($cantidadRegistro == $UltimoId){
+			return $UltimoId;
+		}else{
+			$lista = array();
+			$contador = 1;
+			$query = "SELECT idLote FROM tbproductolote";
+			$result = @mysql_query($query);			
+			while($row = mysql_fetch_array($result)){	 		
+				array_push($lista, $row[0]);
+			}
+			foreach ($lista as $dato) {
+
+				if($contador != $dato){
+					break;
+				}
+				$contador++;
+			}
+			return $contador;
+		}			
+	}
 	
 	function insertar($productoLote){
 		$con = new DBConexion;
-		if($con->conectar()==true){			
-			$query = "INSERT INTO tbproductolote( idProducto, idAgenteVenta, concentracion,
+		if($con->conectar()==true){	
+		$id = $this->getId();		
+			$query = "INSERT INTO tbproductolote(idLote, idProducto, idAgenteVenta, concentracion,
 			 fechaIngreso, fechaVencimiento, cantidad, precioCompra, precioVenta) VALUES (
+			 	".$id.",
 				".$productoLote->getIdProducto().", 
 				".$productoLote->getIdAgenteVenta().", 
 				".$productoLote->getConcentracion().", 
@@ -38,7 +76,7 @@ class DataProductoLote{
 			DATE_FORMAT(fechaIngreso,'%d-%m-%Y'), DATE_FORMAT(fechaVencimiento,'%d-%m-%Y'), cantidad, 
 			precioCompra, precioVenta FROM tbproductolote pl 
 			INNER JOIN tbproducto p ON p.idProducto = pl.idProducto 
-			INNER JOIN tbagenteventas av ON pl.idAgenteVenta = av.idAgenteVenta";
+			INNER JOIN tbagenteventas av ON pl.idAgenteVenta = av.idAgenteVenta ORDER BY idLote"  ;
 			$result = @mysql_query($query);
 			//echo "$query<br/>";
 			while($row = mysql_fetch_array($result)){				

@@ -25,7 +25,8 @@
 		</head>
 
 		<body>
-		
+			<div id="contenedorIndicadorBCCR"></div><!--Cargar Lista-->
+			<br/>
 			<label><a href='#' onclick="cargarPagina('./casaComercial/CasaComercial.php')">Casa Comercial (Pendiente)</a></label>
 			<br/>
 			|/\/\|\/\/|/\/\|\/\/|/\/\|\/\/|/\/\|\/\/|/\/\|\/\/|/\/\|\/\/|/\/\|\/\/|/\/\|\/\/|/\/\|\/\/|/\/\|\/\/|/\/\|\/\/|/\/\|\/\/|
@@ -33,21 +34,21 @@
 			<label><a href='#' onclick="actualizar()">Actualizar</a></label>
 			<br/>
 			<label><a href='#' onclick="cargarPagina('./categoria/Categoria.php')">Categoria</a></label>
-			<br/>
-			<label><a href='#' onclick="cargarPagina('./producto/Producto.php')">Producto</a></label>
-			<br/>
-			<label><a href='#' onclick="cargarLista('./productoIngrediente/ProductoLista.php')">Producto Ingrediente</a></label>
+			<br/>			
+			<label><a href='#' onclick="cargarPagina('./presentacionProducto/PresentacionProducto.php')">Presentacion Producto</a></label>
 			<br/>
 			<label><a href='#' onclick="cargarPagina('./ingredienteActivo/IngredienteActivo.php')">Ingrediente Activo</a></label>
 			<br/>
-			<label><a href='#' onclick="cargarPagina('./presentacionProducto/PresentacionProducto.php')">Presentacion Producto</a></label>
-			<br/>
 			<label><a href='#' onclick="cargarPagina('./unidadMedida/UnidadMedida.php')">Unidad Medida</a></label>
-			<br/>
-			<label><a href='#' onclick="cargarPagina('./agenteVentas/AgenteVentas.php')">Agente Ventas</a></label>
 			<br/>
 			<label><a href='#' onclick="cargarPagina('./tipoProducto/TipoProducto.php')">Tipo Producto</a></label>
 			<br/>
+			<label><a href='#' onclick="cargarPagina('./producto/Producto.php')">Producto</a></label>
+			<br/>		
+			<label><a href='#' onclick="cargarLista('./productoIngrediente/ProductoLista.php')">Producto Ingrediente</a></label>
+			<br/>		
+			<label><a href='#' onclick="cargarPagina('./agenteVentas/AgenteVentas.php')">Agente Ventas</a></label>
+			<br/>			
 			<label><a href='#' onclick="cargarPagina('./productoLote/ProductoLote.php')">Producto Lote</a></label>
 			<br/>
 			<label><a href='#' onclick="cargarPagina('./importarExcel/importar.php')">Importar excel</a></label>
@@ -55,13 +56,19 @@
 			<label><a href='#' onclick="cargarPagina('../exportar/')">Exportar</a></label>
 			<br/>
 			<br/>
+			<label><a href='#' onclick="cargarPagina('./sistemaExperto/')">Consulta</a></label>
+			<br/>
+
+			<br/>
 			<!--<h1>Formulario</h1>-->
-			<div id="contenedor"></div><!--Mi contenedor principal-->
+			<div id="contenedorFormulario"></div><!--Mi contenedor principal-->
 			<br/>
 			<!--<h1>Estado</h1>-->
-			<div id="contenedor2"></div><!--Msj de estado-->
+			<div id="contenedoMensaje"></div><!--Msj de estado-->
 			<br/>
 			<!--<h1>Lista</h1>-->
-			<div id="contenedor3"></div><!--Cargar Lista-->
+			<div id="contenedorLista"></div><!--Cargar Lista-->
 			<br/>
+			</body>
+
 </html>

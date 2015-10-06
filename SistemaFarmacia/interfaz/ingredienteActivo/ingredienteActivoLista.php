@@ -16,8 +16,7 @@
                 <th><p>Modificar</p></th>	                   
        		</tr>
     		</thead>
-			<tbody>";
-			$i=0;				
+			<tbody>";			
 			foreach ($lista as $ingrediente){
             	echo "<tr>";
 		            echo "<td>".$ingrediente->getIdIngredienteActivo()."</td>";

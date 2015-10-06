@@ -37,15 +37,13 @@
 		contentType : false,
 		processData : false
 		}).done(function(data) {
-			$("#contenedor2").html(data);
+			$("#contenedoMensaje").html(data);
 			cargarListaIngredienteActivo();
 		});     	
 	}	
 
-    function registrarIngredienteActivo(){        
-   
-        $('#contenedor').load("../interfaz/ingredienteActivo/IngredienteActivo.php");
-  
+function registrarIngredienteActivo(){   
+    $('#contenedorFormulario').load("../interfaz/ingredienteActivo/IngredienteActivo.php");
 }
 
 function cargarListaIngredienteActivo() {
@@ -53,7 +51,7 @@ function cargarListaIngredienteActivo() {
         {},
         function (data)
         {
-            $('#contenedor3').html(data);
+            $('#contenedorLista').html(data);
         });
 }
 
@@ -67,7 +65,7 @@ function eliminarIngredienteActivo(id){
 	    },
 	    function(data)
 	    {               
-	    	$('#contenedor2').html(data);
+	    	$('#contenedoMensaje').html(data);
 	    	cargarListaIngredienteActivo();
     	});
     }
@@ -112,7 +110,7 @@ function modificarIngredienteActivo(){
 	contentType : false,
 	processData : false
 	}).done(function(data) {
-		$("#contenedor2").html(data);
+		$("#contenedoMensaje").html(data);
 		cargarListaIngredienteActivo();
 	});
  	
@@ -127,7 +125,7 @@ function modificarIngredienteActivoConsulta(id){
 	    },
 	    function(data)
 	    {               
-	    	$('#contenedor').html(data);
+	    	$('#contenedorFormulario').html(data);
     	});
     
 }
@@ -137,6 +135,6 @@ $(function(){
     {},
     function (data)
     {
-        $('#contenedor3').html(data);
+        $('#contenedorLista').html(data);
     });    
 });
