@@ -62,7 +62,7 @@
 		contentType : false,
 		processData : false
 		}).done(function(data) {
-			$("#contenedoMensaje").html(data);
+			$("#contenedorMensaje").html(data);
 			cargarListaAgenteVentas();
 		});     	
 	}	
@@ -97,7 +97,7 @@ function eliminarAgenteVentas(id){
 	    },
 	    function(data)
 	    {               
-	    	$('#contenedoMensaje').html(data);
+	    	$('#contenedorMensaje').html(data);
 	    	cargarListaAgenteVentas();
     	});
     }
@@ -168,7 +168,7 @@ function modificarAgenteVentas(){
 	contentType : false,
 	processData : false
 	}).done(function(data) {
-		$("#contenedoMensaje").html(data);
+		$("#contenedorMensaje").html(data);
 		cargarListaAgenteVentas();
 	});
  	
@@ -200,5 +200,5 @@ $(function(){
 
 
 $(function(){ 
-    $('#contenedoMensaje').html("");    
+    $('#contenedorMensaje').html("");    
 });

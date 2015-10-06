@@ -55,18 +55,17 @@
 			<br/>
 			<label><a href='#' onclick="cargarPagina('../exportar/')">Exportar</a></label>
 			<br/>
+			<label><a href='#' onclick="cargarHorario()">Reservar cita previa</a></label>
+			<br/>
 			<br/>
 			<label><a href='#' onclick="cargarPagina('./sistemaExperto/')">Consulta</a></label>
 			<br/>
-
+			<div id="contenedorHorario"></div><!--<h1>contenedor para horario</h1>-->
+			<br/>			
+			<div id="contenedorFormulario"></div><!--<h1>Formulario</h1>-->
 			<br/>
-			<!--<h1>Formulario</h1>-->
-			<div id="contenedorFormulario"></div><!--Mi contenedor principal-->
+			<div id="contenedorMensaje"></div><!--Msj de estado-->
 			<br/>
-			<!--<h1>Estado</h1>-->
-			<div id="contenedoMensaje"></div><!--Msj de estado-->
-			<br/>
-			<!--<h1>Lista</h1>-->
 			<div id="contenedorLista"></div><!--Cargar Lista-->
 			<br/>
 			</body>

@@ -37,7 +37,7 @@
 		contentType : false,
 		processData : false
 		}).done(function(data) {
-			$("#contenedoMensaje").html(data);
+			$("#contenedorMensaje").html(data);
 			cargarListaIngredienteActivo();
 		});     	
 	}	
@@ -65,7 +65,7 @@ function eliminarIngredienteActivo(id){
 	    },
 	    function(data)
 	    {               
-	    	$('#contenedoMensaje').html(data);
+	    	$('#contenedorMensaje').html(data);
 	    	cargarListaIngredienteActivo();
     	});
     }
@@ -110,7 +110,7 @@ function modificarIngredienteActivo(){
 	contentType : false,
 	processData : false
 	}).done(function(data) {
-		$("#contenedoMensaje").html(data);
+		$("#contenedorMensaje").html(data);
 		cargarListaIngredienteActivo();
 	});
  	

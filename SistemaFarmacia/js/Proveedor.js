@@ -64,7 +64,7 @@ $("#telefonoProveedor").mask('9999 9999');
 		contentType : false,
 		processData : false
 		}).done(function(data) {
-			$("#contenedoMensaje").html(data);
+			$("#contenedorMensaje").html(data);
 			cargarListaProveedor();
 		});     	
 	}	
@@ -99,7 +99,7 @@ function eliminarProveedor(id){
 	    },
 	    function(data)
 	    {               
-	    	$('#contenedoMensaje').html(data);
+	    	$('#contenedorMensaje').html(data);
 	    	cargarListaProveedor();
     	});
     }
@@ -170,7 +170,7 @@ function modificarProveedor(){
 	contentType : false,
 	processData : false
 	}).done(function(data) {
-		$("#contenedoMensaje").html(data);
+		$("#contenedorMensaje").html(data);
 		cargarListaProveedor();
 	});
  	
@@ -202,5 +202,5 @@ $(function(){
 
 
 $(function(){ 
-    $('#contenedoMensaje').html("");    
+    $('#contenedorMensaje').html("");    
 });

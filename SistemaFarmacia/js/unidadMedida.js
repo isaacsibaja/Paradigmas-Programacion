@@ -41,13 +41,13 @@
         contentType : false,
         processData : false
         }).done(function(data) {
-            $("#contenedoMensaje").html(data);
+            $("#contenedorMensaje").html(data);
             cargarListaUnidadMedida();
         });         
     }   
 
     contenedorFormulario
-contenedoMensaje
+contenedorMensaje
 contenedorLista
 
     function registrarUnidadMedida(){        
@@ -78,7 +78,7 @@ function eliminarUnidadMedida(id){
         },
         function(data)
         {               
-            $('#contenedoMensaje').html(data);
+            $('#contenedorMensaje').html(data);
             cargarListaUnidadMedida();
         });
     }
@@ -128,7 +128,7 @@ function modificarUnidadMedida(){
     contentType : false,
     processData : false
     }).done(function(data) {
-        $("#contenedoMensaje").html(data);
+        $("#contenedorMensaje").html(data);
         cargarListaUnidadMedida();
     });
     
@@ -159,5 +159,5 @@ $(function(){
 
 
 $(function(){ 
-    $('#contenedoMensaje').html("");    
+    $('#contenedorMensaje').html("");    
 });

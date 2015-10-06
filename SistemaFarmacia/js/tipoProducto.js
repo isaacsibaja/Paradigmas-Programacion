@@ -41,7 +41,7 @@
         contentType : false,
         processData : false
         }).done(function(data) {
-            $("#contenedoMensaje").html(data);
+            $("#contenedorMensaje").html(data);
             cargarListaTipoProducto();
         });         
     }   
@@ -74,7 +74,7 @@ function eliminarTipoProducto(id){
         },
         function(data)
         {               
-            $('#contenedoMensaje').html(data);
+            $('#contenedorMensaje').html(data);
             cargarListaTipoProducto();
         });
     }
@@ -124,7 +124,7 @@ function modificarTipoProducto(){
     contentType : false,
     processData : false
     }).done(function(data) {
-        $("#contenedoMensaje").html(data);
+        $("#contenedorMensaje").html(data);
         cargarListaTipoProducto();
     });
     
@@ -155,5 +155,5 @@ $(function(){
 
 
 $(function(){ 
-    $('#contenedoMensaje').html("");    
+    $('#contenedorMensaje').html("");    
 });

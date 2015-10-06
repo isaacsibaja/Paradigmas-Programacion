@@ -78,7 +78,7 @@ $("#fechaVencimiento").mask('99-99-9999');
 		contentType : false,
 		processData : false
 		}).done(function(data) {
-			$("#contenedoMensaje").html(data);
+			$("#contenedorMensaje").html(data);
 			cargarListaProductoLote();
 		});     	
 	}	
@@ -112,7 +112,7 @@ function eliminarProductoLote(id){
 	    },
 	    function(data)
 	    {               
-	    	$('#contenedoMensaje').html(data);
+	    	$('#contenedorMensaje').html(data);
 	    	cargarListaProductoLote();
     	});
     }
@@ -170,7 +170,7 @@ function modificarProductoLote(){
 	contentType : false,
 	processData : false
 	}).done(function(data) {
-		$("#contenedoMensaje").html(data);
+		$("#contenedorMensaje").html(data);
 		cargarListaProductoLote();
 	});
  	
@@ -202,5 +202,5 @@ $(function(){
 
 
 $(function(){ 
-    $('#contenedoMensaje').html("");    
+    $('#contenedorMensaje').html("");    
 });

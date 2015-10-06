@@ -37,7 +37,7 @@
 		contentType : false,
 		processData : false
 		}).done(function(data) {
-			$("#contenedoMensaje").html(data);
+			$("#contenedorMensaje").html(data);
 			cargarLista();
 		});     	
 	}	
@@ -69,7 +69,7 @@ function eliminarCategoria(id){
 	    },
 	    function(data)
 	    {               
-	    	$('#contenedoMensaje').html(data);
+	    	$('#contenedorMensaje').html(data);
 	    	cargarLista();
     	});
     }
@@ -116,7 +116,7 @@ function modificarCategoria(){
 	contentType : false,
 	processData : false
 	}).done(function(data) {
-		$("#contenedoMensaje").html(data);
+		$("#contenedorMensaje").html(data);
 		cargarLista();
 	}); 	
 }	
@@ -145,5 +145,5 @@ $(function(){
 });
 
 $(function(){ 
-    $('#contenedoMensaje').html("");    
+    $('#contenedorMensaje').html("");    
 });

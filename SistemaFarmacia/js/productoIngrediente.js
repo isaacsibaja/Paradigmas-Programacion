@@ -12,7 +12,7 @@
 		contentType : false,
 		processData : false
 		}).done(function(data) {
-			$("#contenedoMensaje").html(data);
+			$("#contenedorMensaje").html(data);
 			seleccionarProductoIngrediente($('#idProducto').val());
 		});     	
 	}	
@@ -43,7 +43,7 @@ function eliminarProductoIngrediente(idP, idI){
 	    },
 	    function(data)
 	    {               
-	    	$('#contenedoMensaje').html(data);
+	    	$('#contenedorMensaje').html(data);
 	    	seleccionarProductoIngrediente(idP);
     	});
     }
@@ -88,7 +88,7 @@ function modificarProductoIngrediente(){
 	contentType : false,
 	processData : false
 	}).done(function(data) {
-		$("#contenedoMensaje").html(data);
+		$("#contenedorMensaje").html(data);
 		cargarListaproductoIngrediente();
 	});
  	
