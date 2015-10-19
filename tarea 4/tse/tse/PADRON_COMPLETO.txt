@@ -1,0 +1,10 @@
+100339724,109007,1,20231119,00000,JOSE                          ,DELGADO                   ,CORRALES                  
+100429200,109006,2,20221026,00000,PAULA                         ,QUIROS                    ,QUIROS                    
+100697455,101023,2,20150620,00000,CARMEN                        ,FALLAS                    ,GUEVARA                   
+100697622,101020,2,20230219,00000,ANTONIA                       ,RAMIREZ                   ,CARDENAS                  
+100720641,108002,2,20241119,00000,SOLEDAD                       ,SEQUEIRA                  ,MORA                      
+100752764,403004,1,20151208,00000,EZEQUIEL                      ,LEON                      ,CALVO                     
+100753244,210012,2,20161009,00000,CONSTANCIA                    ,ARIAS                     ,RIVERA                    
+100753335,115001,2,20180211,00000,MARGARITA                     ,ALVARADO                  ,LAHMAN                    
+100753618,111005,2,20220109,00000,ETELVINA                      ,PARRA                     ,SALAZAR                   
+100763791,108007,1,20190831,00000,REINALDO                      ,MENDEZ                    ,BARBOZA 
