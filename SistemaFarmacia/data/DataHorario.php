@@ -14,7 +14,7 @@ class DataHorario{
 				$cantidadRegistro = trim($row[0]);
 			}
 						
-			$query = mysql_query("SELECT MAX(idHoraio) AS idHoraio FROM tbhorario");
+			$query = mysql_query("SELECT MAX(idHorario) AS idHorario FROM tbhorario");
 			if ($row = mysql_fetch_row($query)) {
 				$UltimoId = trim($row[0]);				
 			}
@@ -25,7 +25,7 @@ class DataHorario{
 		}else{
 			$lista = array();
 			$contador = 1;
-			$query = "SELECT idHoraio FROM tbhorario";
+			$query = "SELECT idHorario FROM tbhorario";
 			$result = @mysql_query($query);			
 			while($row = mysql_fetch_array($result)){	 		
 				array_push($lista, $row[0]);
@@ -45,7 +45,7 @@ class DataHorario{
 		$con = new DBConexion;
 		if($con->conectar()==true){
 			$id = $this->getId();
-			$query = "INSERT INTO tbhorario(idHoraio, fecha, hora, asunto, correo) VALUES (
+			$query = "INSERT INTO tbhorario(idHorario, fecha, hora, asunto, correo) VALUES (
 				".$id.",
 				'".$horario->getFecha()."',
 				'".$horario->getHora()."',

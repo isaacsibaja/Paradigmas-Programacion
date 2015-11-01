@@ -1,3 +1,21 @@
+function idioma() {
+  //id = $("#idioma").val();
+ // alert("==>"+id);
+
+    $.post("../controladora/idioma/ControladoraIdioma.php",
+        {
+            accion : "lenguage",
+            idioma : $("#idioma").val()
+            
+        },
+        function (data)
+        {
+         
+         // $('#contenedorIdioma').html(data); 
+          location.reload(true);
+        });
+}
+
 
 function cargarPagina(direccion){        
 /*	 $.post(direccion,
@@ -6,9 +24,12 @@ function cargarPagina(direccion){
     {
         $('#contenedor').html(data);
     });*/
+
 	$('#contenedorFormulario').load(direccion);
   $('#contenedorMensaje').html("");
   $('#contenedorLista').html("");
+  $('#contenedorHorario').html("");
+  
 }
 
 function actualizar(){
@@ -17,7 +38,9 @@ function actualizar(){
 
 function cargarLista(direccion){        
   $('#contenedorLista').load(direccion);
-  $('#contenedorFormulario').html("");      
+  $('#contenedorFormulario').html(""); 
+  $('#contenedorMensaje').html("");
+  $('#contenedorHorario').html("");     
 }
 
 $(function(){   
@@ -26,6 +49,13 @@ $(function(){
 
 function cargarHorario(){        
   $('#contenedorHorario').load("../interfaz/horario/Horario.php");
+  $('#contenedorFormulario').html("");
+  $('#contenedorMensaje').html("");
+  $('#contenedorLista').html("");
+}
+
+function cargarRegent(){        
+  $('#contenedorHorario').load("../interfaz/horario/Regente.php");
   $('#contenedorFormulario').html("");
   $('#contenedorMensaje').html("");
   $('#contenedorLista').html("");

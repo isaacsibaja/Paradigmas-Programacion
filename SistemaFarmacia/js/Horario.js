@@ -1,3 +1,25 @@
+function regent( date, hour, fechaGUI, horaGUI, idDoctor){ 
+
+           if( confirm("Confirmar reservacion para el dia : " + fechaGUI + " y hora : " + horaGUI ) ){
+                $.post( "../controladora/horario/ControllerRegent.php" , 
+                    { 
+                        accion : "insertar",
+                        idDoctor : idDoctor,
+                        date : date,
+                        hour : hour
+                        
+                      
+                    },
+                    function(data)
+                    {    //$('#contenedorHorario').html(data);           
+                        reloadRegent();
+                    }); 
+           }else{
+
+           }
+       
+}
+
 function consulta( fecha, hora, fechaGUI, horaGUI){ 
 	$.post( "./horario/Form.php" , 
 	    {
@@ -74,6 +96,15 @@ function guardarCita(){
 
 function recargarHorario(){
     $.post("./horario/Horario.php",
+    {},
+    function (data)
+    {
+        $('#contenedorHorario').html(data);
+    });    
+}
+
+function reloadRegent(){
+    $.post("./horario/Regente.php",
     {},
     function (data)
     {

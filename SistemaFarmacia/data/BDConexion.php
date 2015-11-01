@@ -9,12 +9,12 @@ class DBConexion{
 
 	 function conectar() {
 
-	     if(!($con=@mysql_connect("localhost","root","")))
+	     if(!($con=@mysql_connect("localhost:50","root","")))
 		 {
 		     echo"Error al conectar a la base de datos";
 			 exit();
 	      }
-		  if (!@mysql_select_db("bdfarmacia",$con)) {
+		  if (!@mysql_select_db("dbdrugstore",$con)) {
 		   echo "Error al seleccionar la base de datos";
 		   exit();
 		  }

@@ -63,7 +63,7 @@
 	$hoy = strftime("%a-%d-%b");*/
 	
 	$listaDiaGUI = array();
-	for ($i = 1; $i <= 30; $i++) {
+	for ($i = -30; $i <= 30; $i++) {//Cantidad de dias que quieran que se muestre
     	$dia = strftime("%a-%d-%b", strtotime("+$i day"));//GUI
 		$diaF = strftime("%a", strtotime("+$i day"));//GUI para condicion if
 		$sDia = strftime("%Y-%m-%d", strtotime("+$i day"));//Sistema para mysql
@@ -114,13 +114,13 @@ echo "
 				<td>O</td>
 				<td></td>
 				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>";
+				<td>F</td>
+				<td>E</td>
+				<td>R</td>
+				<td>I</td>
+				<td>A</td>
+				<td>D</td>
+				<td>O</td>";
 
 				} else {
 					foreach ($listaHora as $hora){

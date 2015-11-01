@@ -1,3 +1,4 @@
+$("#telefonoAgente").mask('9999 9999');
 (function($,W,D){
     var JQUERY4U = {};
  
