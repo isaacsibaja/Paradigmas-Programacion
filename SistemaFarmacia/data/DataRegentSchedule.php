@@ -61,17 +61,19 @@ class DataRegentSchedule{
 	}
 
 
-	function getRegentSchedule(){
+	function getRegentCustomer($id){
 
 		date_default_timezone_set('America/Costa_Rica');
 		$anteayer = strftime("%Y-%m-%d", strtotime("-2 day"));
 
+
+		
 		$con = new DBConexion;
 		$lista = array();
 		
 		if($con->conectar()==true){		
 			$query = "SELECT * FROM tbregentschedule 
-						WHERE date >= '".$anteayer."' 
+						WHERE date >= $anteayer AND idDoctor = $id 
 						ORDER BY date ASC";
 			$result = @mysql_query($query);
 			//echo "$query";
@@ -85,5 +87,30 @@ class DataRegentSchedule{
 		}
 	}
 
+	function getRegentSchedule(){
+
+		date_default_timezone_set('America/Costa_Rica');
+		$anteayer = strftime("%Y-%m-%d", strtotime("-2 day"));
+
+
+		
+		$con = new DBConexion;
+		$lista = array();
+		
+		if($con->conectar()==true){		
+			$query = "SELECT * FROM tbregentschedule 
+						WHERE date >= $anteayer 
+						ORDER BY date ASC";
+			$result = @mysql_query($query);
+			//echo "$query";
+			while($row = mysql_fetch_array($result)){	
+		
+	 			$regentSchedule = new RegentSchedule($row[0],$row[1],$row[2], $row[3]);				
+				array_push($lista, $regentSchedule);
+			}
+			return $lista;
+			
+		}
+	}
 }
 ?>

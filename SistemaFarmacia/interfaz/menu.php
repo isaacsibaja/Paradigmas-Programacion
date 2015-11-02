@@ -84,9 +84,11 @@
 			<br/>
 			<label><a href='#' onclick="cargarPagina('./reportesGraficos/')">Graficos</a></label>
 			<br/>
-			<label><a href='#' onclick="cargarHorario()">Reservar cita previa</a></label>
+			<label><a href='#' onclick="cargarSchedule('./horario/Appointment.php')">Reservar cita previa</a></label>
 			<br/>
-			<label><a href='#' onclick="cargarRegent()">Regent Schedule</a></label>
+			<label><a href='#' onclick="cargarSchedule('./horario/Regente.php')">Regent Schedule</a></label>
+			<br/>
+			<label><a href='#' onclick="cargarSchedule('./horario/CustomerCare.php')">Customer Care</a></label>
 			<br/>
 			<label><a href='#' onclick="cargarPagina('./sistemaExperto/')">Consulta</a></label>
 			<br/>

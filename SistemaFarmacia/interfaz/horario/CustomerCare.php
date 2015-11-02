@@ -1,11 +1,11 @@
-<h1>Regente</h1>
+<h1>Atencion al cliente</h1>
 <?php
-	include ("../../controladora/horario/ControlGetRegent.php");
+		include ("../../controladora/horario/ControllerGetCustomerCare.php");
 	session_start();	
 	$id = $_SESSION['idDoctor'];
 
-	$control = new ControlGetRegent;
-	$regentList =$control->getRegent();
+	$control = new ControllerGetCustomerCare;
+	$regentList =$control->getRegent($id);
 	$customerCareList =$control->getCustomerCare($id);
 
 	function esta($regentList, $customerCareList, $fecha, $hora, $fechaGUI, $horaGUI, $id) {
@@ -13,7 +13,7 @@
 		$aux = "";
 		foreach ($regentList as $horario){
 			if($horario->getDate() == $fecha && $horario->getHour() == $hora){	
-			$aux = 	"(R)".$horario->getIdDoctor() ;
+			$aux = 	"(R)".$horario->getIdDoctor() ;	
 			//Pregunta si el Dia y la Hora estan disponibles 
 			//Si se cumple entoces no se muestra el espacio Cita		
 				$bandera = true;
@@ -21,8 +21,7 @@
 		}
 		foreach ($customerCareList as $horario){
 			if($horario->getDate() == $fecha && $horario->getHour() == $hora){	
-			$aux = 	"(C)".$horario->getIdDoctor() ;
-		
+			$aux = 	"(C)".$horario->getIdDoctor() ;			
 				$bandera = true;
 			}
 		}
@@ -30,7 +29,7 @@
 			echo "<td>$aux</td>";
 		}else{
 			echo "\n";
-			echo "<td><a href=\"#\" onclick=\"regent('$fecha','$hora','$fechaGUI','$horaGUI', '$id')\">Cita</a></td>";
+			echo "<td><a href=\"#\" onclick=\"customerCare('$fecha','$hora','$fechaGUI','$horaGUI', '$id')\">Cita</a></td>";
 		}
 	}//Verifica si esta disponible o no el horario 
 

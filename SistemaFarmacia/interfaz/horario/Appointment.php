@@ -1,36 +1,39 @@
-<h1>Regente</h1>
+<h1>Citas al cliente</h1>
 <?php
-	include ("../../controladora/horario/ControlGetRegent.php");
-	session_start();	
-	$id = $_SESSION['idDoctor'];
-
-	$control = new ControlGetRegent;
-	$regentList =$control->getRegent();
-	$customerCareList =$control->getCustomerCare($id);
-
-	function esta($regentList, $customerCareList, $fecha, $hora, $fechaGUI, $horaGUI, $id) {
+	include ("../../controladora/horario/ControllerGetAppointment.php");
+	$control = new ControllerGetAppointment;
+	$appointmentList =$control->getAppointment();
+	$customerCareList =$control->getCustomerCare();
+	$quantityDoctor =$control->getNumberDoctors();
+	//echo "$quantityDoctor";
+	function esta($appointmentList, $customerCareList, $fecha, $hora, $fechaGUI, $horaGUI, $quantityDoctor) {
 		$bandera = false;
-		$aux = "";
-		foreach ($regentList as $horario){
-			if($horario->getDate() == $fecha && $horario->getHour() == $hora){	
-			$aux = 	"(R)".$horario->getIdDoctor() ;
-			//Pregunta si el Dia y la Hora estan disponibles 
-			//Si se cumple entoces no se muestra el espacio Cita		
-				$bandera = true;
-			}
-		}
+		$cantidad = 0;
+		$citas = 0;
+
 		foreach ($customerCareList as $horario){
 			if($horario->getDate() == $fecha && $horario->getHour() == $hora){	
-			$aux = 	"(C)".$horario->getIdDoctor() ;
-		
 				$bandera = true;
+				$citas++;				
 			}
-		}
+		}//verifica si hay citas
+		//echo "_ $citas _";
+		foreach ($appointmentList as $appointment){
+			if($appointment->getDate() == $fecha 
+				&& $appointment->getHour() == $hora){				
+				$cantidad++;
+			}
+		}//Cuenta la cantidad de doctores 
+
+		if($cantidad == $citas){
+			$bandera = false;
+		}		
+		//echo "- $cantidad- <br/> ";
 		if($bandera){
-			echo "<td>$aux</td>";
-		}else{
 			echo "\n";
-			echo "<td><a href=\"#\" onclick=\"regent('$fecha','$hora','$fechaGUI','$horaGUI', '$id')\">Cita</a></td>";
+			echo "<td><a href=\"#\" onclick=\"consulta('$fecha','$hora','$fechaGUI','$horaGUI')\">Cita</a></td>";	
+		}else{
+			echo "<td><a href=\"#\"></a></td>";
 		}
 	}//Verifica si esta disponible o no el horario 
 
@@ -50,7 +53,6 @@
 	array_push($listaHora, array("17:00:00", "05:00:00 PM"));
 	array_push($listaHora, array("18:00:00", "06:00:00 PM"));
 	array_push($listaHora, array("19:00:00", "07:00:00 PM"));
-
 	//						     < Sistema >	< GUI >
 	//						     < Mysql >	< Visual para el usuario >
 
@@ -91,15 +93,15 @@ echo "
 		<th>8:00 AM</th>                     
 		<th>9:00 AM</th> 
 		<th>10:00 AM</th>                     
-		<th>11:00 AM</th> 
+		<th>11:00 AM</th> 	
 
-		<th>1:00 PM</th>                     
+		<th>1:00 PM</th> 	                    
 		<th>2:00 PM</th> 
 		<th>3:00 PM</th> 	                    
-		<th>4:00 PM</th> 
+		<th>4:00 PM</th>   
 		<th>5:00 PM</th> 
 		<th>6:00 PM</th> 	                    
-		<th>7:00 PM</th>                          
+		<th>7:00 PM</th>                           
 	</tr>
 	</thead>
 		<tbody>";
@@ -114,7 +116,7 @@ echo "
 				} else {
 					echo "<td>$dia[1]</td>";
 					foreach ($listaHora as $hora){
-						esta($regentList, $customerCareList, $dia[0], $hora[0], $dia[1], $hora[1],  $id);
+						esta($appointmentList, $customerCareList, $dia[0], $hora[0], $dia[1], $hora[1], $quantityDoctor);
 					}
 				}
 				echo "

@@ -7,7 +7,7 @@
 		$id = $_SESSION['idDoctor'];
 		
 		if($id == 1){
-			header("location: ./manager.php");
+			//header("location: ./manager.php");
 		}else if($id == 2){
 			//header("location: ./.php");
 		}

@@ -43,23 +43,17 @@ function cargarLista(direccion){
   $('#contenedorHorario').html("");     
 }
 
-$(function(){   
+/*$(function(){   
   $('#contenedorIndicadorBCCR').load("../herramientas/Obtener_Indicadores_BCCR/ejemplo.php");        
-});
+});*/
 
-function cargarHorario(){        
-  $('#contenedorHorario').load("../interfaz/horario/Horario.php");
+function cargarSchedule(url){        
+  $('#contenedorHorario').load(url);
   $('#contenedorFormulario').html("");
   $('#contenedorMensaje').html("");
   $('#contenedorLista').html("");
 }
 
-function cargarRegent(){        
-  $('#contenedorHorario').load("../interfaz/horario/Regente.php");
-  $('#contenedorFormulario').html("");
-  $('#contenedorMensaje').html("");
-  $('#contenedorLista').html("");
-}
 
 /*
 function selectOn(trObject)
