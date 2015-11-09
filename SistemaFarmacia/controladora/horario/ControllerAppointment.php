@@ -1,5 +1,4 @@
 <?php
-	header('Content-Type: text/html; charset=ISO-8859-1');
 
 	include ("../../data/DataAppointment.php");
 	include ("../../data/BDConexion.php");
@@ -10,13 +9,13 @@
 		function ControllerAppointment(){
 		}	
 		function insertar(){
+			$idUser = $_POST['idUser'];
 			$idDoctor = $_POST['idDoctor'];
 			$date = $_POST['date'];
 			$hour = $_POST['hour'];
 			$case = $_POST['case'];
-			$email = $_POST['email'];
 		
-			$appointment = new Appointment( 0, 1, $idDoctor, $date, $hour, $case, $email);		
+			$appointment = new Appointment( 0, 1, $idDoctor, $date, $hour, $case, $idUser);		
 						
 			$data = new DataAppointment();
 
@@ -24,8 +23,7 @@
 				echo "<label>Cita reservada correctamente</label><br/>
 					<label>Dia: $date</label><br/> 
 					<label>Hora: $hour</label><br/>
-					<label>Asunto: $case</label><br/>
-					<label>Correo: $email</label><br/>";
+					<label>Asunto: $case</label><br/>";
 		
 			}else{
 				echo "Error del sistema";

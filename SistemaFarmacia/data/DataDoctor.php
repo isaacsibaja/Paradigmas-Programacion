@@ -1,5 +1,5 @@
 <?php
-header('Content-Type: text/html; charset=ISO-8859-1');
+
 
 class DataDoctor{
 
@@ -12,7 +12,7 @@ class DataDoctor{
 		$con = new DBConexion;
 		$quantity = 0;
 		if($con->conectar()==true){		
-			$query = "SELECT count(*) FROM tbdoctor";
+			$query = "SELECT count(*) FROM tbuser WHERE typeUser = 1";
 			$result = @mysql_query($query);			
 			if($row = mysql_fetch_array($result)){				
 	 			$quantity = $row[0];

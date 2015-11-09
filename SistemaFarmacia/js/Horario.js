@@ -1,6 +1,6 @@
 function regent( date, hour, fechaGUI, horaGUI, idDoctor){ 
 
-           if( confirm("Confirmar reservacion para el dia : " + fechaGUI + " y hora : " + horaGUI ) ){
+           if( confirm("Confirmar Disponibilidad para el dia : " + fechaGUI + " y hora : " + horaGUI ) ){
                 $.post( "../controladora/horario/ControllerRegent.php" , 
                     { 
                         accion : "insertar",
@@ -22,7 +22,7 @@ function regent( date, hour, fechaGUI, horaGUI, idDoctor){
 
 function customerCare( date, hour, fechaGUI, horaGUI, idDoctor){ 
 
-           if( confirm("Confirmar cita para el dia : " + fechaGUI + " y hora : " + horaGUI ) ){
+          if( confirm("Confirmar Disponibilidad para el dia : " + fechaGUI + " y hora : " + horaGUI ) ){
                 $.post( "../controladora/horario/ControllerCustomerCare.php" , 
                     { 
                         accion : "insertar",
@@ -36,8 +36,6 @@ function customerCare( date, hour, fechaGUI, horaGUI, idDoctor){
                     {    //$('#contenedorHorario').html(data);           
                         reloadCustomerCare();
                     }); 
-           }else{
-
            }
        
 }
@@ -65,28 +63,10 @@ function consulta( fecha, hora, fechaGUI, horaGUI){
         {
             $("#formularioHorario").validate({
                 rules: {
-                    case : "required", 
-                    email: {
-                        required: true,
-                        email: true 
-                    },
-                    email2: {
-                        equalTo: "#email", 
-                        required: true,
-                        email: true
-                    }
+                    case : "required"
                 },      
                 messages: {
-                    case: "Nombre del Agente requerido",
-                    email: {
-                        required: "Correo requerido",
-                        email: "Correo debe ser valido ejemplo@ejemplo.com"
-                    },
-                    email2: {
-                        equalTo: "El correo no es igual", 
-                        required: "Correo requerido",
-                        email: "Correo debe ser valido ejemplo@ejemplo.com"
-                    }
+                    case: "Nombre del Agente requerido"
                 }, 
                 submitHandler: function(form) {                 
                     guardarCita();
@@ -114,7 +94,7 @@ function guardarCita(){
 		}).done(function(data) {
 			$("#contenedorMensaje").html(data);
             $('#contenedorFormulario').html("");	
-			recargarHorario()		
+			recargarHorario();		
 		});     	
 	}
 
@@ -144,3 +124,99 @@ function reloadCustomerCare(){
         $('#contenedorHorario').html(data);
     });    
 }
+
+/*====================History============================*/
+(function($,W,D){
+    var JQUERY4U = {};
+    JQUERY4U.UTIL ={
+        setupFormValidation: function()
+        {
+            $("#searchHistory").validate({
+                rules: {
+                    from : "required", 
+                    to: "required"
+                },      
+                messages: {
+                     from : "Seleccione fecha Desde", 
+                    to: "Seleccione fecha Hasta"
+                }, 
+                submitHandler: function(form) {                 
+                    queryHistory();
+                }
+            });
+        }
+    }    
+    $(D).ready(function($) {
+        JQUERY4U.UTIL.setupFormValidation();
+    });
+ 
+} ) (jQuery, window, document);
+
+function queryHistory(){
+        var formData = new FormData(document.getElementById("searchHistory"));        
+       // formData.append("accion", "insertar");
+        $.ajax({
+        url : "./horario/History.php",
+        type : "post",
+        dataType : "html",
+        data : formData,
+        cache : false,
+        contentType : false,
+        processData : false
+        }).done(function(data) {
+            $("#containerHistory").html(data);                   
+        });         
+    }
+
+$(function(){
+    $('#from').datepicker();
+});
+$(function(){
+    $('#to').datepicker();
+});
+$("#from").mask('99-99-9999');
+$("#to").mask('99-99-9999');
+
+
+/*====================Payment============================*/
+(function($,W,D){
+    var JQUERY4U = {};
+    JQUERY4U.UTIL ={
+        setupFormValidation: function()
+        {
+            $("#searchPayment").validate({
+                rules: {
+                    from : "required", 
+                    to: "required"
+                },      
+                messages: {
+                     from : "Seleccione fecha Desde", 
+                    to: "Seleccione fecha Hasta"
+                }, 
+                submitHandler: function(form) {                 
+                    queryPayment();
+                }
+            });
+        }
+    }    
+    $(D).ready(function($) {
+        JQUERY4U.UTIL.setupFormValidation();
+    });
+ 
+} ) (jQuery, window, document);
+
+function queryPayment(){
+        var formData = new FormData(document.getElementById("searchPayment"));        
+       // formData.append("accion", "insertar");
+        $.ajax({
+        url : "./horario/MonthlyPayment.php",
+        type : "post",
+        dataType : "html",
+        data : formData,
+        cache : false,
+        contentType : false,
+        processData : false
+        }).done(function(data) {
+            $("#containerPayment").html(data);                   
+        });         
+    }

@@ -8,17 +8,17 @@ class Appointment{
 	private	$date;
 	private	$hour;
 	private	$case;
-	private	$email;
+	private	$idUser;
 	
 
-	function Appointment( $idAppointment, $idCustomer, $idDoctor, $date, $hour, $case, $email){
+	function Appointment( $idAppointment, $idCustomer, $idDoctor, $date, $hour, $case, $idUser){
 		$this->setIdAppointment($idAppointment);
 		$this->setIdCustomer($idCustomer);
 		$this->setIdDoctor($idDoctor);
 		$this->setDate($date);
 		$this->setHour($hour);
 		$this->setCase($case);
-		$this->setEmail($email);
+		$this->setIdUser($idUser);
 	}
 
 
@@ -57,11 +57,11 @@ class Appointment{
 	public function getHour() {
 		return $this->hour;
 	}
-	public function setEmail($email) {
-		$this->email = $email;
+	public function setIdUser($idUser) {
+		$this->idUser = $idUser;
 	}
-	public function getEmail() {
-		return $this->email;
+	public function getIdUser() {
+		return $this->idUser;
 	}
 
 	public function setCase($case) {

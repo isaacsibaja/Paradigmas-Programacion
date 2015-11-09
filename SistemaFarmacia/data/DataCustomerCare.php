@@ -134,9 +134,9 @@ class DataCustomerCare{
 
 
 
-			$query = "SELECT  fullname, d.idDoctor, date, hour FROM tbcustomercare c 
-			INNER JOIN tbdoctor d ON c.idDoctor = d.idDoctor 
-			WHERE date = '$date' AND hour = '$hour' ORDER BY fullname";
+			$query = "SELECT  lastName, d.idUser, date, hour FROM tbcustomercare c 
+			INNER JOIN tbuser d ON c.idDoctor = d.idUser 
+			WHERE date = '$date' AND hour = '$hour' ORDER BY lastName";
 			$result = @mysql_query($query);
 			//echo "$query";
 

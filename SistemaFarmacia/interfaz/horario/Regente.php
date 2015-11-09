@@ -1,8 +1,36 @@
 <h1>Regente</h1>
+<style type="text/css">
+ button {
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 10px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+button:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+  </style>
 <?php
 	include ("../../controladora/horario/ControlGetRegent.php");
 	session_start();	
-	$id = $_SESSION['idDoctor'];
+	$id = $_SESSION['idUser'];
 
 	$control = new ControlGetRegent;
 	$regentList =$control->getRegent();
@@ -13,7 +41,8 @@
 		$aux = "";
 		foreach ($regentList as $horario){
 			if($horario->getDate() == $fecha && $horario->getHour() == $hora){	
-			$aux = 	"(R)".$horario->getIdDoctor() ;
+			$aux = 	"( R )".$horario->getIdDoctor() ;
+			//$aux = 	"(R)".$horario->getIdDoctor() ;
 			//Pregunta si el Dia y la Hora estan disponibles 
 			//Si se cumple entoces no se muestra el espacio Cita		
 				$bandera = true;
@@ -21,8 +50,8 @@
 		}
 		foreach ($customerCareList as $horario){
 			if($horario->getDate() == $fecha && $horario->getHour() == $hora){	
-			$aux = 	"(C)".$horario->getIdDoctor() ;
-		
+			//$aux = 	"(C)".$horario->getIdDoctor();
+			$aux = 	"( C )".$horario->getIdDoctor();
 				$bandera = true;
 			}
 		}
@@ -30,7 +59,7 @@
 			echo "<td>$aux</td>";
 		}else{
 			echo "\n";
-			echo "<td><a href=\"#\" onclick=\"regent('$fecha','$hora','$fechaGUI','$horaGUI', '$id')\">Cita</a></td>";
+			echo "<td><button  onclick=\"regent('$fecha','$hora','$fechaGUI','$horaGUI', '$id')\">Free</button></td>";
 		}
 	}//Verifica si esta disponible o no el horario 
 
@@ -106,7 +135,7 @@ echo "
 			foreach ($listaDiaGUI as $dia){
 				echo "
 				<tr>";
-				if ($dia[2] == "dom") {
+				if ($dia[2] == "Sun" || $dia[2] == "dom") {
 					echo "     
 				<td>$dia[1]</td>				
 				";
@@ -124,4 +153,7 @@ echo "
 		</tbody>		      				
 	</table>";	
 ?>
+<label>( R ) = Regencia </label>
+<br/>
+<label>( C ) = Cita </label>
 <script src="../js/Horario.js"></script>

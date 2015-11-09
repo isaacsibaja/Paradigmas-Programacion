@@ -1,75 +1,61 @@
-<h1>Citas al cliente</h1>
-<style type="text/css">
- button {
-  background: #3498db;
-  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
-  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
-  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
-  background-image: -o-linear-gradient(top, #3498db, #2980b9);
-  background-image: linear-gradient(to bottom, #3498db, #2980b9);
-  -webkit-border-radius: 28;
-  -moz-border-radius: 28;
-  border-radius: 28px;
-  font-family: Arial;
-  color: #ffffff;
-  font-size: 10px;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
-}interfaz/manager.php#
-
-button:hover {
-  background: #3cb0fd;
-  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
-  text-decoration: none;
-}
-  </style>
+<h1>Historial de jornada</h1>
 <?php
-	include ("../../controladora/horario/ControllerGetAppointment.php");
-	$control = new ControllerGetAppointment;
-	$appointmentList =$control->getAppointment();
-	$customerCareList =$control->getCustomerCare();
-	$quantityDoctor =$control->getNumberDoctors();
-	//echo "$quantityDoctor";
-	function esta($appointmentList, $customerCareList, $fecha, $hora, $fechaGUI, $horaGUI, $quantityDoctor) {
-		$bandera = false;
-		$cantidad = 0;
-		$citas = 0;
+	date_default_timezone_set('America/Costa_Rica');
 
+	$dia = strftime("%Y-%m-%d");
+	$dia = date_create($dia);
+
+	$from =  $_POST['from'];
+	$from = date_create($from);
+	$start = date_diff( $dia,$from );
+
+	$to =  $_POST['to'];
+	$to = date_create($to);
+	$end = date_diff(  $dia, $to);
+
+	$start = $start->format("%R%a");
+ 	$end = $end->format("%R%a");
+
+
+	include ("../../controladora/horario/ControllerGetHistory.php");
+	session_start();	
+	$id = $_POST['idUser'];
+
+	$control = new ControllerGetHistory;
+	$regentList =$control->getRegent($id);
+	$customerCareList =$control->getCustomerCare($id);
+
+	function esta($regentList, $customerCareList, $fecha, $hora, $fechaGUI, $horaGUI) {
+		$bandera = false;
+		$aux = "";
+		foreach ($regentList as $horario){
+			if($horario->getDate() == $fecha && $horario->getHour() == $hora){	
+			$aux = 	"( R )";
+			//$aux = 	"( R )".$horario->getIdDoctor();	
+			//Pregunta si el Dia y la Hora estan disponibles 
+			//Si se cumple entoces no se muestra el espacio Cita		
+				$bandera = true;
+			}
+		}
 		foreach ($customerCareList as $horario){
 			if($horario->getDate() == $fecha && $horario->getHour() == $hora){	
+			$aux = 	"( C )";	
+			//$aux = 	"( C )".$horario->getIdDoctor();		
 				$bandera = true;
-				$citas++;				
 			}
-		}//verifica si hay citas
-		//echo "_ $citas _";
-		foreach ($appointmentList as $appointment){
-			if($appointment->getDate() == $fecha 
-				&& $appointment->getHour() == $hora){				
-				$cantidad++;
-			}
-		}//Cuenta la cantidad de doctores 
-
-		if($cantidad == $citas){
-			$bandera = false;
-		}		
-		//echo "- $cantidad- <br/> ";
+		}
 		if($bandera){
-			echo "\n";
-						echo "<td><button  onclick=\"consulta('$fecha','$hora','$fechaGUI','$horaGUI')\">Cita</button></td>";
-
+			echo "<td>$aux</td>";
 		}else{
-			echo "<td><a href=\"#\"></a></td>";
+			echo "\n";
+			echo "<td></td>";
 		}
 	}//Verifica si esta disponible o no el horario 
 
 	date_default_timezone_set('America/Costa_Rica');//Fijar zona horaria local
 
 
-	$listaHora = array();						
+	$listaHora = array();					
 	array_push($listaHora, array("08:00:00", "08:00:00 AM"));
 	array_push($listaHora, array("09:00:00", "09:00:00 AM"));
 	array_push($listaHora, array("10:00:00", "10:00:00 AM"));
@@ -82,6 +68,7 @@ button:hover {
 	array_push($listaHora, array("17:00:00", "05:00:00 PM"));
 	array_push($listaHora, array("18:00:00", "06:00:00 PM"));
 	array_push($listaHora, array("19:00:00", "07:00:00 PM"));
+
 	//						     < Sistema >	< GUI >
 	//						     < Mysql >	< Visual para el usuario >
 
@@ -103,7 +90,8 @@ button:hover {
 	$hoy = strftime("%a-%d-%b");*/
 	
 	$listaDiaGUI = array();
-	for ($i = 1; $i <= 15; $i++) {//Cantidad de dias que quieran que se muestre
+	
+	for ($i = $start; $i <= $end; $i++) {//Cantidad de dias que quieran que se muestre
     	$dia = strftime("%a-%d-%b", strtotime("+$i day"));//GUI
 		$diaF = strftime("%a", strtotime("+$i day"));//GUI para condicion if
 		$sDia = strftime("%Y-%m-%d", strtotime("+$i day"));//Sistema para mysql
@@ -122,15 +110,15 @@ echo "
 		<th>8:00 AM</th>                     
 		<th>9:00 AM</th> 
 		<th>10:00 AM</th>                     
-		<th>11:00 AM</th> 	
+		<th>11:00 AM</th> 
 
-		<th>1:00 PM</th> 	                    
+		<th>1:00 PM</th>                     
 		<th>2:00 PM</th> 
 		<th>3:00 PM</th> 	                    
-		<th>4:00 PM</th>   
+		<th>4:00 PM</th> 
 		<th>5:00 PM</th> 
 		<th>6:00 PM</th> 	                    
-		<th>7:00 PM</th>                           
+		<th>7:00 PM</th>                          
 	</tr>
 	</thead>
 		<tbody>";
@@ -145,7 +133,8 @@ echo "
 				} else {
 					echo "<td>$dia[1]</td>";
 					foreach ($listaHora as $hora){
-						esta($appointmentList, $customerCareList, $dia[0], $hora[0], $dia[1], $hora[1], $quantityDoctor);
+
+						esta($regentList, $customerCareList, $dia[0], $hora[0], $dia[1], $hora[1]);
 					}
 				}
 				echo "
@@ -155,4 +144,7 @@ echo "
 		</tbody>		      				
 	</table>";	
 ?>
+<label>( R ) = Regencia </label>
+<br/>
+<label>( C ) = Cita </label>
 <script src="../js/Horario.js"></script>

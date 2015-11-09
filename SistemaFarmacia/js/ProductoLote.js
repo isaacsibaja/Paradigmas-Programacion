@@ -4,7 +4,7 @@ $(document).ready(function(){
   });
   
 $(document).ready(function(){
-     $("#cantidad").maskMoney({precision:0})
+     $("#cantidad").maskMoney({precision:0 })
 });
 $(document).ready(function(){
      $("#precioCompra").maskMoney({

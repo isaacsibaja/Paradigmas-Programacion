@@ -5,7 +5,7 @@ class AgenteVentas{
 	private	$idAgenteVenta;
 	private	$nombreAgente;
 	private	$telefonoAgente;
-	private	$correoAgente;
+	private	$getCorreoAgenteeoAgente;
 
 	function AgenteVentas( $idAgenteVenta, $nombreAgente, $telefonoAgente,
 	 $correoAgente){

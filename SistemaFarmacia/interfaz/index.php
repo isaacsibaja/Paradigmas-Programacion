@@ -4,12 +4,12 @@
 	session_start();
 	
 	if($_SESSION){
-		$id = $_SESSION['idDoctor'];
+		$id = $_SESSION['typeUser'];
 		
 		if($id == 1){
-			//header("location: ./manager.php");
+				header("location: ./manager.php");
 		}else if($id == 2){
-			//header("location: ./.php");
+				header("location: ./Cliente.php");
 		}
 	}else{?>
 		<html>

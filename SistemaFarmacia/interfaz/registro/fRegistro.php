@@ -16,4 +16,21 @@ $registro =$control->obtenerCedula($cedula);
 		"Segundo apellido: ".$registro->getApellido2()."<br/>";					
 	}					
 ?>
-			
+		
+<form id="formUser" method="POST">
+
+	<input type="hidden" id="typeUser" name="typeUser" value="2"/>
+	<input type="hidden" id="charter" name="charter" value=<?php echo "\"".$registro->getCedula()."\"";?>/>
+	<input type="hidden" id="name" name="name" value=<?php echo "\"".$registro->getNombre()."\"";?>/>
+	<input type="hidden" id="lastName" name="lastName" value=<?php echo "\"".$registro->getApellido1()." ".$registro->getApellido2()."\"";?>/>
+
+	<label for="password">Contraseña: </label><!-- for descripcion es donde se muestra el msj-->					
+	<input type="password" id="password" name="password" placeholder=""/>
+	<br/>
+	<label for="password2">Contraseña : </label><!-- for descripcion es donde se muestra el msj-->					
+	<input type="password" id="password2" name="password2" placeholder=""/>
+	<br/>
+	<input type="submit" value="Registrar" class="submit"/>	
+</form>			
+
+<script lang="JavaScript" src="../js/Registro.js" ></script>

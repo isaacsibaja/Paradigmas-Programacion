@@ -10,25 +10,25 @@
 			
 			
 			
-			$consulta = ("SELECT * FROM tbdoctor WHERE charter='$usuario' AND password ='$password'"); 
+			$consulta = ("SELECT * FROM tbuser WHERE charter='$usuario' AND password ='$password'"); 
 			$resultado = mysql_query($consulta) or die (mysql_error());
 			$fila = mysql_fetch_array($resultado);
 			
-			if(!$fila['idDoctor']){
+			if(!$fila['idUser']){
 
 				header("location: ../../interfaz/index.php");
 			}else{
 				session_start();
-				if($fila['idDoctor'] == 1){
-					$_SESSION['idDoctor'] = $fila['idDoctor'];
-					$_SESSION['fullName'] = $fila['fullName'];
-					echo "qwerty";
+				$_SESSION['name'] = $fila['name'];
+				$_SESSION['lastName'] = $fila['lastName'];
+				$_SESSION['idUser'] = $fila['idUser'];
+				$_SESSION['typeUser'] = $fila['typeUser'];
+
+				if($fila['typeUser'] == 1){					
+					//echo "qwerty";
 					header("Location: ../../interfaz/manager.php");
-				}else if($fila['idDoctor'] == 2){
-					$_SESSION['idDoctorUsuario'] = $fila['idDoctor'];
-					$_SESSION['nombre'] = $fila['user'];
-					
-					header("location: ../../vista/inicioCliente.php");
+				}else if($fila['typeUser'] == 2){				
+					header("location: ../../interfaz/Cliente.php");
 				}
 			}
 		}

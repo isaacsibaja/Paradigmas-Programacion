@@ -8,11 +8,12 @@
 		header("location: index.php");
 	}
 	if($_SESSION){
-		$id = $_SESSION['idDoctor'];
-		$user = $_SESSION['fullName'];
+		$typeUser = $_SESSION['typeUser'];
+		$user = $_SESSION['name'];
+		$lastName = $_SESSION['lastName'];
 		
-		if($id == 2){
-			header("location: ../vista/inicioCliente.php");
+		if($typeUser == 2){
+			header("location: ../interfaz/Cliente.php");
 		}
 	}
 ?>
@@ -20,20 +21,16 @@
 <!DOGTYPE>
 <html>
 	<head>
-		<title> Farmacia </title>
+		<title> Farmacia Manager</title>
 		<script src="../js/Index.js"></script>
 	</head>
 	<body>
 		
 		<p><h1> Bienvenido al Sistema </h1></p>
-		<p><strong>Usuario: <?php echo "$user"; ?></strong></p>
+		<p><strong>Usuario: <?php echo $user." ".$lastName;?></strong></p>
+		<p><li><a href="../controladora/ctrSesion/ctrCerrarSesion.php">Salir</a></li></p>
+	
 		<div id="contenedorIndicadorBCCR"></div><!--Cargar Lista-->
-			<br/>
-		<p><h2> Menu </h2></p>
-		
-		<ul>
-			<p><li><a href="../controladora/ctrSesion/ctrCerrarSesion.php">Salir</a></li></p>
-		</ul>
 		<?php
 			include("./menu.php");
 		?>

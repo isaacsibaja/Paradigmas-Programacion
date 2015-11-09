@@ -1,5 +1,5 @@
  <?php
-
+ 	session_start();
  	include ("../../controladora/horario/ControllerGetAppointment.php");
 
  	$control = new ControllerGetAppointment;
@@ -16,6 +16,7 @@
 
 
 	<form id="formularioHorario" method="POST">
+			<input type="hidden" id="idUser" name="idUser" value=<?php echo "\"".$_SESSION['typeUser']."\""; ?>/>
 			<input type="hidden" id="date" name="date" value=<?php echo "\"$date\""; ?>/>
 			<input type="hidden" id="hour" name="hour" value=<?php echo "\"$hour\""; ?> />
 
@@ -26,7 +27,7 @@
 
 			        if(!$customerList){                               
 			            echo "<br>
-			                <label>No hay registro</label>";
+			                <label>No hay registro de Doctor</label>";
 			        }else{
 			            echo "<label>Seleccione Doctor</label> 
 			            	<select id=\"idDoctor\" name=\"idDoctor\">";
@@ -44,12 +45,6 @@
 			<br/> 
 			<label>Asunto: </label>
 			<input type="text" name="case" id="case"/>
-			<br/>
-			<label>Correo: </label>
-		    <input type="text" name="email" id="email" >
-		    <br/>
-		    <label>Verifiacar Correo: </label>
-		    <input type="text" name="email2" id="email2" >
 		    <br/>
 		    <input type="submit" value="Solicitar" class="submit"/>
 	</form>

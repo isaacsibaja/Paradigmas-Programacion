@@ -1,5 +1,5 @@
 <?php
-	header('Content-Type: text/html; charset=ISO-8859-1');
+	
 
 	include ("../../data/DataRegentSchedule.php");
 	include ("../../data/BDConexion.php");

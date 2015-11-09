@@ -1,18 +1,3 @@
-<?php
-
-   /* if($_SESSION){
-    	if(!$_SESSION['idioma']){
-    		if($_SESSION['idioma'] == "Espaniol"){
-	    		include ("./IdiomaEspaniol.php");
-	    	}else{
-	    		include ("./IdiomaArabe.php");
-	    	}
-    	} else{
-    		include ("./IdiomaEspaniol.php");
-    	}   	
-    }
-    */
-?>
 <!DOCTYPE html>
 <html lang="es">
 	<head >
@@ -84,13 +69,15 @@
 			<br/>
 			<label><a href='#' onclick="cargarPagina('./reportesGraficos/')">Graficos</a></label>
 			<br/>
-			<label><a href='#' onclick="cargarSchedule('./horario/Appointment.php')">Reservar cita previa</a></label>
-			<br/>
 			<label><a href='#' onclick="cargarSchedule('./horario/Regente.php')">Regent Schedule</a></label>
 			<br/>
 			<label><a href='#' onclick="cargarSchedule('./horario/CustomerCare.php')">Customer Care</a></label>
+			
+			<!--<label><a href='#' onclick="cargarPagina('./sistemaExperto/')">Consulta</a></label>-->
 			<br/>
-			<label><a href='#' onclick="cargarPagina('./sistemaExperto/')">Consulta</a></label>
+			<label><a href='#' onclick="cargarSchedule('./horario/SearchHistory.php')">Historial de jornada</a></label>
+			<br/>
+			<label><a href='#' onclick="cargarSchedule('./horario/SearchPayment.php')">Pago Mensual</a></label>
 			<br/>
 			<div id="contenedorHorario"></div><!--<h1>contenedor para horario</h1>-->
 			<br/>			

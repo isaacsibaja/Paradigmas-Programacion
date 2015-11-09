@@ -9,7 +9,7 @@ class DBConexion{
 
 	 function conectar() {
 
-	     if(!($con=@mysql_connect("localhost:50","root","")))
+	     if(!($con=@mysql_connect("localhost:60","root","")))
 		 {
 		     echo"Error al conectar a la base de datos";
 			 exit();

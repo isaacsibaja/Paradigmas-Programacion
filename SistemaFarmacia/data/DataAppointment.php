@@ -48,14 +48,14 @@ class DataAppointment{
 		if($con->conectar()==true){
 			$id = $this->getId();
 			$query = "INSERT INTO tbappointment(`idAppointment`, `idCustomer`, `idDoctor`, 
-				`date`, `hour`, `case`, `email`) VALUES (
+				`date`, `hour`, `case`, `idUser`) VALUES (
 				".$id.",
 				".$appointment->getIdCustomer().",
 				".$appointment->getIdDoctor().",
 				'".$appointment->getDate()."',
 				'".$appointment->getHour()."',
 				'".$appointment->getCase()."',
-				'".$appointment->getEmail()."')";
+				'".$appointment->getIdUser()."')";
 			//echo "$query";
 			$result = @mysql_query($query);	
 			if (!$result){

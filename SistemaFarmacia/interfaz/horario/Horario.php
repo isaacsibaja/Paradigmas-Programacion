@@ -103,7 +103,7 @@ echo "
 				echo "
 				<tr>
 				<td>$dia[1]</td>";
-				if ($dia[2] == "sáb" ||  $dia[2] == "dom") {
+				if ($dia[2] == "Sun" || $dia[2] == "dom") {
 					echo "
 				<td>F</td>
 				<td>E</td>
@@ -134,4 +134,5 @@ echo "
 		</tbody>		      				
 	</table>";	
 ?>
+
 <script src="../js/Horario.js"></script>
